@@ -15,11 +15,11 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) 
         {
-            $table->string('email',20)->unique()->primary();
+            $table->string('email',50)->unique()->primary();
             $table->string('password',15);
-            $table->string('name',20);
-            $table->string('firstlastname',20);
-            $table->string('secondlastname',20);
+            $table->string('name',50);
+            $table->string('firstlastname',50);
+            $table->string('secondlastname',50);
             $table->integer('idroles')->unsigned();
             $table->foreign('idroles')->references('idroles')->on('roles');
         });

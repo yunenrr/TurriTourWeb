@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('api/activity', 'TypeActivityController@apiGetAllActivities');
+Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
+Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
+Route::get('api/getnode', 'NodeController@apiGetForMap');
+Route::get('api/allroute', 'RouteController@apiGetAllRoute');
+Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');

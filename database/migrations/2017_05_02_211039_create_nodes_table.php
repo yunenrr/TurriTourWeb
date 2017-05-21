@@ -15,18 +15,19 @@ class CreateNodesTable extends Migration
     {
         Schema::create('nodes', function (Blueprint $table) 
         {
-            $table->float('latitude')->unique();
-            $table->float('longitude')->unique();
-            $table->primary(array('latitude','longitude'));
+            $table->increments('idnodes')->unique();
+            $table->float('latitude',8,6);
+            $table->float('longitude',8,6);
+            $table->unique(array('latitude','longitude'));
             $table->integer('idcategories')->unsigned();
             $table->foreign('idcategories')->references('idcategories')->on('categories');
-            $table->string('name',20);
+            $table->string('name',100);
             $table->string('information',1000);
-            $table->string('slogan',50);
+            $table->string('slogan',100);
             $table->string('pathlogo',100);
-            $table->string('pathvideoimage',100);
-            $table->string('urlfacebook',100);
-            $table->string('urlweb',100);
+            $table->string('pathvideoimage',200);
+            $table->string('urlfacebook',200);
+            $table->string('urlweb',600);
         });
     }
 

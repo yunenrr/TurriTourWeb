@@ -17,11 +17,9 @@ class CreateRouteNodesTable extends Migration
         {
             $table->integer('idroutes')->unsigned();
             $table->foreign('idroutes')->references('idroutes')->on('routes');
-            $table->float('latitudenodes')->unsigned();
-            $table->foreign('latitudenodes')->references('latitude')->on('nodes');
-            $table->float('longitudenodes')->unsigned();
-            $table->foreign('longitudenodes')->references('longitude')->on('nodes');
-            $table->primary(array('idroutes','latitudenodes','longitudenodes'));
+            $table->integer('idnodes')->unsigned();
+            $table->foreign('idnodes')->references('idnodes')->on('nodes');
+            $table->primary(array('idroutes','idnodes'));
         });
     }
 
