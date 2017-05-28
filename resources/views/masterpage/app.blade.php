@@ -80,6 +80,7 @@
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="#">Cerrar Sesión</a></li>
+                                                <li><a href="/Administrador">Administrador</a></li>
     
                                             </ul>
                                         </div>
