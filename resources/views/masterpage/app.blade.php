@@ -23,8 +23,9 @@
                 <header id="header" class="white-header">
                     <div class="container-fluid">
                         <div class="logo">
-                                <a href="index.html">
+                                <a href="/">
                                     <img class="normal" src="img/logos/log.png" alt="Entrada">
+                                    <img class="gray-logo" src="img/logos/log.png" alt="Entrada">
                                 </a>
                         </div>
 
@@ -39,17 +40,15 @@
                             </div>
                             <div class="collapse navbar-collapse" id="nav">
                                 <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inicio</a>
-                                    </li>
+                                    <li><a href="/">Inicio</a></li>
                                     <li><a href="#">Soporte</a></li>
 
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rutas Turísticas <b class="icon-angle-down"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                <li><a href="#">Generar Rutas</a></li>
-                                                <li><a href="#">Recomendar Rutas</a></li>
+                                                <li><a href="/Buscar Rutas">Buscar Rutas</a></li>
+                                                <li><a href="/Recomendar Rutas">Recomendar Rutas</a></li>
     
                                             </ul>
                                         </div>
@@ -57,21 +56,21 @@
 
                                     <li class="visible-xs visible-sm">
                                         <a href="#">
-                                            <span class="icon icon-user"></span>
-                                            <span class="text">Login</span>
+                                            <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">
+                                            <span class="text">Sophía</span>
                                         </a>
                                     </li>
                                     <li class="hidden-xs hidden-sm v-divider">
                                         <a href="#">
                                             <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span><br>
+                                            <span class="text">Sophía</span>
                                         </a>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                <li><a href="#">logout</a></li>
+                                                <li><a href="#">Cerrar Sesión</a></li>
     
                                             </ul>
                                         </div>
