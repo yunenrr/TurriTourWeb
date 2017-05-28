@@ -73,27 +73,10 @@
 
                                           <ul>
 
-                                            <li><a href="javascript:;"> Profile</a></li>
-                                            <li>
-                                              <a href="javascript:;">
-                                                <span class="badge bg-red pull-right">50%</span>
-                                                <span>Settings</span>
-                                              </a>
-                                            </li>
-
-                                            <li><a href="javascript:;">Help</a></li>
-
-                                            <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                            <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                                            <li><a href="/Administrador">Administrador</a></li>
 
                                           </ul>
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="#">Cerrar Sesión</a></li>
-                                                <li><a href="/Administrador">Administrador</a></li>
-    
-                                            </ul>
-                                        </div>
                                     </li>
                             </div>
                         </nav>
