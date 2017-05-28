@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/Buscar Rutas', function () {
+    return view('parametros');
+});
+
+Route::get('/Recomendar Rutas', function () {
+    return view('rutasrecomendadas');
+});
+
+Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
+
+
 //Ruta del juego
 Route::get('/game', function () 
 {
