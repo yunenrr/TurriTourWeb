@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/VictorElRico
 Route::get('/Buscar Rutas', function () {
     return view('parametros');
 });
@@ -27,14 +30,20 @@ Route::get('/Recomendar Rutas', function () {
 Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
 
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/VictorElRico
 //Ruta del juego
 Route::get('/game', function () 
 {
     return view('game');
 });
 
+<<<<<<< HEAD
 >>>>>>> refs/remotes/origin/master
+=======
+>>>>>>> origin/VictorElRico
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
