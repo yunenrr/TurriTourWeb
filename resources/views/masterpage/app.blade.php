@@ -63,28 +63,32 @@
                                         </div>
                                     </li>
 
-                                    <li class="visible-xs visible-sm">
-                                        <a href="#">
-                                            <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
-                                        </a>
-                                    </li>
-                                    <li class="hidden-xs hidden-sm v-divider">
-                                        <a href="#">
-                                            <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
-                                        </a>
-                                    </li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="#">Cerrar Sesión</a></li>
-    
-                                            </ul>
+
+                                        <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">Sophía
+                                        <span class=" fa fa-angle-down"></span>
+                                      </a>
+
+                                      <div class="dropdown-menu">
+
+                                          <ul>
+
+                                            <li><a href="javascript:;"> Profile</a></li>
+                                            <li>
+                                              <a href="javascript:;">
+                                                <span class="badge bg-red pull-right">50%</span>
+                                                <span>Settings</span>
+                                              </a>
+                                            </li>
+
+                                            <li><a href="javascript:;">Help</a></li>
+
+                                            <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+
+                                          </ul>
                                         </div>
                                     </li>
-                                </ul>
                             </div>
                         </nav>
                     </div>
