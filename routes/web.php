@@ -26,7 +26,6 @@ Route::get('/Recomendar Rutas', function () {
 Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
 
 
-//Ruta del juego
 Route::get('/game', function () 
 {
     return view('game');

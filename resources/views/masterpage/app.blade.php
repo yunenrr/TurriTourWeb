@@ -40,13 +40,16 @@
                             </div>
                             <div class="collapse navbar-collapse" id="nav">
                                 <ul class="nav navbar-nav">
-                                
+
+                                    <li><a href="/">Inicio</a></li>
+
                                     <li class="dropdown">
                                         <li><a href="/">Inicio</a></li>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Juego</a>
                                     </li>
+
                                     <li><a href="#">Soporte</a></li>
 
                                     <li class="dropdown">
