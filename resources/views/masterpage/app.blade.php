@@ -40,7 +40,13 @@
                             </div>
                             <div class="collapse navbar-collapse" id="nav">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="/">Inicio</a></li>
+                                
+                                    <li class="dropdown">
+                                        <li><a href="/">Inicio</a></li>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Juego</a>
+                                    </li>
                                     <li><a href="#">Soporte</a></li>
 
                                     <li class="dropdown">
@@ -80,11 +86,9 @@
                         </nav>
                     </div>
                 </header> 
-                
-@yield('body')
-
-</div>
-</div>
+                @yield('body')
+            </div>
+        </div>
  
 <div class="scroll-holder text-center">
 <a href="javascript:" id="scroll-to-top"><i class="icon-arrow-down"></i></a>

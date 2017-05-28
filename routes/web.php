@@ -26,6 +26,12 @@ Route::get('/Recomendar Rutas', function () {
 Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
 
 
+//Ruta del juego
+Route::get('/game', function () 
+{
+    return view('game');
+});
+
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
