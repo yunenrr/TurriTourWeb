@@ -5,7 +5,7 @@
 		<div class="center-text">
 			<div class="container">
 				<h1>Juego parques nacionales</h1>
-				<strong class="subtitle">¡Tienes que descubrir diversos parques nacionales del país!</strong>
+				<strong class="subtitle">¡Pon a prueba tus conocimientos sobre el país!</strong>
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="#">Inicio</a></li>

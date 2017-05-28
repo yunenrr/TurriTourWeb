@@ -135,7 +135,7 @@
       
     <video autoplay loop controls tabindex="0">
         <source src="videos/DiscoverCR.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        ¡Su navegador no soporta reproducir videos! :(
     </video>
 
   </div>
