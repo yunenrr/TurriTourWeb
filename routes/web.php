@@ -37,9 +37,9 @@ Route::get('api/allroute', 'RouteController@apiGetAllRoute');
 Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
 
 
-//rutas para el area de administracion
+//rutas para el area de administracion 
 Route::get('/Administrador', function () {
-    return view('/administrador/indexView');
+    return view('/administrador/indexView');//master
 });
 Route::get('/Ingreso', function () {
     return view('administrador/login');
