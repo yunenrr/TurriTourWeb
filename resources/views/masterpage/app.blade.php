@@ -64,7 +64,6 @@
                                     </li>
 
                                     <li class="dropdown">
-
                                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <img src="img/gallery/foto.jpg" height="75" width="75" alt="image description">Sophía
                                         <span class=" fa fa-angle-down"></span>
@@ -87,6 +86,13 @@
                                             <li><a href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 
                                           </ul>
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="#">Cerrar Sesión</a></li>
+                                                <li><a href="/Administrador">Administrador</a></li>
+    
+                                            </ul>
                                         </div>
                                     </li>
                             </div>
