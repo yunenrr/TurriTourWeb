@@ -19,7 +19,8 @@ Route::get('/Buscar Rutas', function () {
     return view('parametros');
 });
 
-Route::get('/Recomendar Rutas', function () {
+Route::get('/Recomendar Rutas', function () 
+{
     return view('rutasrecomendadas');
 });
 Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
@@ -28,6 +29,11 @@ Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
 Route::get('/game', function () 
 {
     return view('game');
+});
+
+Route::get('/map-route/{idroute}', function () 
+{
+    return view('map-route');
 });
 
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
