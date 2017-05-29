@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ URL::asset('css/A.main.css.pagespeed.cf.dh-u0IlCYq.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('vendors/revolution/css/A.settings.css.pagespeed.cf._eBCeu2xge.css') }}" />
         <script type="text/javascript" src="{{ URL::asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/function-map-route.js') }}"></script>
     </head>
     <body>
         <!-- Página mientras carga-->

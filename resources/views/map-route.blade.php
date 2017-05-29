@@ -27,10 +27,26 @@
 				<!-- Contenido de la derecha -->
 				<div id="content" class="col-sm-8 col-md-9">
 					<h2 id="mapa">Mapa</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius animi ipsa delectus dignissimos, suscipit praesentium dolore blanditiis quo voluptatibus placeat itaque vel. Dicta itaque provident accusantium possimus nemo fugiat ducimus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius animi ipsa delectus dignissimos, suscipit praesentium dolore blanditiis quo voluptatibus placeat itaque vel. Dicta itaque provident accusantium possimus nemo fugiat ducimus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius animi ipsa delectus dignissimos, suscipit praesentium dolore blanditiis quo voluptatibus placeat itaque vel. Dicta itaque provident accusantium possimus nemo fugiat ducimus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius animi ipsa delectus dignissimos, suscipit praesentium dolore blanditiis quo voluptatibus placeat itaque vel. Dicta itaque provident accusantium possimus nemo fugiat ducimus.</p>
+					<div id="map" style="max-height: 500px;height: 500px;min-height: 200px;width: auto;"></div>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+					          		<h4 class="modal-title">Nombre del lugar</h4>
+				          		</div>
+				          		<div class="modal-body">
+				          			<p>Texto texto texto</p>
+				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
+			          			</div>
+			          			<div class="modal-footer">
+			          				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          				</div>
+	          				</div>
+					    </div>
+					  </div>
 				</div>
 				<aside id="sidebar" class="col-sm-4 col-md-3 sidebar sidebar-list">
 					<div class="sidebar-holder">
@@ -46,34 +62,6 @@
 								<div id="collapse6" class="panel-collapse collapse in" role="tabpanel">
 									<div class="panel-body">
 										<ul class="side-list check-list" id="ulFilterCategory">
-											<li>
-												<label for="check1" class="custom-checkbox">
-													<input id="check1" type="checkbox">
-													<span class="check-input"></span>
-													<span class="check-label">Hiking Boots</span>
-												</label>
-											</li>
-											<li>
-												<label for="check2" class="custom-checkbox">
-													<input id="check2" type="checkbox">
-													<span class="check-input"></span>
-													<span class="check-label">Hiking Boots</span>
-												</label>
-											</li>
-											<li>
-												<label for="check3" class="custom-checkbox">
-													<input id="check3" type="checkbox">
-													<span class="check-input"></span>
-													<span class="check-label">Hiking Boots</span>
-												</label>
-											</li>
-											<li>
-												<label for="check4" class="custom-checkbox">
-													<input id="check4" type="checkbox">
-													<span class="check-input"></span>
-													<span class="check-label">Hiking Boots</span>
-												</label>
-											</li>
 										</ul>
 										<strong class="sub-link"><a href="#">Filtrar</a></strong>
 									</div>
@@ -86,45 +74,65 @@
 		</div>
 	</div>
 </main>
-<script type="text/javascript">
-	$(document).ready
-	(
-		function()
-		{
-			//Variables
-			var idRoute = 0;
-			fillFilterOptions();
-			getParam();
+<script type="text/javascript" >
+	var map;
+	var lat = 9.9060031;
+	var long = -83.6905646;
+	fillFilterOptions(); //Llenamos las opciones para filtrar
 
-			/**
-			Función que nos permite obtener el identificador de la ruta de la URL.
-			*/
-			function getParam()
+	function initMap() 
+	{
+		map = new google.maps.Map
+		(
+			document.getElementById('map'), 
 			{
-				var strHref = window.location.href;
-				var arrayTemp = strHref.split("/");
-				idRoute = arrayTemp[arrayTemp.length-1]; //Se obtiene la última posición
-			}//Fin del método
+				center: {lat: lat, lng: long},
+				zoom: 13
+			}
+		);
+		addMarkers();
+	}//Fin de la función initMap
 
-			/**
-			Función que llena el filtro de categorías
-			*/
-			function fillFilterOptions()
+	function addMarkers()
+	{
+  		var inicial = {lat: 9.878056, lng: -83.635889};
+        var markerInitial = new google.maps.Marker({position: inicial,map: map,title:"Usted está aquí"});
+        markerInitial.addListener('click', msj);
+
+
+        //Otros marcadores
+        var guayabo = {lat: 9.9727991, lng: -83.6908688};
+        var museo = {lat: 9.9013114, lng:-83.672462};
+
+        var markerGuayabo = new google.maps.Marker({position: guayabo,map: map,title:"Guayabo"});
+        markerGuayabo.addListener('click', msj);
+        var markerMuseo = new google.maps.Marker({position: museo,map: map,title:"Museo"});
+        markerMuseo.addListener('click', msj);
+	}//Fin de la función
+
+	function createRoute()
+	{
+/*		$.ajax
+		(
 			{
-				$.ajax
-				(
-					{
-						type:'GET',
-						url:'http://turritour.000webhostapp.com/api/allcategory',
-						beforeSend: function () {},
-						success:function(data)
-						{
-							JSON.stringify(data);
-						}
-					}
-				);
-			}//Fin de la función
-		}//Fin de la función
-	);
+				type:'GET',
+				url:'https://maps.googleapis.com/maps/api/directions/json?origin=9.878132,-83.635680&destination=9.9727991,-83.6908688&waypoints=9.9013114,-83.672462&key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ',
+				beforeSend: function () {},
+				success:function(data)
+				{
+					var routes = data[1];
+
+
+					$("#mapa").text(routes);
+				}
+			}
+		);*/
+	}//Fin de la función
+
+	function msj()
+	{
+		$('#myModal').modal('show');
+	}//Fin de la función
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>
 @endsection
