@@ -19,8 +19,7 @@ Route::get('/Buscar Rutas', function () {
     return view('parametros');
 });
 
-Route::get('/Recomendar Rutas', function () 
-{
+Route::get('/Recomendar Rutas', function () {
     return view('rutasrecomendadas');
 });
 Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
@@ -31,11 +30,6 @@ Route::get('/game', function ()
     return view('game');
 });
 
-Route::get('/map-route/{idroute}', function () 
-{
-    return view('map-route');
-});
-
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
@@ -43,28 +37,28 @@ Route::get('api/allroute', 'RouteController@apiGetAllRoute');
 Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
 
 
-//rutas para el area de administracion 
-Route::get('/Administrador', function () {
-    return view('/administrador/indexView');//master
+//rutas para el area de administracion
+Route::get('/administrator', function () {
+    return view('/administrator/indexView');
 });
-Route::get('/Ingreso', function () {
-    return view('administrador/login');
+Route::get('/login', function () {
+    return view('administrator/login');
 });
-Route::get('/Lugares', function () {
-    return view('administrador/lugar');
+Route::get('/place', function () {
+    return view('administrator/place');
 });
-Route::get('/Registro', function () {
-    return view('administrador/register');
+Route::get('/register', function () {
+    return view('administrator/register');
 });
-Route::get('/Rutas', function () {
-    return view('administrador/rutas');
+Route::get('/route', function () {
+    return view('administrator/route');
 });
-Route::get('/Usuarios', function () {
-    return view('administrador/usuario');
+Route::get('/user', function () {
+    return view('administrator/user');
 });
-Route::get('/TipoActividades', function () {
-    return view('administrador/tipoActividad');
+Route::get('/tipyActivities', function () {
+    return view('administrator/tipyActivities');
 });
-Route::get('/CategoriaLugar', function () {
-    return view('administrador/categoriaLugar');
+Route::get('/categoryPlaces', function () {
+    return view('administrator/categoryPlaces');
 });
