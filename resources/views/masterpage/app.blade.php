@@ -41,8 +41,6 @@
                             <div class="collapse navbar-collapse" id="nav">
                                 <ul class="nav navbar-nav">
 
-                                    <li><a href="/">Inicio</a></li>
-
                                     <li class="dropdown">
                                         <li><a href="/">Inicio</a></li>
                                     </li>
