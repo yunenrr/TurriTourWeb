@@ -154,10 +154,7 @@
 
   <div class="col-sm-8">
       
-    <video autoplay="autoplay" controls tabindex="0">
-        <source src="videos/CampanaCR.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+   <iframe width="854" height="480" src="https://www.youtube.com/embed/hnV6A_4J3Tw?autoplay=1" frameborder="0" allowfullscreen></iframe>
 
   </div>
 

@@ -62,3 +62,5 @@ Route::get('/tipyActivities', function () {
 Route::get('/categoryPlaces', function () {
     return view('administrator/categoryPlaces');
 });
+
+Route::get('/map-route/{idroute}', function () { return view('map-route');});

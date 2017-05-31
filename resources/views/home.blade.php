@@ -133,10 +133,7 @@
 
   <div class="col-sm-8">
       
-    <video autoplay loop controls tabindex="0">
-        <source src="videos/DiscoverCR.mp4" type="video/mp4">
-        ¡Su navegador no soporta reproducir videos! :(
-    </video>
+    <iframe width="854" height="480" src="https://www.youtube.com/embed/EriElvbhpWk?autoplay=1" frameborder="0" allowfullscreen></iframe>
 
   </div>
 
