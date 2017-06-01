@@ -10,7 +10,7 @@
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="/">Inicio</a></li>
-						<li><span><a href="Buscar Rutas">Rutas</a></span></li>
+						<li><span><a href="/Buscar Rutas">Rutas</a></span></li>
 						<li><span>Mapa rutas</span></li>
 					</ul>
 				</nav>
@@ -35,14 +35,15 @@
 							<div class="modal-content">
 								<div class="modal-header">
 					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-					          		<h4 class="modal-title">Nombre del lugar</h4>
+					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/logo-la-marta.png')}}" />
+					          		<!---<h4 class="modal-title">Nombre del lugar</h4>-->
 				          		</div>
 				          		<div class="modal-body">
-				          			<p>Texto texto texto</p>
+				          			<p>Hiking * Trekking * Lodgin * BridWatching</p>
 				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
 			          			</div>
 			          			<div class="modal-footer">
-			          				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			          				<a href="/place/1" class="btn btn-default">Más información</a>
 		          				</div>
 	          				</div>
 					    </div>
@@ -91,11 +92,12 @@
 			}
 		);
 		addMarkers();
+		createRoute();
 	}//Fin de la función initMap
 
 	function addMarkers()
 	{
-  		var inicial = {lat: 9.878056, lng: -83.635889};
+  		var inicial = {lat: 9.878132, lng: -83.635680};
         var markerInitial = new google.maps.Marker({position: inicial,map: map,title:"Usted está aquí"});
         markerInitial.addListener('click', msj);
 
@@ -108,25 +110,37 @@
         markerGuayabo.addListener('click', msj);
         var markerMuseo = new google.maps.Marker({position: museo,map: map,title:"Museo"});
         markerMuseo.addListener('click', msj);
+
+        createRoute();
 	}//Fin de la función
 
 	function createRoute()
 	{
-/*		$.ajax
-		(
-			{
-				type:'GET',
-				url:'https://maps.googleapis.com/maps/api/directions/json?origin=9.878132,-83.635680&destination=9.9727991,-83.6908688&waypoints=9.9013114,-83.672462&key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ',
-				beforeSend: function () {},
-				success:function(data)
-				{
-					var routes = data[1];
 
+		var directionsService = new google.maps.DirectionsService();
+		var directionsDisplay = new google.maps.DirectionsRenderer({
+			map: map,
+			suppressMarkers: true
+		});
 
-					$("#mapa").text(routes);
-				}
+		var start = "9.878132,-83.635680";
+		var end = "9.9727991,-83.6908688";
+		var points = [ { location: "9.9013114,-83.672462", stopover: false } ];
+		var request = {
+			origin: start,
+			destination: end,
+			waypoints: points,
+			optimizeWaypoints: true,
+			provideRouteAlternatives: false,
+			travelMode: 'DRIVING'
+		};
+
+		directionsService.route(request, function(result, status) {
+			if (status == 'OK') {
+			directionsDisplay.setDirections(result);
 			}
-		);*/
+		});
+
 	}//Fin de la función
 
 	function msj()
