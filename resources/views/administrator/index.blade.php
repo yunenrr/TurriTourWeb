@@ -41,12 +41,12 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         
-                        <li><a href="/"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        <li><a href="/Cerrar Sesion"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
                     <!-- -->
                 </li>
-                <!-- /.dropdown -->
+                <!---->
             </ul>
         </nav>
         <!--/. NAV TOP  -->

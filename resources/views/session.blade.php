@@ -6,7 +6,7 @@
 <div class="center-text">
 <div class="container">
 <h1>Inicio de sesión</h1>
-<strong class="subtitle">Ser un usuario registrado de proporsiona más opciones de navegación</strong>
+<strong class="subtitle">Ser un usuario registrado te proporsiona más opciones de navegación</strong>
  
 <nav class="breadcrumbs">
 <ul>
@@ -34,7 +34,7 @@
 
 <div class="col-md-6 wow fadeInCenter">
  
-<form method="post" class="contact-form has-border " id="Sesion_form">
+<form method="get" action="/" class="contact-form has-border " id="Sesion_form">
 
 {{ csrf_field() }}
 
@@ -52,7 +52,7 @@
         <input type="password" class="form-control" id="pass" name="pass" placeholder="Introduzca contraseña" required />
     </div>    
     <div class="form-group">                
-        <input type="submit" class="btn btn-primary" value="Enviar">                
+        <input type="submit" class="btn btn-primary" value="Enviar" >                
     </div>
     <div id="respuesta" style="display: none;"></div>
 </fieldset>
