@@ -1,4 +1,4 @@
-@extends('masterpage.app')
+@extends('masterpage.masterSinSophi')
 
 @section('body')
 <section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="list-view-normal">
