@@ -44,7 +44,7 @@
                         <li><a href="/"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
+                    <!-- -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
