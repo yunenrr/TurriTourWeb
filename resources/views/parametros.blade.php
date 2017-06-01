@@ -30,6 +30,14 @@
 <div class="adventure-holder gallery-home-holder">
 <div class="row">
 <div class="row">
+
+<div class="col-md-6 text-block">
+<div class="centered">
+<h2 class="intro-heading">Parámetros de Búsqueda</h2>
+<p class="intro">En la presente pantalla usted deberá ingresar una serie de parámetros que permitirán al sistema obtener rutas turísticas que se ajusten a sus deseos.</p>
+</div>
+</div>
+
 <div class="col-md-6 wow fadeInLeft">
  
 <form method="post" class="contact-form has-border" id="contact_form">
@@ -137,12 +145,6 @@
 </fieldset>
 </form>
 </div>
-<div class="col-md-6 text-block">
-<div class="centered">
-<h2 class="intro-heading">Parámetros de Búsqueda</h2>
-<p class="intro">En la presente pantalla usted deberá ingresar una serie de parámetros que permitirán al sistema obtener rutas turísticas que se ajusten a sus deseos.</p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -154,7 +156,11 @@
 
   <div class="col-sm-8">
       
-   <iframe width="854" height="480" src="https://www.youtube.com/embed/hnV6A_4J3Tw?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <div class="embed-responsive embed-responsive-16by9">
+      
+    <iframe src="https://www.youtube.com/embed/hnV6A_4J3Tw?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+  </div>
 
   </div>
 

@@ -48,6 +48,15 @@
 </header>
 <div class="adventure-holder gallery-home-holder">
 <div class="row">
+
+<div class="col-md-6 text-block">
+<div class="centered">
+<h2 class="intro-heading">Viviendo una Vida Llena de Aventura</h2>
+<p class="intro">Costa Rica es un país concentrado y lleno de un valor único y selecto, generado principalmente por su gente. En nuestra esencia se concentran las grandes riquezas de nuestra tierra: hogar de las bellezas naturales reconocidas en el mundo y de frutos sabrosos, coloridos y de la más alta calidad.</p>
+<a target="_blank" href="https://www.govisitcostarica.co.cr/region/city.asp?cID=188" class="btn btn-info-sub btn-md btn-shadow radius">Más</a>
+</div>
+</div>
+
 <div class="col-md-6 img-block">
  
 <ul class="gallery-list gallery-with-icon">
@@ -116,13 +125,6 @@
 </li>
 </ul>
 </div>
-<div class="col-md-6 text-block">
-<div class="centered">
-<h2 class="intro-heading">Viviendo una Vida Llena de Aventura</h2>
-<p class="intro">Costa Rica es un país concentrado y lleno de un valor único y selecto, generado principalmente por su gente. En nuestra esencia se concentran las grandes riquezas de nuestra tierra: hogar de las bellezas naturales reconocidas en el mundo y de frutos sabrosos, coloridos y de la más alta calidad.</p>
-<a target="_blank" href="https://www.govisitcostarica.co.cr/region/city.asp?cID=188" class="btn btn-info-sub btn-md btn-shadow radius">Más</a>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -133,7 +135,11 @@
 
   <div class="col-sm-8">
       
-    <iframe width="854" height="480" src="https://www.youtube.com/embed/EriElvbhpWk?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <div class="embed-responsive embed-responsive-16by9">
+      
+    <iframe src="https://www.youtube.com/embed/EriElvbhpWk?autoplay=1" frameborder="0" allowfullscreen></iframe>
+
+  </div>
 
   </div>
 
