@@ -49,7 +49,7 @@
                                     </li>
                                     <li><a href="/game">Juego</a></li>
 
-                                    <li><a href="#">Soporte</a></li>
+                                    <li><a href="/support">Soporte</a></li>
 
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rutas Turísticas <b class="icon-angle-down"></b></a>
@@ -63,13 +63,13 @@
                                     </li>
 
                                     <li class="visible-xs visible-sm">
-                                        <a href="#">
+                                        <a href="/session">
                                             <span class="icon icon-user"></span>
-                                            <span class="text">Iniciar Sesión</span>
+                                            <span class="text" >Iniciar Sesión</span>
                                         </a>
                                     </li>
                                     <li class="hidden-xs hidden-sm v-divider">
-                                        <a href="#">
+                                        <a href="/session">
                                             <span class="icon icon-user"></span>
                                             <span class="text">Iniciar Sesión</span>
                                         </a>

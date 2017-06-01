@@ -49,7 +49,7 @@
                                     </li>
                                     <li><a href="/game">Juego</a></li>
 
-                                    <li><a href="#">Soporte</a></li>
+                                    <li><a href="/support">Soporte</a></li>
 
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rutas Turísticas <b class="icon-angle-down"></b></a>

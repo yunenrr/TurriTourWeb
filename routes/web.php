@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/Cerrar Sesion', function () {
     return view('homeSinSophi');
 });
+Route::get('/session', function () {
+    return view('session');
+});
+Route::get('/support', function () {
+    return view('support');
+});
 
 Route::get('/Buscar Rutas', function () {
     return view('parametros');
@@ -55,14 +61,8 @@ Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
 Route::get('/administrator', function () {
     return view('/administrator/indexView');
 });
-Route::get('/login', function () {
-    return view('administrator/login');
-});
 Route::get('/place', function () {
     return view('administrator/place');
-});
-Route::get('/register', function () {
-    return view('administrator/register');
 });
 Route::get('/route', function () {
     return view('administrator/route');
