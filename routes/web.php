@@ -18,6 +18,12 @@ Route::get('/', function () {
 Route::get('/Cerrar Sesion', function () {
     return view('homeSinSophi');
 });
+Route::get('/session', function () {
+    return view('session');
+});
+Route::get('/support', function () {
+    return view('support');
+});
 
 Route::get('/Buscar Rutas', function () {
     return view('parametros');
@@ -39,6 +45,11 @@ Route::get('/map-route/{idroute}', function ()
     return view('map-route');
 });
 
+Route::get('/place/{idplace}', function () 
+{
+    return view('place');
+});
+
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
@@ -50,14 +61,8 @@ Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
 Route::get('/administrator', function () {
     return view('/administrator/indexView');
 });
-Route::get('/login', function () {
-    return view('administrator/login');
-});
 Route::get('/place', function () {
     return view('administrator/place');
-});
-Route::get('/register', function () {
-    return view('administrator/register');
 });
 Route::get('/route', function () {
     return view('administrator/route');

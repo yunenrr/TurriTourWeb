@@ -10,7 +10,7 @@
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="/">Inicio</a></li>
-						<li><span><a href="Buscar Rutas">Rutas</a></span></li>
+						<li><span><a href="/Buscar Rutas">Rutas</a></span></li>
 						<li><span>Mapa rutas</span></li>
 					</ul>
 				</nav>
@@ -35,15 +35,15 @@
 							<div class="modal-content">
 								<div class="modal-header">
 					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/log.png')}}" />
+					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/logo-la-marta.png')}}" />
 					          		<!---<h4 class="modal-title">Nombre del lugar</h4>-->
 				          		</div>
 				          		<div class="modal-body">
-				          			<p>Texto texto texto</p>
+				          			<p>Hiking * Trekking * Lodgin * BridWatching</p>
 				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
 			          			</div>
 			          			<div class="modal-footer">
-			          				<a href="#" class="btn btn-default">Más información</a>
+			          				<a href="/place/1" class="btn btn-default">Más información</a>
 		          				</div>
 	          				</div>
 					    </div>
