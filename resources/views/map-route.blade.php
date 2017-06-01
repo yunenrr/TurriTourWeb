@@ -10,7 +10,7 @@
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="/">Inicio</a></li>
-						<li><span><a href="Buscar Rutas">Rutas</a></span></li>
+						<li><span><a href="/Buscar Rutas">Rutas</a></span></li>
 						<li><span>Mapa rutas</span></li>
 					</ul>
 				</nav>
@@ -43,7 +43,7 @@
 				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
 			          			</div>
 			          			<div class="modal-footer">
-			          				<a href="#" class="btn btn-default">Más información</a>
+			          				<a href="/place/1" class="btn btn-default">Más información</a>
 		          				</div>
 	          				</div>
 					    </div>

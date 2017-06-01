@@ -35,6 +35,11 @@ Route::get('/map-route/{idroute}', function ()
     return view('map-route');
 });
 
+Route::get('/place/{idplace}', function () 
+{
+    return view('place');
+});
+
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
