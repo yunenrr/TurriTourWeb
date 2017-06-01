@@ -9,6 +9,6 @@ class ParametrosBusquedaController extends Controller
 {
     public function buscarRutas(Request $request)
     {
-    	return view('rutasencontradas');
+    	return view('map-route');
     }
 }
