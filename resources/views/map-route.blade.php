@@ -35,14 +35,15 @@
 							<div class="modal-content">
 								<div class="modal-header">
 					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-					          		<h4 class="modal-title">Nombre del lugar</h4>
+					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/log.png')}}" />
+					          		<!---<h4 class="modal-title">Nombre del lugar</h4>-->
 				          		</div>
 				          		<div class="modal-body">
 				          			<p>Texto texto texto</p>
 				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
 			          			</div>
 			          			<div class="modal-footer">
-			          				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+			          				<a href="#" class="btn btn-default">Más información</a>
 		          				</div>
 	          				</div>
 					    </div>
@@ -91,11 +92,12 @@
 			}
 		);
 		addMarkers();
+		createRoute();
 	}//Fin de la función initMap
 
 	function addMarkers()
 	{
-  		var inicial = {lat: 9.878056, lng: -83.635889};
+  		var inicial = {lat: 9.878132, lng: -83.635680};
         var markerInitial = new google.maps.Marker({position: inicial,map: map,title:"Usted está aquí"});
         markerInitial.addListener('click', msj);
 
@@ -116,8 +118,10 @@
 	{
 
 		var directionsService = new google.maps.DirectionsService();
-		var directionsDisplay = new google.maps.DirectionsRenderer();
-		directionsDisplay.setMap(map);
+		var directionsDisplay = new google.maps.DirectionsRenderer({
+			map: map,
+			suppressMarkers: true
+		});
 
 		var start = "9.878132,-83.635680";
 		var end = "9.9727991,-83.6908688";
@@ -126,7 +130,8 @@
 			origin: start,
 			destination: end,
 			waypoints: points,
-			provideRouteAlternatives: true,
+			optimizeWaypoints: true,
+			provideRouteAlternatives: false,
 			travelMode: 'DRIVING'
 		};
 
