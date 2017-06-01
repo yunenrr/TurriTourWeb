@@ -29,7 +29,7 @@
 <div class="description">
 <div class="col-left">
 <header class="heading">
-<h3><a href="/map-route/1">Ruta 1: Ruta de Senderismo</a></h3>
+<h3><a href="/map-route/3">Ruta 1: Ruta de Senderismo</a></h3>
 <div class="info-day">17 Locales</div>
 </header>
 <p style="text-align: justify">Disfrútala paso a paso, sin prisas, a través de una amplia red de senderos, homologados y señalizados, que conectan y comunican el territorio, mostrando sus entrañas y secretos más ocultos. Accede a lugares, paisajes y rincones inesperados y de singular belleza. Entra en contacto con los lugareños, conociendo su historia, cultura, costumbres y tradiciones. Saborea los mejores frutos y platos de la tierra, a través de sus tradicionales fogones o de la gastronomía más innovadora. Percibe como cambian en las distintas estaciones del año los colores y luces, sus olores y sonidos, sensaciones y matices que adornan el trayecto haciéndolo inolvidable. </p>
@@ -55,7 +55,7 @@
 <div class="description">
 <div class="col-left">
 <header class="heading">
-<h3><a href="/map-route/2">Ruta 2: Ruta de Aventura</a></h3>
+<h3><a href="/map-route/3">Ruta 2: Ruta de Aventura</a></h3>
 <div class="info-day">17 Locales</div>
 </header>
 <p style="text-align: justify">Para aquellas personas buscan en el turismo de aventura una oportunidad para envolverse en la exploración o viajes con un riesgo latente donde inevitablemente será necesario hacer uso de habilidades tanto físicas como psicológicas.</p>
@@ -107,7 +107,7 @@
 <div class="description">
 <div class="col-left">
 <header class="heading">
-<h3><a href="/map-route/4">Ruta 4: Ruta de Senderismo</a></h3>
+<h3><a href="/map-route/3">Ruta 4: Ruta de Senderismo</a></h3>
 <div class="info-day">17 Locales</div>
 </header>
 <p style="text-align: justify">Disfrútala paso a paso, sin prisas, a través de una amplia red de senderos, homologados y señalizados, que conectan y comunican el territorio, mostrando sus entrañas y secretos más ocultos. Accede a lugares, paisajes y rincones inesperados y de singular belleza. Entra en contacto con los lugareños, conociendo su historia, cultura, costumbres y tradiciones. Saborea los mejores frutos y platos de la tierra, a través de sus tradicionales fogones o de la gastronomía más innovadora. Percibe como cambian en las distintas estaciones del año los colores y luces, sus olores y sonidos, sensaciones y matices que adornan el trayecto haciéndolo inolvidable. </p>
@@ -133,7 +133,7 @@
 <div class="description">
 <div class="col-left">
 <header class="heading">
-<h3><a href="/map-route/5">Ruta 5: Ruta de Aventura</a></h3>
+<h3><a href="/map-route/3">Ruta 5: Ruta de Aventura</a></h3>
 <div class="info-day">17 Locales</div>
 </header>
 <p style="text-align: justify">Para aquellas personas buscan en el turismo de aventura una oportunidad para envolverse en la exploración o viajes con un riesgo latente donde inevitablemente será necesario hacer uso de habilidades tanto físicas como psicológicas.</p>
@@ -159,7 +159,7 @@
 <div class="description">
 <div class="col-left">
 <header class="heading">
-<h3><a href="/map-route/6">Ruta 6: Ruta de Compras</a></h3>
+<h3><a href="/map-route/3">Ruta 6: Ruta de Compras</a></h3>
 <div class="info-day">17 Locales</div>
 </header>
 <p style="text-align: justify"> El turismo y las compras siempre han estado relacionados. Aprovecha tú viaje para comprar recuerdos, productos típicos de la zona, objetos curiosos y todo tipo de cosas como recuerdo de tú viaje. Llava regalos para amigos o familiares o simplemente para mostrarlos, alardear y poder decir “esto lo compré cuando fui a Turrialba”. </p>
