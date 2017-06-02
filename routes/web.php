@@ -18,6 +18,11 @@ Route::get('/', function () {
 Route::get('/logout', function () {
     return view('home-without-sophi');
 });
+
+Route::get('/credentials', function () {
+    return view('credentials');
+});
+
 Route::get('/session', function () {
     return view('session');
 });
