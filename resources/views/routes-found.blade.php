@@ -11,7 +11,7 @@
 <nav class="breadcrumbs">
 <ul>
 <li><a href="/">HOME</a></li>
-<li><a href="/Buscar Rutas">Buscar Rutas</a></li>
+<li><a href="/search-routes">Buscar Rutas</a></li>
 <li><span>Seleccionar Ruta</span></li>
 </ul>
 </nav>
