@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/Cerrar Sesion', function () {
-    return view('homeSinSophi');
+Route::get('/logout', function () {
+    return view('home-without-sophi');
 });
 Route::get('/session', function () {
     return view('session');
@@ -25,14 +25,14 @@ Route::get('/support', function () {
     return view('support');
 });
 
-Route::get('/Buscar Rutas', function () {
-    return view('parametros');
+Route::get('/search-routes', function () {
+    return view('parameters');
 });
 
-Route::get('/Recomendar Rutas', function () {
-    return view('rutasrecomendadas');
+Route::get('/recomment-routes', function () {
+    return view('recommended-routes');
 });
-Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
+Route::post('search-routes','SearchParametersController@searchRoutes');
 
 
 Route::get('/game', function () 

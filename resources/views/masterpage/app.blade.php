@@ -49,14 +49,24 @@
                                     </li>
                                     <li><a href="/game">Juego</a></li>
 
-                                    <li><a href="/support">Soporte</a></li>
+
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Soporte <b class="icon-angle-down"></b></a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="/support">Contacto</a></li>
+                                                <li><a href="/credentials">Credenciales</a></li>
+    
+                                            </ul>
+                                        </div>
+                                    </li>
 
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rutas Turísticas <b class="icon-angle-down"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                <li><a href="/Buscar Rutas">Buscar Rutas</a></li>
-                                                <li><a href="/Recomendar Rutas">Recomendar Rutas</a></li>
+                                                <li><a href="/search-routes">Buscar Rutas</a></li>
+                                                <li><a href="/Recomment-routes">Recomendar Rutas</a></li>
     
                                             </ul>
                                         </div>
@@ -78,7 +88,7 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
-                                                <li><a href="/Cerrar Sesion">Cerrar Sesión</a></li>
+                                                <li><a href="/logout">Cerrar Sesión</a></li>
                                                 <li><a href="/administrator">Administrador</a></li>
     
                                             </ul>

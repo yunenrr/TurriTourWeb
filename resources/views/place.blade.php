@@ -9,7 +9,7 @@
 					<nav class="breadcrumbs">
 						<ul>
 							<li><a href="/">Inicio</a></li>
-							<li><a href="/Buscar Rutas">Buscar Rutas</a></li>
+							<li><a href="/search-routes">Buscar Rutas</a></li>
 							<li><a href="/map-route/1">Mapas rutas</a></li>
 							<li><span>Lugar</span></li>
 						</ul>
