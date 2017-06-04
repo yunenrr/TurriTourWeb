@@ -26,7 +26,7 @@
                 <header id="header" class="white-header">
                     <div class="container-fluid">
                         <div class="logo">
-                                <a href="/">
+                                <a href="/" style="margin-top:-50">
                                     <img class="normal" src="{{URL::asset('/img/logos/log.png')}}" alt="Entrada">
                                     <img class="gray-logo" src="{{URL::asset('/img/logos/log.png')}}" alt="Entrada">
                                 </a>
@@ -73,9 +73,13 @@
                                     </li>
 
                                     <li class="visible-xs visible-sm dropdown">
+<<<<<<< HEAD
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+=======
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+>>>>>>> refs/remotes/origin/master
                                             <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
+                                            <span class="text" style="margin-top:20">Sophía</span>
                                         </a>
                                         <div class="dropdown-menu">
                                             <ul>
@@ -86,9 +90,15 @@
                                         </div>
                                     </li>
                                     <li class="hidden-xs hidden-sm v-divider dropdown">
+<<<<<<< HEAD
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+                                            <img id="imgSesion"  src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
+                                            <span class="text" style="margin-top:20">Sophía</span>
+=======
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
                                             <span class="text">Sophía</span>
+>>>>>>> refs/remotes/origin/master
                                         </a>
                                         <div class="dropdown-menu">
                                             <ul>
@@ -99,8 +109,11 @@
                                         </div>
                                     </li>
                                     
+<<<<<<< HEAD
+=======
                                         
                                     </li>
+>>>>>>> refs/remotes/origin/master
                                 </ul>
                             </div>
                         </nav>
