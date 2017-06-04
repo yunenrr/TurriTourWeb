@@ -60,6 +60,7 @@ Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
 Route::get('api/allroute', 'RouteController@apiGetAllRoute');
 Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
+Route::get('api/getuserbyemail', 'UserController@apiGetUserByEmail');
 
 
 //rutas para el area de administracion
