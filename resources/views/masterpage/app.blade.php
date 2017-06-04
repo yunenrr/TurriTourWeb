@@ -72,20 +72,11 @@
                                         </div>
                                     </li>
 
-                                    <li class="visible-xs visible-sm">
-                                        <a href="#">
+                                    <li class="visible-xs visible-sm dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
                                             <span class="text">Sophía</span>
                                         </a>
-                                    </li>
-                                    <li class="hidden-xs hidden-sm v-divider">
-                                        <a href="#">
-                                            <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="/logout">Cerrar Sesión</a></li>
@@ -93,6 +84,22 @@
     
                                             </ul>
                                         </div>
+                                    </li>
+                                    <li class="hidden-xs hidden-sm v-divider dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
+                                            <span class="text">Sophía</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="/logout">Cerrar Sesión</a></li>
+                                                <li><a href="/administrator">Administrador</a></li>
+    
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
+                                        
                                     </li>
                                 </ul>
                             </div>
