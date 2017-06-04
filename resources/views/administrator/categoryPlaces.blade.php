@@ -22,7 +22,7 @@
                                             <textarea class="form-control" rows="3"></textarea>
                                          </div>                                                                                     
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Button</button>                                     
+                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
                                     </form>                                    
                                 </div>
                                 <!--   Basic Table  -->
