@@ -26,7 +26,7 @@
                 <header id="header" class="white-header">
                     <div class="container-fluid">
                         <div class="logo">
-                                <a href="/">
+                                <a href="/" style="margin-top:-50">
                                     <img class="normal" src="{{URL::asset('/img/logos/log.png')}}" alt="Entrada">
                                     <img class="gray-logo" src="{{URL::asset('/img/logos/log.png')}}" alt="Entrada">
                                 </a>
@@ -72,20 +72,11 @@
                                         </div>
                                     </li>
 
-                                    <li class="visible-xs visible-sm">
-                                        <a href="#">
+                                    <li class="visible-xs visible-sm dropdown">
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
                                             <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
+                                            <span class="text" style="margin-top:20">Sophía</span>
                                         </a>
-                                    </li>
-                                    <li class="hidden-xs hidden-sm v-divider">
-                                        <a href="#">
-                                            <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text">Sophía</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="icon icon-africa"></b></a>
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="/logout">Cerrar Sesión</a></li>
@@ -94,6 +85,20 @@
                                             </ul>
                                         </div>
                                     </li>
+                                    <li class="hidden-xs hidden-sm v-divider dropdown">
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+                                            <img id="imgSesion"  src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
+                                            <span class="text" style="margin-top:20">Sophía</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="/logout">Cerrar Sesión</a></li>
+                                                <li><a href="/administrator">Administrador</a></li>
+    
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    
                                 </ul>
                             </div>
                         </nav>
