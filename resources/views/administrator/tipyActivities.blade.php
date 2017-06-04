@@ -22,7 +22,7 @@
                                             <textarea class="form-control" rows="3"></textarea>
                                          </div>                                                                                     
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Button</button>                                     
+                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
                                     </form>                                    
                                 </div>
                                  <!--   Basic Table  -->
@@ -43,9 +43,8 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Mark</td>
-                                           
-                                            <td>@mdo</td>
+                                            <td>Senderismo</td>                                           
+                                            <td>Senderismo de montaña</td>
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                             
@@ -53,19 +52,12 @@
                                         <tr>
                                             <td>2</td>
                                            
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
+                                            <td>Kayak</td>
+                                            <td>Actividad dde adrenalina pura</td>
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                         </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            
-                                            <td>@twitter</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>

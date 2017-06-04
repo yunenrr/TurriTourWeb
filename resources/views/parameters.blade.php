@@ -19,7 +19,6 @@
 </div>
 </section>
 
-<main id="main">
 <section class="content-block bg-white">
 <div class="container">
 <header class="content-heading">
@@ -28,7 +27,6 @@
 <div class="seperator"></div>
 </header>
 <div class="adventure-holder gallery-home-holder">
-<div class="row">
 <div class="row">
 
 <div class="col-md-6 text-block">
@@ -149,7 +147,6 @@
 </div>
 </div>
 </section>
-</div>
 
 <div class="row">
   <div class="col-sm-2"></div>

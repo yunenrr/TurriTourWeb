@@ -10,7 +10,7 @@
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="/">Inicio</a></li>
-						<li><span><a href="/Buscar Rutas">Rutas</a></span></li>
+						<li><span><a href="/search-routes">Rutas</a></span></li>
 						<li><span>Mapa rutas</span></li>
 					</ul>
 				</nav>
@@ -57,15 +57,25 @@
 								<!-- Encabezado del grupo -->
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a role="button" data-toggle="collapse" href="#collapse6" aria-expanded="true" aria-controls="collapse6">Categorías</a>
+										<a role="button" data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1">Categorías</a>
 									</h4>
 								</div>
-								<div id="collapse6" class="panel-collapse collapse in" role="tabpanel">
+								<div id="collapse1" class="panel-collapse collapse in" role="tabpanel">
 									<div class="panel-body">
 										<ul class="side-list check-list" id="ulFilterCategory">
 										</ul>
 										<strong class="sub-link"><a href="#">Filtrar</a></strong>
 									</div>
+								</div>
+							</div>
+							<div class="accordion-group">
+								<!-- Encabezado del grupo -->
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">Rutas</a>
+									</h4>
+								</div>
+								<div id="collapse2" class="panel-collapse collapse in" role="tabpanel">
 								</div>
 							</div>
 						</div>
@@ -79,8 +89,16 @@
 	var map;
 	var lat = 9.9060031;
 	var long = -83.6905646;
+	var strHref = window.location.href;
+	var arrayTemp = strHref.split("/");
+	var arrayIdNodes = [];
+
+	//Funciones iniciales para obtener todos los necesarios
 	fillFilterOptions(); //Llenamos las opciones para filtrar
 
+	/**
+	Función que inicializa el mapa
+	*/
 	function initMap() 
 	{
 		map = new google.maps.Map
@@ -91,10 +109,65 @@
 				zoom: 13
 			}
 		);
-		addMarkers();
-		createRoute();
+		getNodesByRoute(arrayTemp[arrayTemp.length-1]);
 	}//Fin de la función initMap
 
+	/**
+	Función que obtiene un array de un JSOn que contiene la información de todos los nodos que componen a una ruta.
+	*/
+	function getNodesByRoute(idNode)
+	{
+		$.ajax
+		(
+			{
+				type:'GET',
+				url:'/api/getnodebyroute?idroute='+idNode,
+				beforeSend: function () {},
+				success:function(data)
+				{
+					//Recorremos el JSON
+					for(position in data)
+					{
+						current = data[position];
+						arrayIdNodes.push(current.idnodes);
+					}//Fin del for
+					getNodeInformation();
+				}
+			}
+		);
+	}//Fin de la función
+
+	/**
+	Función que se encarga de traer la información específica de un nodo
+	*/
+	function getNodeInformation()
+	{
+		//Recorremos el for con la información de los id de los nodos
+		for(i = 0; i < arrayIdNodes.length;i++)
+		{
+			$.ajax
+			(
+				{
+					type:'GET',
+					url:'/api/getnode?id='+arrayIdNodes[i],
+					beforeSend: function () {},
+					success:function(data)
+					{
+						//Recorremos el JSON
+						for(position in data)
+						{
+							current = data[position];
+							alert(current.name);
+						}//Fin del for
+					}
+				}
+			);
+		}//Fin del for
+	}//Fin de la función
+
+	/**
+	Función que agrega los marcadores en el mapa.
+	*/
 	function addMarkers()
 	{
   		var inicial = {lat: 9.878132, lng: -83.635680};
@@ -110,10 +183,11 @@
         markerGuayabo.addListener('click', msj);
         var markerMuseo = new google.maps.Marker({position: museo,map: map,title:"Museo"});
         markerMuseo.addListener('click', msj);
-
-        createRoute();
 	}//Fin de la función
 
+	/**
+	Función que agrega las rutas al mapa
+	*/
 	function createRoute()
 	{
 

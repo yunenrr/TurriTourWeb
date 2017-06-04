@@ -1,4 +1,4 @@
-@extends('masterpage.masterSinSophi')
+@extends('masterpage.master-without-sophi')
 
 @section('body')
 <section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="list-view-normal">
@@ -10,7 +10,7 @@
  
 <nav class="breadcrumbs">
 <ul>
-<li><a href="/">HOME</a></li>
+<li><a href="/logout">HOME</a></li>
 <li><span>Session</span></li>
 </ul>
 </nav>

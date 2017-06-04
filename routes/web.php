@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/Cerrar Sesion', function () {
-    return view('homeSinSophi');
+Route::get('/logout', function () {
+    return view('home-without-sophi');
 });
+
+Route::get('/credentials', function () {
+    return view('credentials');
+});
+
 Route::get('/session', function () {
     return view('session');
 });
@@ -25,14 +30,14 @@ Route::get('/support', function () {
     return view('support');
 });
 
-Route::get('/Buscar Rutas', function () {
-    return view('parametros');
+Route::get('/search-routes', function () {
+    return view('parameters');
 });
 
-Route::get('/Recomendar Rutas', function () {
-    return view('rutasrecomendadas');
+Route::get('/recomment-routes', function () {
+    return view('recommended-routes');
 });
-Route::post('Buscar Rutas','ParametrosBusquedaController@buscarRutas');
+Route::post('search-routes','SearchParametersController@searchRoutes');
 
 
 Route::get('/game', function () 
@@ -53,8 +58,7 @@ Route::get('/place/{idplace}', function ()
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
-Route::get('api/allroute', 'RouteController@apiGetAllRoute');
-Route::get('api/getnodebyroute', 'RouteNodeController@apiGetNodeByRoute');
+Route::get('api/getuserbyemail', 'UserController@apiGetUserByEmail');
 
 
 //rutas para el area de administracion
@@ -64,13 +68,10 @@ Route::get('/administrator', function () {
 Route::get('/place', function () {
     return view('administrator/place');
 });
-Route::get('/route', function () {
-    return view('administrator/route');
-});
 Route::get('/user', function () {
     return view('administrator/user');
 });
-Route::get('/tipyActivities', function () {
+Route::get('/typeActivities', function () {
     return view('administrator/tipyActivities');
 });
 Route::get('/categoryPlaces', function () {
