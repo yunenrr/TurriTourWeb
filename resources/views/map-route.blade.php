@@ -87,11 +87,10 @@
 </main>
 <script type="text/javascript" >
 	var map;
-	var lat = 9.9060031;
-	var long = -83.6905646;
-	var strHref = window.location.href;
-	var arrayTemp = strHref.split("/");
-	var arrayIdNodes = [];
+	var arrayObjects = [];
+	var initialPosition = "";
+	var endPosition = "";
+	var waypts = [];
 
 	//Funciones iniciales para obtener todos los necesarios
 	fillFilterOptions(); //Llenamos las opciones para filtrar
@@ -105,84 +104,48 @@
 		(
 			document.getElementById('map'), 
 			{
-				center: {lat: lat, lng: long},
+				center: {lat: 9.9060031, lng: -83.6905646},
 				zoom: 13
 			}
 		);
-		getNodesByRoute(arrayTemp[arrayTemp.length-1]);
+		addMarkers("Usted está aquí",9.878132,-83.635680,"initial");
+		initialPosition = 9.878132+","+-83.635680;
+		getNodes();
 	}//Fin de la función initMap
 
 	/**
-	Función que obtiene un array de un JSOn que contiene la información de todos los nodos que componen a una ruta.
+	Función que recupera del JSON la información de los nodos y los agrega en un String
 	*/
-	function getNodesByRoute(idNode)
+	function getNodes()
 	{
-		$.ajax
-		(
-			{
-				type:'GET',
-				url:'/api/getnodebyroute?idroute='+idNode,
-				beforeSend: function () {},
-				success:function(data)
-				{
-					//Recorremos el JSON
-					for(position in data)
-					{
-						current = data[position];
-						arrayIdNodes.push(current.idnodes);
-					}//Fin del for
-					getNodeInformation();
-				}
-			}
-		);
-	}//Fin de la función
-
-	/**
-	Función que se encarga de traer la información específica de un nodo
-	*/
-	function getNodeInformation()
-	{
-		//Recorremos el for con la información de los id de los nodos
-		for(i = 0; i < arrayIdNodes.length;i++)
+		var jsonString = '{{ $nodes }}';
+		var arrayJSON = JSON.parse(jsonString.replace(/&quot;/g,'"'));
+		
+		for(position in arrayJSON)
 		{
-			$.ajax
-			(
-				{
-					type:'GET',
-					url:'/api/getnode?id='+arrayIdNodes[i],
-					beforeSend: function () {},
-					success:function(data)
-					{
-						//Recorremos el JSON
-						for(position in data)
-						{
-							current = data[position];
-							alert(current.name);
-						}//Fin del for
-					}
-				}
-			);
+			addMarkers(arrayJSON[position].name,arrayJSON[position].latitude,arrayJSON[position].longitude,arrayJSON[position].name+position);
+
+			if(position == arrayJSON.length-1)
+			{
+				endPosition = arrayJSON[position].latitude+","+arrayJSON[position].longitude;
+			}
+			else
+			{
+				waypts.push({ location: arrayJSON[position].latitude+","+arrayJSON[position].longitude, stopover: true });
+			}
 		}//Fin del for
+
+		createRoute();
 	}//Fin de la función
 
 	/**
 	Función que agrega los marcadores en el mapa.
 	*/
-	function addMarkers()
+	function addMarkers(nameNode,lat,long,nameVar)
 	{
-  		var inicial = {lat: 9.878132, lng: -83.635680};
-        var markerInitial = new google.maps.Marker({position: inicial,map: map,title:"Usted está aquí"});
-        markerInitial.addListener('click', msj);
-
-
-        //Otros marcadores
-        var guayabo = {lat: 9.9727991, lng: -83.6908688};
-        var museo = {lat: 9.9013114, lng:-83.672462};
-
-        var markerGuayabo = new google.maps.Marker({position: guayabo,map: map,title:"Guayabo"});
-        markerGuayabo.addListener('click', msj);
-        var markerMuseo = new google.maps.Marker({position: museo,map: map,title:"Museo"});
-        markerMuseo.addListener('click', msj);
+		var position = {lat: lat, lng: long};
+		nameVar = new google.maps.Marker({position: position,map: map,title:nameNode});
+		if(nameNode !== "Usted está aquí"){nameVar.addListener('click', msj);}
 	}//Fin de la función
 
 	/**
@@ -196,25 +159,23 @@
 			map: map,
 			suppressMarkers: true
 		});
-
-		var start = "9.878132,-83.635680";
-		var end = "9.9727991,-83.6908688";
-		var points = [ { location: "9.9013114,-83.672462", stopover: false } ];
-		var request = {
-			origin: start,
-			destination: end,
-			waypoints: points,
+		var request = 
+		{
+			origin: initialPosition,
+			destination: endPosition,
+			waypoints: waypts,
 			optimizeWaypoints: true,
 			provideRouteAlternatives: false,
 			travelMode: 'DRIVING'
 		};
 
-		directionsService.route(request, function(result, status) {
-			if (status == 'OK') {
-			directionsDisplay.setDirections(result);
+		directionsService.route(request, function(result, status) 
+		{
+			if (status == 'OK') 
+			{
+				directionsDisplay.setDirections(result);
 			}
 		});
-
 	}//Fin de la función
 
 	function msj()
