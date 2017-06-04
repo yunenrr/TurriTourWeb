@@ -1,5 +1,12 @@
 @extends('masterpage.app')
 @section('body')
+
+<?php 
+	if(!isset($nodes))
+	{
+		redirect()->to('/search-routes')->send();
+	}
+?>
 <!-- Banner -->
 <section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="banner-layout-leftsidebar">
 	<div class="banner-text">
@@ -10,7 +17,7 @@
 				<nav class="breadcrumbs">
 					<ul>
 						<li><a href="/">Inicio</a></li>
-						<li><span><a href="/search-routes">Rutas</a></span></li>
+						<li><span><a href="/search-routes">Parámetros</a></span></li>
 						<li><span>Mapa rutas</span></li>
 					</ul>
 				</nav>

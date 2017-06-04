@@ -66,7 +66,7 @@
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="/search-routes">Buscar Rutas</a></li>
-                                                <li><a href="/map-route">Recomendar Rutas</a></li>
+                                                <li><a href="/search-routes">Recomendar Rutas</a></li>
     
                                             </ul>
                                         </div>
