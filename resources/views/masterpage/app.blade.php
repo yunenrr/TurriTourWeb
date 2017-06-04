@@ -73,7 +73,9 @@
                                     </li>
 
                                     <li class="visible-xs visible-sm dropdown">
+
                                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+
                                             <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
                                             <span class="text" style="margin-top:20">Sophía</span>
                                         </a>
@@ -86,9 +88,11 @@
                                         </div>
                                     </li>
                                     <li class="hidden-xs hidden-sm v-divider dropdown">
+
                                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
                                             <img id="imgSesion"  src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
                                             <span class="text" style="margin-top:20">Sophía</span>                                       
+
                                         </a>
                                         <div class="dropdown-menu">
                                             <ul>
@@ -98,6 +102,11 @@
                                             </ul>
                                         </div>
                                     </li>
+
+     
+
+                                </ul>
+
                             </div>
                         </nav>
                     </div>
