@@ -68,13 +68,10 @@ Route::get('/administrator', function () {
 Route::get('/place', function () {
     return view('administrator/place');
 });
-Route::get('/route', function () {
-    return view('administrator/route');
-});
 Route::get('/user', function () {
     return view('administrator/user');
 });
-Route::get('/tipyActivities', function () {
+Route::get('/typeActivities', function () {
     return view('administrator/tipyActivities');
 });
 Route::get('/categoryPlaces', function () {

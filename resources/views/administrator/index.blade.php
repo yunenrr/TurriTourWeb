@@ -37,12 +37,12 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="">  <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
+                                <span class="text">Sophía</span></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        
-                        <li><a href="/Cerrar Sesion"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
-                        </li>
+                    <ul class="dropdown-menu dropdown-user">   
+                        <li><a href="/"><i class="fa fa-sign-in fa-fw"></i> Principal</a></li>                     
+                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a></li>
                     </ul>
                     <!-- -->
                 </li>
@@ -64,10 +64,7 @@
                         <a href="/place" onclick=""><i class="fa fa-bar-chart-o"></i>Lugares</a>
                     </li>
                     <li>
-                        <a href="/route" onclick=""><i class="fa fa-qrcode"></i>Rutas</a>
-                    </li>
-                    <li>
-                        <a href="/tipyActivities" onclick=""><i class="fa fa-table"></i>Tipos de actividad</a>
+                        <a href="/typeActivities" onclick=""><i class="fa fa-table"></i>Tipos de actividad</a>
                     </li> 
                     <li>
                         <a href="/categoryPlaces" onclick=""><i class="fa fa-table"></i>Categoria de Lugar</a>
@@ -82,11 +79,9 @@
         <div id="page-wrapper">
             <div id="page-inner">
 
-
-                <!-- /. ROW  -->
+                <!-- /. contenedor -->
                 @yield('body')
 
-                 <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
