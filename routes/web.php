@@ -34,9 +34,6 @@ Route::get('/search-routes', function () {
     return view('parameters');
 });
 
-Route::get('/recomment-routes', function () {
-    return view('recommended-routes');
-});
 Route::post('search-routes','SearchParametersController@searchRoutes');
 
 
@@ -45,7 +42,7 @@ Route::get('/game', function ()
     return view('game');
 });
 
-Route::get('/map-route/{idroute}', function () 
+Route::get('/map-route', function () 
 {
     return view('map-route');
 });

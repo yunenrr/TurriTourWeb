@@ -15,11 +15,11 @@
     </head>
     <body>
         <!-- Página mientras carga-->
-        <div class="preloader" id="pageLoad">
+<!--         <div class="preloader" id="pageLoad">
             <div class="holder">
                 <div class="coffee_cup"></div>
             </div>
-        </div>
+        </div> -->
 
         <div id="wrapper">
             <div class="page-wrapper">
@@ -66,7 +66,7 @@
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="/search-routes">Buscar Rutas</a></li>
-                                                <li><a href="/Recomment-routes">Recomendar Rutas</a></li>
+                                                <li><a href="/search-routes">Recomendar Rutas</a></li>
     
                                             </ul>
                                         </div>
