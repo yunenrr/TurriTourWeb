@@ -15,14 +15,25 @@
                                        <div class="form-group">
                                          <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control">                                            
+                                            <input class="form-control" id="nameCategoryPlace">                                            
                                          </div>
                                          <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="descriptionCategoryPlace"></textarea>
                                          </div>                                                                                     
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
+                                        <button type="submit" id="btnSaveCategoryPlace" class="btn btn-primary" onclick="return saveCategoryPlace()">Guardar</button> 
+                                        <button type="submit" id="btnUpdateCategoryPlace" class="btn btn-primary" onclick="return updateCategoryPlace()" style="display:none;">Actualizar</button>                                     
+                                    </form>                                    
+                                </div>
+                                <div class="col-lg-6">
+                                <form role="form">
+                                       <div class="form-group">                                         
+                                            <label>Imagen de Categoria</label>
+                                              <img src='assets/img/log.png' border='0' width='40%' height='40%'>
+                                             <input type="file">                                     
+                                        </div>  
+                                                                          
                                     </form>                                    
                                 </div>
                                 <!--   Basic Table  -->
@@ -35,6 +46,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nombre</th>
+                                            <th>Descripcion</th>
                                             
                                         </tr>
                                     </thead>
@@ -42,24 +54,25 @@
                                         <tr>
                                             <td>1</td>
                                             <td>Hoteles</td>
+                                            <td>Los mejores lugares para hospedarse</td>
                                             
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerCategoryPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary"onclick="return deleteCategoryPlace();">Eliminar</a></td>
                                             
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Parque Nacional</td>
-                                           
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td>Lugares de reserver biologica y cultural</td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerCategoryPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deleteCategoryPlace();">Eliminar</a></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>Restaurantes</td>
-                                            
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td>Todo tipo de deleites</td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerCategoryPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deleteCategoryPlace();">Eliminar</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

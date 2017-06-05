@@ -13,8 +13,7 @@
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    
 </head>
 
 <body >
@@ -89,6 +88,9 @@
     </div>
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+    <script src="js/functionsAdmin.js"></script>
+    <script src="js/functionsMapAdmin.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->

@@ -47,34 +47,31 @@
 </div>
 <div class="col-md-6 wow fadeInLeft">
  
-<form method="post" class="contact-form has-border" id="contact_form">
+<form method="post" class="contact-form has-border" id="contact_form" name="contact_form" action="email.php">
 
 {{ csrf_field() }}
 
 <fieldset>
  <div class="form-group">
-        <label class="control-label" for="Nombre">Nombres</label>
-        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+        <label class="control-label" for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Introduzca su name" required autofocus />
     </div>            
     <div class="form-group">
-        <label class="control-label" for="Motivo">Motivo de Contacto</label>
-        <select name="Motivo" class="form-control">
+        <label>Motivo de Contacto</label>
+        <select class="form-control" id="consut" name="consult">            
             <option value="Consulta General">Consulta General</option>
             <option value="Realizar Pedido">Realizar Pedido</option>
             <option value="Informe un problema">Informe un problema</option>
         </select>
     </div>
+    
     <div class="form-group">
-        <label class="control-label" for="Empresa">Empresa</label>
-        <input type="text" class="form-control" id="Empresa" name="Empresa" placeholder="Introduzca el nombre de su empresa" required />
+        <label class="control-label" for="email">Dirección de correo Electrónico</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Introduzca su email electrónico" required />
     </div>
     <div class="form-group">
-        <label class="control-label" for="Correo">Dirección de Correo Electrónico</label>
-        <input type="email" class="form-control" id="Correo" name="Correo" placeholder="Introduzca su correo electrónico" required />
-    </div>
-    <div class="form-group">
-        <label class="control-label" for="Mensaje">Mensaje</label>
-        <textarea rows="5" cols="30" class="form-control" id="Mensaje" name="Mensaje" placeholder="Introduzca su mensaje" required ></textarea>
+        <label class="control-label" for="message">message</label>
+        <textarea rows="5" cols="30" class="form-control" id="message" name="message" placeholder="Introduzca su message" required ></textarea>
     </div>
     <div class="form-group">                
         <input type="submit" class="btn btn-primary" value="Enviar">                

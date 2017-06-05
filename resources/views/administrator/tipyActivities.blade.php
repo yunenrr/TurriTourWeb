@@ -15,14 +15,15 @@
                                        <div class="form-group">
                                          <div class="form-group">
                                             <label>Tipo de actividad</label>
-                                            <input class="form-control">                                            
+                                            <input class="form-control" id="nameTypeActivity">                                            
                                          </div>
                                          <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" id="descriptionTypeActivity"></textarea>
                                          </div>                                                                                     
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
+                                        <button type="submit" id="btnSaveTypeActivity" class="btn btn-primary" onclick="return saveTypeActivity();">Guardar</button> 
+                                        <button type="submit" id="btnUpdateTypeActivity" class="btn btn-primary" onclick="return updateTypeActivity();" style="display:none;">Actualizar</button>                                     
                                     </form>                                    
                                 </div>
                                  <!--   Basic Table  -->
@@ -45,17 +46,17 @@
                                             <td>1</td>
                                             <td>Senderismo</td>                                           
                                             <td>Senderismo de montaña</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerTypeActivityDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deleteTypeActivity();">Eliminar</a></td>
                                             
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                            
                                             <td>Kayak</td>
-                                            <td>Actividad dde adrenalina pura</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td>Actividad de adrenalina pura</td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerTypeActivityDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deleteTypeActivity();">Eliminar</a></td>
                                         </tr>
                                         
                                     </tbody>
