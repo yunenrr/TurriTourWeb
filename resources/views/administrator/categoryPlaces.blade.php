@@ -22,7 +22,7 @@
                                             <textarea class="form-control" rows="3"></textarea>
                                          </div>                                                                                     
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Button</button>                                     
+                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
                                     </form>                                    
                                 </div>
                                 <!--   Basic Table  -->
@@ -41,7 +41,7 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Mark</td>
+                                            <td>Hoteles</td>
                                             
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
@@ -49,14 +49,14 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>Jacob</td>
+                                            <td>Parque Nacional</td>
                                            
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>Larry</td>
+                                            <td>Restaurantes</td>
                                             
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>

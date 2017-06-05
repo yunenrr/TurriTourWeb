@@ -1,7 +1,7 @@
 @extends('masterpage.app')
 
 @section('body')
-<section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="list-view-normal">
+<section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="banner-contact">
 <div class="banner-text">
 <div class="center-text">
 <div class="container">

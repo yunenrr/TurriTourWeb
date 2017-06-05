@@ -36,14 +36,11 @@
                                         </div>
                                             <label>Roll</label>
                                             <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                                <option>Administrador</option>
+                                                <option>Cliente</option>                                                
                                             </select>                                            
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Enviar</button>                                     
+                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
                                     </form>                                    
                                 </div>
                                <div class="col-md-12">
@@ -70,32 +67,32 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                             <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>Kevin</td>
+                                            <td>Campos</td>
+                                            <td>R</td>
+                                             <td>k@gmail.com</td>
+                                            <td>Administrador</td>
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                             
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                             <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>Yunen</td>
+                                            <td>Ramos</td>
+                                            <td>R</td>
+                                             <td>y@gmail.com</td>
+                                            <td>Administrador</td>
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                             <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>Victor</td>
+                                            <td>Salvatierra</td>
+                                            <td>R</td>
+                                             <td>v@gmail.com</td>
+                                            <td>Administrador</td>
                                             <td><a href="#" class="btn btn-primary">Actualizar</a></td>
                                             <td><a href="#" class="btn btn-primary">Eliminar</a></td>
                                         </tr>

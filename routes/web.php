@@ -34,9 +34,6 @@ Route::get('/search-routes', function () {
     return view('parameters');
 });
 
-Route::get('/recomment-routes', function () {
-    return view('recommended-routes');
-});
 Route::post('search-routes','SearchParametersController@searchRoutes');
 
 
@@ -45,7 +42,7 @@ Route::get('/game', function ()
     return view('game');
 });
 
-Route::get('/map-route/{idroute}', function () 
+Route::get('/map-route', function () 
 {
     return view('map-route');
 });
@@ -68,13 +65,10 @@ Route::get('/administrator', function () {
 Route::get('/place', function () {
     return view('administrator/place');
 });
-Route::get('/route', function () {
-    return view('administrator/route');
-});
 Route::get('/user', function () {
     return view('administrator/user');
 });
-Route::get('/tipyActivities', function () {
+Route::get('/typeActivities', function () {
     return view('administrator/tipyActivities');
 });
 Route::get('/categoryPlaces', function () {
