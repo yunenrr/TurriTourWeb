@@ -90,7 +90,7 @@
     <!-- JS Scripts-->
     <script src="js/functionsAdmin.js"></script>
     <script src="js/functionsMapAdmin.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     <!-- jQuery Js -->
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
