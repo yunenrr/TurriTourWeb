@@ -65,15 +65,18 @@
                                         <button type="submit" id="btnUpdatePlace" style="display:none;" onclick="return updatePlace();" class="btn btn-primary">Update</button>                                     
                                     </form>                                    
                                 </div>
-                               <div class="col-md-6">
-                                                            <div id="map" style="max-height: 100%;height: 100%;min-height: 350px;width: auto;"></div>
-                                    <div class="form-group">
+                               <div class="col-md-6">  
+                                                                   
+                                        <div id="map" style="max-height: 100%;height: 100%;min-height: 385px;width: auto;"></div>
+                                 
+                                
+                                  <div class="form-group" method="post" action="cargar();"> 
                                     <label>Latitud</label>
-                                    <input type="text" class="form-control" id="latitudePlace" name="" ="latitude">
+                                    <input type="text" disabled="true" class="form-control" id="latitudePlace" name="" ="latitude">
                                     <label>Longitud</label>                                    
-                                    <input class="form-control" id="longitudePlace" name="longitude">
+                                    <input class="form-control" disabled="true" id="longitudePlace" name="longitude">
                                  </div> 
-                                 <button type="submit" class="btn btn-primary" onclick="return loadMap();" id="btnLoadMapPlace">Cargar</button> 
+                                 
                                  
                                   <div class="form-group">                                         
                                       <label>Video/Imagen</label>

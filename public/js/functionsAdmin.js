@@ -1,25 +1,4 @@
-function initMap() 
-    {
-        var map;
-        map = new google.maps.Map
-        (
-            document.getElementById('map'), 
-            {
-                center: {lat: 9.9060031, lng: -83.6905646},
-                zoom: 13
-            }
-        );
-    }//Fin de la función initMap
-    function loadMap(){
-      
-      if(document.getElementById("latitude").value=='' || document.getElementById("longitude").value==''){
-        alert('Debe de ingresar longitud y latitud');
-      }else{
-        
 
-      }
-
-    }
 
 //users
     function chargerUserDates(){
