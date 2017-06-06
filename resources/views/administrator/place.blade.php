@@ -62,7 +62,7 @@
                                          </div>                                         
 
                                         <button type="submit" id="btnSavePlace" class="btn btn-primary" onclick="return savePlace();">Guardar</button>
-                                        <button type="submit" id="btnUpdatePlace" style="display:none;" onclick="return updatePlace();" class="btn btn-primary">Update</button>                                     
+                                        <button type="submit" id="btnUpdatePlace" style="display:none;" onclick="return updatePlace();" class="btn btn-primary">Actualizar</button>                                     
                                     </form>                                    
                                 </div>
                                <div class="col-md-6">  
