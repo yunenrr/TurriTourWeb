@@ -73,39 +73,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                         @foreach ($users as $user => $user)
                                         <tr>
-                                            <td>1</td>
-                                            <td>Kevin</td>
-                                            <td>Campos</td>
-                                            <td>R</td>
-                                             <td>k@gmail.com</td>
-                                            <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
-                                            
+                                            <td>{{ ++$i }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->password }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->firstlastname }}</td>
+                                            <td>{{ $user->secondlastname }}</td>
+                                            <td>{{ $user->profilephoto }}</td>
+                                            <td>{{ $user->idroles }}</td>
+                                            <td>
+                                               
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Yunen</td>
-                                            <td>Ramos</td>
-                                            <td>R</td>
-                                             <td>y@gmail.com</td>
-                                            <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Victor</td>
-                                            <td>Salvatierra</td>
-                                            <td>R</td>
-                                             <td>v@gmail.com</td>
-                                            <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                {!! $items->render() !!}
                             </div>
                         </div>
                     </div>
