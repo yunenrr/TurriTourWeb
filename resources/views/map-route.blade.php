@@ -43,15 +43,48 @@
 								<div class="modal-header">
 					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
 					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/logo-la-marta.png')}}" />
-					          		<!---<h4 class="modal-title">Nombre del lugar</h4>-->
 				          		</div>
 				          		<div class="modal-body">
-				          			<p>Hiking * Trekking * Lodgin * BridWatching</p>
+				          			<div class="panel-group" id="accordion">
+				          				<div class="panel panel-default">
+				          					<div class="panel-heading">
+				          						<h4 class="panel-title btn btn-default">
+				          							<a data-toggle="collapse" data-parent="#accordion" href="#divInformationNode">Información</a>
+			          							</h4>
+		          							</div>
+		          							<div id="divInformationNode" class="panel-collapse collapse in">
+		          							<div class="panel-body" style="text-align: justify;">
+												La Marta tiene una extensión de más de 1518 hectáreas de terreno. Forma parte de la reserva de la Biosfera de la Amistad, considerada por la UNESCO Patrimonio Mundial de la Humanidad, y es el primer refugio privado de vida silvestre del país. Aproximadamente un 60 % del territorio corresponde a bosque primario, y el 40 % restante está cubierto por bosque secundario en distintas etapas de regeneración natural.
+												La topografía propia de la cordillera de Talamanca, unida a la presencia de dos ríos en la zona (ríos Gato y La Marta) y al rango altitudinal en el que se encuentra el Refugio, generan una amplia variedad de hábitats que permiten la presencia de gran cantidad de animales y plantas. El Refugio da albergue tanto a especies de animales residentes como a especies migratorias, es decir, a animales que se movilizan a veces cientos de kilómetros en una región buscando alimento y cobertura.
+									      </div>
+									    </div>
+									  </div>
+									  <div class="panel panel-default">
+									    <div class="panel-heading">
+									      <h4 class="panel-title btn btn-default">
+									      	<a data-toggle="collapse" data-parent="#accordion" href="#divSocialNetwork">Redes Sociales</a>
+									      </h4>
+									    </div>
+									    <div id="divSocialNetwork" class="panel-collapse collapse">
+									    	<div class="panel-body">
+												<ul class="social-wrap">
+													<li class="facebook">
+														<a href="https://www.facebook.com/RefugioDeVidaSilvestreLaMarta" target="_blank">
+															<span class="icon-facebook"></span>
+														</a>
+													</li>
+													<li class="dribble">
+														<a href="http://www.lamarta.org/es" target="_blank">
+															<span class="icon-asia"></span>
+														</a>
+													</li>
+												</ul>
+									    	</div>
+									    </div>
+									  </div>
+									</div> 
 				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
 			          			</div>
-			          			<div class="modal-footer">
-			          				<a href="/place/1" class="btn btn-default">Más información</a>
-		          				</div>
 	          				</div>
 					    </div>
 					  </div>
@@ -83,6 +116,14 @@
 									</h4>
 								</div>
 								<div id="collapse2" class="panel-collapse collapse in" role="tabpanel">
+									<div class="form-control" style="background-color: #474d4b;">
+									  <select class="form-control" id="selRoutes">
+									    <option>1</option>
+									    <option>2</option>
+									    <option>3</option>
+									    <option>4</option>
+									  </select>
+									</div>
 								</div>
 							</div>
 						</div>

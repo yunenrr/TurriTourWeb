@@ -1,6 +1,7 @@
 @extends('administrator.index')
 
 @section('body')
+
                  <!-- /. ROW  hh-->
               <div class="row">
                 <div class="col-lg-12">
@@ -14,16 +15,16 @@
                                 <form role="form">
                                          <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control">                                            
+                                            <input class="form-control" id="namePlace">                                            
                                          </div>
                                          <div class="form-group">
                                             <label>Información</label>
-                                            <textarea class="form-control" rows="5"></textarea>
+                                            <textarea class="form-control" rows="5" id="informationPlace"></textarea>
                                          </div> 
                                          <div class="form-group">
                                          
                                             <label>Categorias</label>
-                                            <select class="form-control">
+                                            <select class="form-control" id="categoryPlace">
                                                 <option>Categoria 1</option>
                                                 <option>Categoria 2</option>
                                                 <option>Categoria 3</option>
@@ -31,6 +32,25 @@
                                                 <option>Categoria 5</option>
                                             </select>                                            
                                         </div>  
+                                        <div class="form-group">
+                                         
+                                            <label>Tipos de actividad</label>
+                                            <select class="form-control" id="typeActivityPlace">
+                                                <option>Actividad 1</option>
+                                                <option>Actividad 2</option>
+                                                <option>Actividad 3</option>
+                                                <option>Actividad 4</option>
+                                                <option>Actividad 5</option>
+                                            </select>                                            
+                                        </div> 
+                                        <div class="form-group">
+                                            <label>Slogan</label>
+                                            <input class="form-control" id="sloganPlace"> 
+                                         </div> 
+                                        <div class="form-group">
+                                            <label>Costo $</label>
+                                            <input class="form-control" id="valuePlace"> 
+                                         </div>  
                                         <div class="form-group">                                         
                                             <label>Logo</label>
                                               <img src='assets/img/log.png' border='0' width='40%' height='40%'>
@@ -38,22 +58,26 @@
                                         </div> 
                                         <div class="form-group">
                                             <label>Link Facebook</label>
-                                            <input class="form-control">                                            
+                                            <input class="form-control" id="linkFacebookPlace">                                            
                                          </div>                                         
 
-                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
+                                        <button type="submit" id="btnSavePlace" class="btn btn-primary" onclick="return savePlace();">Guardar</button>
+                                        <button type="submit" id="btnUpdatePlace" style="display:none;" onclick="return updatePlace();" class="btn btn-primary">Actualizar</button>                                     
                                     </form>                                    
                                 </div>
-                               <div class="col-md-6">
-                                  <iframe width="100%" height="160" src="https://www.maps.ie/create-google-map/map.php?width=100%&amp;height=160&amp;hl=en&amp;q=turrialba+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/it/misura-distanza-area-google-maps.html">Misurare distanze google maps</a></iframe>
-                                 <fieldset disabled="false">
-                                  <div class="form-group">
+                               <div class="col-md-6">  
+                                                                   
+                                        <div id="map" style="max-height: 100%;height: 100%;min-height: 385px;width: auto;"></div>
+                                 
+                                
+                                  <div class="form-group" method="post" action="cargar();"> 
                                     <label>Latitud</label>
-                                    <input class="form-control">
+                                    <input type="text" disabled="true" class="form-control" id="latitudePlace" name="" ="latitude">
                                     <label>Longitud</label>                                    
-                                     <input class="form-control">
+                                    <input class="form-control" disabled="true" id="longitudePlace" name="longitude">
                                  </div> 
-                                 </fieldset> 
+                                 
+                                 
                                   <div class="form-group">                                         
                                       <label>Video/Imagen</label>
                                         <img src='assets/img/log.png' border='0' width='40%' height='40%'>
@@ -61,7 +85,7 @@
                                   </div>    
                                   <div class="form-group">
                                     <label>Link web</label>
-                                    <input class="form-control">                                            
+                                    <input class="form-control" id="linkWebPlace">                                            
                                  </div>                      
                                </div>
 
@@ -87,8 +111,8 @@
                                             <td>Parque Nacional Guayabo</td>
                                             <td>Parque Nacional</td>
                                             <td>Recerva Forestal en Turrialba</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
                                             
                                         </tr>
                                         <tr>
@@ -96,16 +120,16 @@
                                             <td>Volcan Turrialba</td>
                                             <td>Parque Nacional</td>
                                             <td>El volcan se encuentra actualmente activo</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>La Wagelia</td>
                                             <td>Hoteles</td>
                                             <td>La mejor opción para su permanencia</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
                                         </tr>
                                     </tbody>
                                 </table>

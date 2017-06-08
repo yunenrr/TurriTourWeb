@@ -12,36 +12,44 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                 <form role="form">
-                                       <div class="form-group">
+                                    <div class="form-group">
                                          <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control">                                            
+                                            <input class="form-control" id="nameUser">                                            
                                          </div>
                                          <div class="form-group">
                                             <label>Primer Apellido</label>
-                                            <input class="form-control">
+                                            <input class="form-control" id="firstname1User">
                                          </div>
                                          <div class="form-group">
                                             <label>Seguntdo Apellido</label>
-                                            <input class="form-control">
+                                            <input class="form-control" id="firstname2User">
                                         </div>
-                                        <label>Correo</label>
-                                        <div class="form-group input-group">
+                                    </div>
+                                    </form>
+                                    <button type="submit" id="btnSaveUser" class="btn btn-primary" onclick="return saveUser();">Guardar</button> 
+                                    <button type="submit" id="btnUpdateUser" class="btn btn-primary" onclick="return updateUser();" style="display:none;">Actualizar</button>                                     
+                                    
+                                    </div>
+                                    <div class="col-lg-6">
+                                     <form role="form"> 
+                                      <div class="form-group">
+                                       <label>Correo</label>
+                                        <div class="form-group input-group" >                                           
                                             <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="ejemplo@dominio.com">
+                                            <input type="text" class="form-control" id="emailUser"  placeholder="ejemplo@dominio.com">
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña</label>
-                                            <input class="form-control" placeholder="*************">
+                                            <input class="form-control" placeholder="*************" id="passUser">
                                         </div>
                                             <label>Roll</label>
-                                            <select class="form-control">
+                                            <select class="form-control" id="rollUser">
                                                 <option>Administrador</option>
                                                 <option>Cliente</option>                                                
                                             </select>                                            
                                         </div>  
-                                        <button type="submit" class="btn btn-primary">Guardar</button>                                     
-                                    </form>                                    
+                                  </form>                                    
                                 </div>
                                <div class="col-md-12">
                      <!--   Basic Table  -->
@@ -72,8 +80,8 @@
                                             <td>R</td>
                                              <td>k@gmail.com</td>
                                             <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
                                             
                                         </tr>
                                         <tr>
@@ -83,8 +91,8 @@
                                             <td>R</td>
                                              <td>y@gmail.com</td>
                                             <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -93,8 +101,8 @@
                                             <td>R</td>
                                              <td>v@gmail.com</td>
                                             <td>Administrador</td>
-                                            <td><a href="#" class="btn btn-primary">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary">Eliminar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return chargerUserDates();">Actualizar</a></td>
+                                            <td><a href="#" class="btn btn-primary" onclick=" return deleteUser();">Eliminar</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
