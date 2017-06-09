@@ -10,47 +10,55 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
+                              <form method="POST" action="api/userstore">
                                 <div class="col-lg-6">
-                                <form role="form">
-                                    <div class="form-group">
-                                         <div class="form-group">
-                                            <label>Nombre</label>
-                                            <input class="form-control" id="nameUser">                                            
-                                         </div>
-                                         <div class="form-group">
-                                            <label>Primer Apellido</label>
-                                            <input class="form-control" id="firstname1User">
-                                         </div>
-                                         <div class="form-group">
-                                            <label>Seguntdo Apellido</label>
-                                            <input class="form-control" id="firstname2User">
-                                        </div>
+                                    <div class="form-group">                                         
+                                        <label>Foto</label>
+                                          <img src='assets/img/log.png' border='0' width='40%' height='40%'>
+                                         <input type="file" name="profilphoto">                                     
+                                   </div> 
+                                    <div class="form-group">                                       
+                                            <label>Roll</label>
+                                            <select class="form-control" id="idroles" name="idroles">
+                                                <option value="1">Administrador</option>
+                                                <option value="2">Cliente</option>                                                
+                                            </select>                                            
+                                        </div>  
+                                         <input id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <button type="submit" id="btnSaveUser" class="btn btn-primary" >Guardar</button> 
+                                        <button type="submit" id="btnUpdateUser" class="btn btn-primary" onclick="return updateUser();" style="display:none;">Actualizar</button>                                     
+                                                                     
                                     </div>
-                                    </form>
-                                    <button type="submit" id="btnSaveUser" class="btn btn-primary" onclick="return saveUser();">Guardar</button> 
-                                    <button type="submit" id="btnUpdateUser" class="btn btn-primary" onclick="return updateUser();" style="display:none;">Actualizar</button>                                     
-                                    
-                                    </div>
+                                                                  
                                     <div class="col-lg-6">
                                      <form role="form"> 
                                       <div class="form-group">
-                                       <label>Correo</label>
+                                         <div class="form-group">
+                                            <label>Nombre</label>
+                                            <input class="form-control" id="name" name="name">                                            
+                                         </div>
+                                         <div class="form-group">
+                                            <label>Primer Apellido</label>
+                                            <input class="form-control" id="firstlastname" name="firstlastname">
+                                         </div>
+                                         <div class="form-group">
+                                            <label>Seguntdo Apellido</label>
+                                            <input class="form-control" id="secondlastname" name="secondlastname">
+                                        </div>  
+                                            <label>Correo</label>
                                         <div class="form-group input-group" >                                           
                                             <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" id="emailUser"  placeholder="ejemplo@dominio.com">
+                                            <input type="text" class="form-control" id="email" name="email"  placeholder="ejemplo@dominio.com">
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña</label>
-                                            <input class="form-control" placeholder="*************" id="passUser">
+                                            <input class="form-control" placeholder="*************" id="password" name="password">
                                         </div>
-                                            <label>Roll</label>
-                                            <select class="form-control" id="rollUser">
-                                                <option>Administrador</option>
-                                                <option>Cliente</option>                                                
-                                            </select>                                            
-                                        </div>  
-                                  </form>                                    
+                                      
+                                       </form> 
                                 </div>
+                                </div>                                     
+                                
                                <div class="col-md-12">
                      <!--   Basic Table  -->
                     <div class="panel panel-default">
@@ -72,25 +80,11 @@
                                              <th>Eliminarar</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                         @foreach ($users as $user => $user)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->password }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->firstlastname }}</td>
-                                            <td>{{ $user->secondlastname }}</td>
-                                            <td>{{ $user->profilephoto }}</td>
-                                            <td>{{ $user->idroles }}</td>
-                                            <td>
-                                               
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
+                                    {{csrf_field()}}
+                                    <?php $no=1;?>
+                                  
                                 </table>
-                                {!! $items->render() !!}
+                               
                             </div>
                         </div>
                     </div>

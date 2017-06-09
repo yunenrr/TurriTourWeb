@@ -5,17 +5,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
+// Validación de formularios.
+use Validator;
+
+// Hash de contraseñas.
+use Hash;
+
+// Redireccionamientos.
+use Redirect;
 
 class UserController extends Controller
 {
     /**************************************************** API ************************************************/
     
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   
+    public function index()
+    {
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+    }
+
     /**
     * Método que retorna un JSON con la información de un usuario en específico.
     */
@@ -37,18 +56,41 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required',
-            'password' => 'required',
-            'name' => 'required',
-            'firstlastname' => 'required',
-            'secondlastname' => 'required',
-            'profilphoto' => 'required',
-            'idroles' => 'required',
-        ]);
+         $rules=array(
+            'email'=>'required|unique:users', 
+            'password'=>'required', // Username es único en la tabla users
+            'name'=>'required',
+            'firstlastname'=>'required',
+            'secondlastname'=>'required',
+            'profilphoto'=>'required',
+            'idroles'=>'required'
 
-        Item::create($request->all());
-       
+            );
+     // Llamamos a Validator pasándole las reglas de validación.
+        $validator=Validator::make($request->all(),$rules);
+
+        // Si falla la validación redireccionamos de nuevo al formulario
+        // enviando la variable Input (que contendrá todos los Input recibidos)
+        // y la variable errors que contendrá los mensajes de error de validator.
+        if ($validator->fails())
+        {
+            return Redirect::to('/user')
+            ->withInput()
+            ->withErrors($validator->messages());
+        }
+        // Si la validación es OK, estamos listos para almacenar en la base de datos los datos.
+        User::create(array(
+            'email'=>$request->input('email'), 
+            'password'=>$request->input('password'), // Username es único en la tabla users
+            'name'=>$request->input('name'),
+            'firstlastname'=>$request->input('firstlastname'),
+            'secondlastname'=>$request->input('secondlastname'), 
+            'profilphoto'=>'http://turritour.000webhostapp.com/img/profile/'.$request->input('profilphoto'), 
+            'idroles'=>$request->input('idroles')
+            ));
+
+        // Redireccionamos a user
+        return Redirect::to('/user');
     }
 
 }
