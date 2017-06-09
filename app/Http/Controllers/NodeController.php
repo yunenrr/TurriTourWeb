@@ -17,6 +17,14 @@ class NodeController extends Controller
         return Node::where('idnodes',$id)->get();
     }//Fin del método
 
+    /**
+         * Método que retorna un JSON con la información de todos los nodos
+    */
+    public function getNodes()
+    {
+        return Node::all();
+    }//Fin del método
+
     /**************************************************** CRUD ************************************************/
     /**
      * Display a listing of the resource.
