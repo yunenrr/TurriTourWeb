@@ -88,6 +88,9 @@ class UserController extends Controller
             'profilphoto'=>'http://turritour.000webhostapp.com/img/profile/'.$request->input('profilphoto'), 
             'idroles'=>$request->input('idroles')
             ));
+        $ruta = "http://turritour.000webhostapp.com/img/profile/" .basename($_FILES['user']['profilphoto']);
+        if(move_uploaded_file($_FILES['fotoUp']['tmp_name'], $ruta))
+        chmod ("http://turritour.000webhostapp.com/img/profile/".basename( $_FILES['user']['profilphoto']), 0644);
 
         // Redireccionamos a user
         return Redirect::to('/user');
