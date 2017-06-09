@@ -50,8 +50,8 @@ Route::get('/map-route', function ()
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
-Route::get('api/getuserbyemail', 'UserController@apiGetUserByEmail');
-Route::get('api/getstartpoints', 'StartPointController@apiGetAllStartPoints');
+Route::get('api/getuserbyemail','UserController@apiGetUserByEmail');
+Route::get('api/getstartpoints','StartPointController@apiGetAllStartPoints');
 Route::get('api/getallusers', 'UserController@apiGetAllUsers');
 Route::Post('api/userstore', 'UserController@store');
 
