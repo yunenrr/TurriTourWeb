@@ -55,9 +55,13 @@ Route::get('/place/{idplace}', function ()
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
-Route::get('api/getuserbyemail', 'UserController@apiGetUserByEmail');
-Route::get('api/getstartpoints', 'StartPointsController@apiGetAllStartPoints');
-Route::get('api/getnodes', 'NodeController@getNodes');
+
+Route::get('api/getuserbyemail','UserController@apiGetUserByEmail');
+Route::get('api/getstartpoints','StartPointsController@apiGetAllStartPoints');
+Route::get('api/getallusers', 'UserController@apiGetAllUsers');
+Route::Post('api/userstore', 'UserController@store');
+
+
 
 
 //rutas para el area de administracion

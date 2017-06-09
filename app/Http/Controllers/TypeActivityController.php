@@ -44,7 +44,7 @@ class TypeActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
