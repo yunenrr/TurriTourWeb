@@ -65,9 +65,8 @@ Route::Post('api/userstore', 'UserController@store');
 
 
 //rutas para el area de administracion
-Route::get('/administrator', function () {
-    return view('/administrator/indexView');
-});
+/** Tiene que cambiar estas **/
+/*
 Route::get('/place', function () {
     return view('administrator/place');
 });
@@ -79,4 +78,10 @@ Route::get('/typeActivities', function () {
 });
 Route::get('/categoryPlaces', function () {
     return view('administrator/categoryPlaces');
+});*/
+
+Route::get('/administrator', function () {
+    return view('/administrator/indexView');
 });
+
+Route::resource('activity', 'TypeActivityController');

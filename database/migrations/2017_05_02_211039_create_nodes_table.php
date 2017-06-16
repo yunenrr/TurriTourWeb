@@ -23,6 +23,7 @@ class CreateNodesTable extends Migration
             $table->foreign('idcategories')->references('idcategories')->on('categories');
             $table->integer('idtypeactivities')->unsigned();
             $table->foreign('idtypeactivities')->references('idtypeactivities')->on('typeactivities');
+            $table->string('value',10);
             $table->string('name',100);
             $table->string('information',1000);
             $table->string('slogan',100);
