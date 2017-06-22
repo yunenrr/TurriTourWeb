@@ -63,7 +63,7 @@
                         <a href="/place" onclick=""><i class="fa fa-bar-chart-o"></i>Lugares</a>
                     </li>
                     <li>
-                        <a href="/typeActivities" onclick=""><i class="fa fa-table"></i>Tipos de actividad</a>
+                        <a href="/activity" onclick=""><i class="fa fa-table"></i>Tipos de actividad</a>
                     </li> 
                     <li>
                         <a href="/categoryPlaces" onclick=""><i class="fa fa-table"></i>Categoria de Lugar</a>

@@ -55,15 +55,18 @@ Route::get('/place/{idplace}', function ()
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
-Route::get('api/getuserbyemail', 'UserController@apiGetUserByEmail');
-Route::get('api/getstartpoints', 'StartPointsController@apiGetAllStartPoints');
-Route::get('api/getnodes', 'NodeController@getNodes');
+
+Route::get('api/getuserbyemail','UserController@apiGetUserByEmail');
+Route::get('api/getstartpoints','StartPointsController@apiGetAllStartPoints');
+Route::get('api/getallusers', 'UserController@apiGetAllUsers');
+Route::Post('api/userstore', 'UserController@store');
+Route::Post('api/getsearchparametersbyemail', 'SearchParametersController@getSearchParametersByEmail');
+
 
 
 //rutas para el area de administracion
-Route::get('/administrator', function () {
-    return view('/administrator/indexView');
-});
+/** Tiene que cambiar estas **/
+/*
 Route::get('/place', function () {
     return view('administrator/place');
 });
@@ -75,4 +78,10 @@ Route::get('/typeActivities', function () {
 });
 Route::get('/categoryPlaces', function () {
     return view('administrator/categoryPlaces');
+});*/
+
+Route::get('/administrator', function () {
+    return view('/administrator/indexView');
 });
+
+Route::resource('activity', 'TypeActivityController');

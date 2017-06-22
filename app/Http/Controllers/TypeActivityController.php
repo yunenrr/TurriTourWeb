@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\TypeActivities;
 use Illuminate\Http\Request;
+use View;
 
 class TypeActivityController extends Controller
 {
-    /**************************************************** API ************************************************/
+    /************************************************* API *********************************************/
     /**
     * Método que retorna un JSON con el nombre de todas las actividades de la base de datos
     */
@@ -15,7 +16,8 @@ class TypeActivityController extends Controller
     {
         return TypeActivities::all();
     }//Fin del método
-    /**************************************************** CRUD ************************************************/
+
+    /************************************************ CRUD*******************************************/
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +25,9 @@ class TypeActivityController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $activities = TypeActivities::all();
+        return View::make('activity.index')->with('activities', $activities);
+    }//Fin del método
 
     /**
      * Show the form for creating a new resource.
@@ -44,7 +47,7 @@ class TypeActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

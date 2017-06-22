@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name',50);
             $table->string('firstlastname',50);
             $table->string('secondlastname',50);
+            $table->string('profilphoto',200);
             $table->integer('idroles')->unsigned();
             $table->foreign('idroles')->references('idroles')->on('roles');
         });
