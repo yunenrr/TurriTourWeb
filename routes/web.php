@@ -60,7 +60,7 @@ Route::get('api/getuserbyemail','UserController@apiGetUserByEmail');
 Route::get('api/getstartpoints','StartPointsController@apiGetAllStartPoints');
 Route::get('api/getallusers', 'UserController@apiGetAllUsers');
 Route::Post('api/userstore', 'UserController@store');
-
+Route::Post('api/getsearchparametersbyemail', 'SearchParametersController@getSearchParametersByEmail');
 
 
 
