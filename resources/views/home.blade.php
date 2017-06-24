@@ -37,6 +37,67 @@
 </ul>
 </div>
 </div>
+  <div class="feature-block" style="text-align: center;">
+    <div class="holder">
+      <ul>
+
+        <li>
+          <strong class="form-title"><label for="lname">Inicio: </label></strong>
+          <select class="form-control" id="lname">
+            <option>Tú ubicación</option>
+            <option>UCR Turrialba </option>
+            <option>Jabillos </option>
+            <option>San Antonio </option>
+          </select>
+
+        </li>
+
+        <li>
+          <strong class="form-title"><label for="lname">Tipo de Actividad: </label></strong>
+          <select class="form-control" id="lname">
+            <option>Aventura </option>
+            <option>Senderismo </option>
+            <option>Gastronomía </option>
+            <option>Alojamiento </option>
+          </select>
+        </li>
+
+        <li>
+          <strong class="form-title"><label for="lname">Distancia Máxima: </label></strong>
+          <select class="form-control" id="lname">
+            <option>5 Kilómetros </option>
+            <option>10 Kilómetros </option>
+            <option>15 Kilómetros </option>
+            <option>20 Kilómetros </option>
+          </select>
+        </li>
+
+        <li>
+          <strong class="form-title"><label for="lname">Duración Máxima: </label></strong>
+          <select class="form-control" id="lname">
+            <option>5 Minutos </option>
+            <option>>10 Minutos </option>
+            <option>>15 Minutos </option>
+            <option>>25 Minutos </option>
+          </select>
+        </li>
+
+        <li>
+          <strong class="form-title"><label for="lname">Costo Promedio: </label></strong>
+          <select class="form-control" id="lname">
+            <option>Bajo </option>
+            <option>Medio </option>
+            <option>Alto </option>
+          </select>
+        </li>
+
+        <li>
+          <a class="btn btn-shadow" onclick="#">Buscar Rutas</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
 </div>
 <main id="main">
 <section class="content-block bg-white">
