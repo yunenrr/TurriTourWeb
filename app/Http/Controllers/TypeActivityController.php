@@ -53,7 +53,8 @@ class TypeActivityController extends Controller
             ));        
        
         // Redireccionamos a user
-        return TypeActivities::all();
+       $activities = TypeActivities::all();
+        return View::make('administrator.typeActivities')->with('activities', $activities);
     }
 
     /**

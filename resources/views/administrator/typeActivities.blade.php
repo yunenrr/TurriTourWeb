@@ -37,9 +37,7 @@
                                              <th>Eliminarar</th>
                                         </tr>
                                         <tbody id="tBodyTypeActivity">
-                                        <script >
-                                         
-                                        </script>
+                                       
                                             <!--ajax cotent here-->
                                         </tbody>                                    
                                 </table>
@@ -57,4 +55,5 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
+             
  @endsection
