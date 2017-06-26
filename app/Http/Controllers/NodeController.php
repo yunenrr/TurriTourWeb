@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Node;
 use Illuminate\Http\Request;
+use View;
 
 class NodeController extends Controller
 {
@@ -33,7 +34,8 @@ class NodeController extends Controller
      */
     public function index()
     {
-        //
+       $nodes = Node::all();
+        return View::make('administrator.place')->with('nodes', $nodes);
     }
 
     /**

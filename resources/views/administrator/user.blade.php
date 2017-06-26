@@ -80,8 +80,7 @@
                                              <th>Eliminarar</th>
                                         </tr>
                                     </thead>
-                                    {{csrf_field()}}
-                                    <?php $no=1;?>
+                                  
                                   
                                 </table>
                                

@@ -1,6 +1,71 @@
 
 
-//users
+//activity
+var idToUpdate;      
+    /*metodo para almacenar la informacion de la actividad*/
+    function saveTypeActivity(){
+        
+        var formData = new FormData(document.getElementById("TypeActivityForm"));  
+        /*se agrega la accion a realizar*/
+        formData.append("action", "store");
+        
+        $.ajax({
+        url : "/activity",
+        type : "post",
+        data : formData,        
+        }).done(function(formData) {            
+            /*se llama al metodo para cargar la lista de actividades*/
+            loadListTypeActivity();
+        });     
+       
+        return false;
+        
+    }/*end of the method*/
+    function loadListTypeActivity() {
+      
+       $.post("/activity",
+        {
+            action: "show" 
+        },
+        function (data)
+        {
+            /*se obtiene el arreglo de productos*/
+            var TypeActivity = jQuery.parseJSON(data); 
+            if(TypeActivity !== false){
+                
+                splitDataTypeActivity(TypeActivity);
+            }else{
+                confirm("No se encontraron datos");
+            }
+        });  
+        
+        return false;
+    }/*end of the method loadList*/
+
+    /*metodo para construir la informacion de la categoria*/
+    function splitDataTypeActivity(TypeActivity){
+       
+        var id, name;
+        var innerHtml="";
+        /*se recorre el array de categorias*/
+        for (var i = 0; i < TypeActivity.length; i++) {
+            innerHtml+="";
+            /*se obtiene el id y nombre de la categoria en proceso*/
+            id=TypeActivity[i].id; 
+            name=TypeActivity[i].name;           
+           
+            
+            
+            /*se construye el html*/
+            innerHtml += "<tr class='active'><td><a id=" + id + " style='text-decoration:none; cursor:pointer;' >" + id + "</a> </td>" +
+            "<td><a id=" + name + " style='text-decoration:none; cursor:pointer;' >" + name +"</a> </td>"+
+              "</tr>";
+        }/*fin del for*/
+        innerHtml+="";
+
+        $("#tBodyTypeActivity").html(innerHtml);
+        $("#tableTypeActivity").show('slow');
+    }/*end of the method*/
     function chargerUserDates(){
          document.getElementById('btnSaveUser').style.display = 'none';
         document.getElementById('btnUpdateUser').style.display = 'block';
@@ -104,12 +169,7 @@
         document.getElementById('descriptionTypeActivity').value = '';
        
     }
-    function saveTypeActivity(){
-         alert('guardando tipo de actividad');
-        document.getElementById('nameTypeActivity').value = '';
-        document.getElementById('descriptionTypeActivity').value = '';
-       
-    }
+    
     function deleteTypeActivity(){
          alert('eliminando tipo de actividad ');
     }

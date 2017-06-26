@@ -85,3 +85,6 @@ Route::get('/administrator', function () {
 });
 
 Route::resource('activity', 'TypeActivityController');
+Route::resource('user', 'UserController');
+Route::resource('place', 'NodeController');
+Route::resource('categoryPlace', 'CategoryController');

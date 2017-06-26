@@ -26,7 +26,7 @@ class TypeActivityController extends Controller
     public function index()
     {
         $activities = TypeActivities::all();
-        return View::make('activity.index')->with('activities', $activities);
+        return View::make('administrator.typeActivities')->with('activities', $activities);
     }//Fin del método
 
     /**
@@ -47,7 +47,13 @@ class TypeActivityController extends Controller
      */
     public function store(Request $request)
     {
-        
+         // Si la validación es OK, estamos listos para almacenar en la base de datos los datos.
+        typeActivities::create(array(
+            'name'=>$request->input('name'),             
+            ));        
+       
+        // Redireccionamos a user
+        return TypeActivities::all();
     }
 
     /**
@@ -56,9 +62,9 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeActivities $typeActivities)
+    public function show()
     {
-        //
+        return TypeActivities::all();
     }
 
     /**
