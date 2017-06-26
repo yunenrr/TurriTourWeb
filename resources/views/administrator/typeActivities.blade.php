@@ -29,17 +29,32 @@
                         
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table" id="tableTypeActivity">
+                                <table class="table" >
                                         <tr>
                                             <th>#</th>
                                             <th>tipo de actividad</th>
                                             <th>Actualizar</th>
                                              <th>Eliminarar</th>
                                         </tr>
-                                        <tbody id="tBodyTypeActivity">
-                                       
+                                        
+                                           @foreach($activities as $activity)
+                                          <tr class="activity{{$activity->idtypeasctivities}}">
+                                              <td>{{$activity->idtypeactivities}}</td>
+                                              <td>{{$activity->name}}</td>
+                                              <td><button onclick="return alterHtmlTypeActivity({{$activity->idtypeactivities}})" class="edit-modal btn btn-info" data-id="{{$activity->id}}"
+                                                      data-name="{{$activity->name}}">
+                                                      <span class="glyphicon glyphicon-edit"></span> Edit
+                                                  </button>
+                                              </td>
+                                              <td>
+                                                  <button onclick="return deleteTypeActivity({{$activity->idtypeactivities}})" class="delete-modal btn btn-danger" data-id="{{$activity->id}}"
+                                                      data-name="{{$activity->name}}">
+                                                      <span class="glyphicon glyphicon-trash"></span> Delete
+                                                  </button></td>
+                                          </tr>
+                                          @endforeach
                                             <!--ajax cotent here-->
-                                        </tbody>                                    
+                                                                          
                                 </table>
 
                                      

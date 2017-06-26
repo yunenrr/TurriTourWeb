@@ -67,6 +67,14 @@ class TypeActivityController extends Controller
     {
         return TypeActivities::all();
     }
+    /**
+    * Método que retorna un JSON con la información de un nodo en específico.
+    */
+    public function getActivityById(Request $request)
+    {
+        $id = $request->input("id");
+        return typeActivities::where('idtypeactivities',$id);
+    }//Fin del método
 
     /**
      * Show the form for editing the specified resource.
@@ -97,8 +105,9 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeActivities $typeActivities)
+    public function destroy($id)
     {
-        //
+        TypeActivities::destroy($id);
+        return View::make('administrator.typeActivities')->with('activities', $activities);
     }
 }
