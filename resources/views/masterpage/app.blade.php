@@ -72,39 +72,18 @@
                                         </div>
                                     </li>
 
-                                    <li class="visible-xs visible-sm dropdown">
-
-                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
-
-                                            <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text" style="margin-top:20">Sophía</span>
+                                    <li class="visible-xs visible-sm">
+                                        <a href="/session">
+                                            <span class="icon icon-user"></span>
+                                            <span class="text" >Iniciar Sesión</span>
                                         </a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="/logout">Cerrar Sesión</a></li>
-                                                <li><a href="/administrator">Administrador</a></li>
-    
-                                            </ul>
-                                        </div>
                                     </li>
-                                    <li class="hidden-xs hidden-sm v-divider dropdown">
-
-                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
-                                            <img id="imgSesion"  src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                            <span class="text" style="margin-top:20">Sophía</span>                                       
-
+                                    <li class="hidden-xs hidden-sm v-divider">
+                                        <a href="/session">
+                                            <span class="icon icon-user"></span>
+                                            <span class="text">Iniciar Sesión</span>
                                         </a>
-                                        <div class="dropdown-menu">
-                                            <ul>
-                                                <li><a href="/logout">Cerrar Sesión</a></li>
-                                                <li><a href="/administrator">Administrador</a></li>
-    
-                                            </ul>
-                                        </div>
                                     </li>
-
-     
-
                                 </ul>
 
                             </div>
