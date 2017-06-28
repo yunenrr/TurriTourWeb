@@ -18,8 +18,18 @@ class UserController extends Controller
      */
     public function index()
     {
+       
+        return View::make('administrator.user');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
         $users = User::all();
-        return View::make('administrator.user')->with('users', $users);
+        return $users;
     }
     /**
      * Show the form for creating a new resource.
@@ -64,8 +74,31 @@ class UserController extends Controller
             'idroles'=>$request->input('idroles')
             ));
        
-        // Redireccionamos a user
-        return "Registro Exitoso";
+       
     }
 
+     
+    public function update(Request $request)
+    {
+
+        $activities =find($request->id);
+        $activities->idtypeactivities=$request->email;
+        $activities->name=$request->name;
+        $activities->firstlastname=$request->firstlastname;
+        $activities->secondlastname=$request->secondlastname;
+        $activities->password=$request->password;
+        $activities->idroles=$request->idroles;
+        $activities->profilphoto=$request->profilphoto;
+        $activities->save();
+
+    }
+
+    
+    public function destroy(Request $request)
+    {  
+        $email = $request->email;
+        $users =User::where('email',$email);
+        $users->delete();
+       
+    }
 }
