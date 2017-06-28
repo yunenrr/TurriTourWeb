@@ -39,7 +39,7 @@ Route::get('/game', function ()
     return view('game');
 });
 
-Route::get('/map-route', function () 
+Route::get('map-route', function () 
 {
     return view('map-route');
 });

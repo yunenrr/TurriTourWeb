@@ -134,7 +134,7 @@ class SearchParametersController extends Controller
                     array_push($southeastRoute, $orderedNodes->getNode($i)->node);
                 }
         }
-        return view('map-route')->with('northwestRoute', json_encode($northwestRoute))->with('southwestRoute', json_encode($southwestRoute))->with('northeastRoute', json_encode($northeastRoute))->with('southeastRoute', json_encode($southeastRoute));
+        return view('map-route')->with('northwestRoute', json_encode($northwestRoute))->with('southwestRoute', json_encode($southwestRoute))->with('northeastRoute', json_encode($northeastRoute))->with('southeastRoute', json_encode($southeastRoute))->with('latitude',$latitude)->with('longitude',$longitude);
 
     }//Fin del método
 

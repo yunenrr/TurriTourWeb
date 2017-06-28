@@ -275,14 +275,14 @@ function fillStartPoints(position)
 
           if("Tú ubicación".localeCompare(current.name)==0)
           {
-            answer = '<option value='+currentPosition+'>'+current.name+'</option';
+            answer += '<option value='+currentPosition+'>'+current.name+'</option>';
           }
           else
           {
-            answer = '<option>'+current.name+'</option';
+            answer += '<option>'+current.name+'</option>';
           }
-          $("#slStartPoint").html(answer);
         }//Fin del for
+        $("#slStartPoint").html(answer);
       }
     }
   );
