@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class StartPoints extends Model
 {
-    //
+    protected $table = "start_points";
 }
