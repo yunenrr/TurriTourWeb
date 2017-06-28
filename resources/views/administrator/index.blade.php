@@ -13,6 +13,7 @@
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <meta id="token" name="_token" value="{{ csrf_token() }}">
     
 </head>
 
@@ -88,11 +89,13 @@
     </div>
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    
+    <script src="assets/js/jquery-1.10.2.js"></script>
     <script src="js/functionsAdmin.js"></script>
     <script src="js/functionsMapAdmin.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
@@ -107,3 +110,4 @@
 </body>
 
 </html>
+  

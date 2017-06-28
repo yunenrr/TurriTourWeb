@@ -48,6 +48,10 @@ Route::get('/place/{idplace}', function ()
     return view('place');
 });
 
+Route::get('/administrator', function () {
+    return view('/administrator/indexView');
+});
+
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
 Route::get('api/allcategory', 'CategoryController@apiGetAllCategory');
 Route::get('api/getnode', 'NodeController@apiGetForMap');
@@ -57,29 +61,9 @@ Route::get('api/getallusers', 'UserController@apiGetAllUsers');
 Route::Post('api/userstore', 'UserController@store');
 Route::Post('api/getsearchparametersbyemail', 'SearchParametersController@getSearchParametersByEmail');
 
-
-
-//rutas para el area de administracion
-/** Tiene que cambiar estas **/
-/*
-Route::get('/place', function () {
-    return view('administrator/place');
-});
-Route::get('/user', function () {
-    return view('administrator/user');
-});
-Route::get('/typeActivities', function () {
-    return view('administrator/tipyActivities');
-});
-Route::get('/categoryPlaces', function () {
-    return view('administrator/categoryPlaces');
-});*/
-
-Route::get('/administrator', function () {
-    return view('/administrator/indexView');
-});
-
 Route::resource('activity', 'TypeActivityController');
+Route::get('activities', 'TypeActivityController@showAll');
+Route::get('dactivity', 'TypeActivityController@destroy');
 Route::resource('user', 'UserController');
 Route::resource('place', 'NodeController');
 Route::resource('categoryPlace', 'CategoryController');
