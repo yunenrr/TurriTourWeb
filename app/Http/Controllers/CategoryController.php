@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-
+use View;
 class CategoryController extends Controller
 {
     /**************************************************** API ************************************************/
@@ -23,7 +23,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+         $category = Category::all();
+        return View::make('administrator.categoryPlaces')->with('category', $category);
     }
 
     /**

@@ -1,143 +1,110 @@
+//activity
+  
+var idToUpdate; 
+$(document).ready(function(){
+    loadTypeActivity();
+});
 
-
-//users
-    function chargerUserDates(){
-         document.getElementById('btnSaveUser').style.display = 'none';
-        document.getElementById('btnUpdateUser').style.display = 'block';
-
-        document.getElementById('nameUser').value = 'Kevin';
-        document.getElementById('firstname1User').value = 'Campos';
-        document.getElementById('firstname2User').value = 'R';
-        document.getElementById('emailUser').value = 'k@gmail.com';
-        document.getElementById('passUser').value = '12345678';
-        document.getElementById('rollUser').value = 'Administrador';
-    }
-    function updateUser(){
-         alert('actualizando usuario');
-         document.getElementById('btnUpdate').style.display = 'none';
-        document.getElementById('btnSave').style.display = 'block';
-
-        document.getElementById('nameUser').value = '';
-        document.getElementById('firstname1User').value = '';
-        document.getElementById('firstname2User').value = '';
-        document.getElementById('emailUser').value = '';
-        document.getElementById('passUser').value = '';
-        document.getElementById('rollUser').value = '';
-    }
-    function saveUser(){
-         alert('guardando usuario');
-        document.getElementById('nameUser').value = '';
-        document.getElementById('firstname1User').value = '';
-        document.getElementById('firstname2User').value = '';
-        document.getElementById('emailUser').value = '';
-        document.getElementById('passUser').value = '';
-        document.getElementById('rollUser').value = '';
-    }
-    function deleteUser(){
-         alert('eliminando usuario ');
-    }
-
-    //Places
-    function chargerPlaceDates(){
-         document.getElementById('btnSavePlace').style.display = 'none';
-        document.getElementById('btnUpdatePlace').style.display = 'block';
-
-        document.getElementById('namePlace').value = 'Casa de Bety';
-        document.getElementById('informationPlace').value = 'Los mejores almuerzos del cantón';
-        document.getElementById('categoryPlace').value = 'Categoria 3';
-        document.getElementById('typeActivityPlace').value = 'Actividad 4';
-        document.getElementById('sloganPlace').value = 'Para servirle...';
-        document.getElementById('valuePlace').value = '2000';
-        document.getElementById('linkWebPlace').value = 'http://bety.com';
-        document.getElementById('linkFacebookPlace').value = 'http://facebook/bety.com';
-        document.getElementById('latitudePlace').value = '9.123456';
-        document.getElementById('longitudePlace').value = '5.123456';
-    }
-    function updatePlace(){
-         alert('actualizando lugar');
-         document.getElementById('btnUpdate').style.display = 'none';
-        document.getElementById('btnSave').style.display = 'block';
-
-        document.getElementById('namePlace').value = '';
-        document.getElementById('informaionPlace').value = '';
-        document.getElementById('categoryPlace').value = '';
-        document.getElementById('TypeActivityPlace').value = '';
-        document.getElementById('sloganPlace').value = '';
-        document.getElementById('valuePlace').value = '';
-        document.getElementById('linkWebPlace').value = '';
-        document.getElementById('linkFacebookPlace').value = '';
-        document.getElementById('latitude').value = '';
-        document.getElementById('longitude').value = '';
-    }
-    function savePlace(){
-         alert('guardando lugar');
-         document.getElementById('namePlace').value = '';
-        document.getElementById('informaionPlace').value = '';
-        document.getElementById('categoryPlace').value = '';
-        document.getElementById('TypeActivityPlace').value = '';
-        document.getElementById('sloganPlace').value = '';
-        document.getElementById('valuePlace').value = '';
-        document.getElementById('linkWebPlace').value = '';
-        document.getElementById('linkFacebookPlace').value = '';
-        document.getElementById('latitude').value = '';
-        document.getElementById('longitude').value = '';
-    }
-    function deletePlace(){
-         alert('eliminando lugar ');
-    }
-
-    //typeActivity
-    function chargerTypeActivityDates(){
-         document.getElementById('btnSaveTypeActivity').style.display = 'none';
-        document.getElementById('btnUpdateTypeActivity').style.display = 'block';
-
-        document.getElementById('nameTypeActivity').value = 'Senderismo';
-        document.getElementById('descriptionTypeActivity').value = 'Senderismo de montaña';
+ $("#btnInsert").click(function(){
+        var formData = new FormData(document.getElementById("TypeActivityForm")); 
+        var route = "/activity";
+        /*se agrega la accion a realizar*/
+        formData.append("action", "store");
         
-    }
-    function updateTypeActivity(){
-         alert('actualizando tipo de actividad');
-         document.getElementById('btnUpdateTypeActivity').style.display = 'none';
-        document.getElementById('btnSaveTypeActivity').style.display = 'block';
-
-        document.getElementById('nameTypeActivity').value = '';
-        document.getElementById('descriptionTypeActivity').value = '';
-       
-    }
-    function saveTypeActivity(){
-         alert('guardando tipo de actividad');
-        document.getElementById('nameTypeActivity').value = '';
-        document.getElementById('descriptionTypeActivity').value = '';
-       
-    }
-    function deleteTypeActivity(){
-         alert('eliminando tipo de actividad ');
-    }
-
-    //CategoryPlace
-    function chargerCategoryPlaceDates(){
-         document.getElementById('btnSaveCategoryPlace').style.display = 'none';
-        document.getElementById('btnUpdateCategoryPlace').style.display = 'block';
-
-        document.getElementById('nameCategoryPlace').value = 'Senderismo';
-        document.getElementById('descriptionCategoryPlace').value = 'Senderismo de montaña';
+        $.ajax({
+        url : route,
+        type : "post",
+        dataType : "json",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false,
         
-    }
-    function updateCategoryPlace(){
-         alert('actualizando categoria');
-         document.getElementById('btnUpdateCategoryPlace').style.display = 'none';
-        document.getElementById('btnSaveCategoryPlace').style.display = 'block';
+        });            
+            document.getElementById("name").value = '';
+            loadTypeActivity();
+            
+ });
+  $("#btnUpdate").click(function(){
+        alert(document.getElementById("id").value);
+        var formData = new FormData(document.getElementById("TypeActivityForm")); 
+        var route = "/activity";
+        /*se agrega la accion a realizar*/
+        formData.append("action", "update");
+        
+        $.ajax({
+        url : route,
+        type : "post",
+        dataType : "json",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false,
+        
+        });
 
-        document.getElementById('nameCategoryPlace').value = '';
-        document.getElementById('descriptionCategoryPlace').value = '';
+        document.getElementById("name").value = '';
+        loadTypeActivity();
+ });
+  
+    /*metodo para almacenar la informacion de la actividad*/
+    function loadTypeActivity(){
+        var tdatos = $("#tDatos"); 
+        var route = "/activities";
+        
+     $.get(route, function(res){
+        splitDataTypeActivities(res);
+     });  
+    
+    }/*end of the method*/
+    
+    /*metodo para construir la informacion de la categoria*/
+function splitDataTypeActivities(activities){
+        var name, idtypeactivities;
+        var innerHtml=" <tr><th>#</th><th>tipo de actividad</th><th>Actualizar</th><th>Eliminarar</th></tr>";
+        /*se recorre el array de categorias*/
+        for (var i = 0; i < activities.length; i++) {
+            innerHtml+="";
+            /*se obtiene el id y nombre de la categoria en proceso*/
+            name=activities[i].name; 
+            idtypeactivities=activities[i].idtypeactivities;                   
+            
+            /*se construye el html*/
+            innerHtml += "<tr >"+
+                          "<td>"+idtypeactivities+"</td>"+
+                          "<td >"+name+"</td>"+
+                          "<td><button onclick='return alterHtmlTypeActivity("+idtypeactivities+")' class='edit-modal btn btn-info' data-id='"+idtypeactivities+"'"+
+                                  "data-name='"+name+"'>"+
+                                  "<span class='glyphicon glyphicon-edit'></span> Editar"+
+                          "</button> </td>"+                          
+                          "<td><button id='"+idtypeactivities+"' value='"+name+"' onclick='return deleteTypeActivity("+idtypeactivities+")' class='delete-modal btn btn-danger' data-id='"+idtypeactivities+"'"+
+                                  "data-name='"+name+"'>"+
+                                  "<span class='glyphicon glyphicon-trash'></span> Eliminar"+
+                          "</button></td>"+                              
+                          "</tr> ";
+        }/*fin del for*/
+        innerHtml+="";
+        
+        $("#tDatos").empty().html(innerHtml);
+    }/*end of the method*/  
+    
+    
+    /*metodo mostrar y ocultar informacion segun el boton a presionar*/
+   function alterHtmlTypeActivity(id){  
+        var idname="#"+id;
+        document.getElementById('btnInsert').style.display = 'none';        
+        document.getElementById('name').value =  $(idname).val();
+        document.getElementById('id').value = id;       
+        document.getElementById('btnUpdate').style.display = 'block';       
+    }/*fin del metodo*/
+     /*metodo para eliminar la informacion del provedor*/
+    function deleteTypeActivity(idtypeactivities_){
+        
+        var route = "http://localhost:8000/dactivity/?id="+idtypeactivities_+"";
+        
+     $.get(route, function(){
        
-    }
-    function saveCategoryPlace(){
-         alert('guardando categoria');
-        document.getElementById('nameCategoryPlace').value = '';
-        document.getElementById('descriptionCategoryPlace').value = '';
-       
-    }
-    function deleteCategoryPlace(){
-         alert('eliminando categoria');
-    }
+     });  
+            loadTypeActivity(); 
+    }/*end of the method delete provedores*/
+    
