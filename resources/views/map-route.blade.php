@@ -1,12 +1,6 @@
 @extends('masterpage.app')
 @section('body')
 
-<?php 
-	if(!isset($nodes))
-	{
-		redirect()->to('/search-routes')->send();
-	}
-?>
 <!-- Banner -->
 <section class="banner banner-inner parallax" data-stellar-background-ratio="0.5" id="banner-layout-leftsidebar">
 	<div class="banner-text">
@@ -118,6 +112,7 @@
 								<div id="collapse2" class="panel-collapse collapse in" role="tabpanel">
 									<div class="form-control" style="background-color: #474d4b;">
 									  <select class="form-control" id="selRoutes">
+									  	<option>Selecciones</option>
 									    <option>1</option>
 									    <option>2</option>
 									    <option>3</option>
@@ -156,35 +151,10 @@
 				zoom: 13
 			}
 		);
-		addMarkers("Usted está aquí",9.878132,-83.635680,"initial");
-		initialPosition = 9.878132+","+-83.635680;
-		getNodes();
-	}//Fin de la función initMap
-
-	/**
-	Función que recupera del JSON la información de los nodos y los agrega en un String
-	*/
-	function getNodes()
-	{
-		var jsonString = '{{ $nodes }}';
-		var arrayJSON = JSON.parse(jsonString.replace(/&quot;/g,'"'));
-		
-		for(position in arrayJSON)
-		{
-			addMarkers(arrayJSON[position].name,arrayJSON[position].latitude,arrayJSON[position].longitude,arrayJSON[position].name+position);
-
-			if(position == arrayJSON.length-1)
-			{
-				endPosition = arrayJSON[position].latitude+","+arrayJSON[position].longitude;
-			}
-			else
-			{
-				waypts.push({ location: arrayJSON[position].latitude+","+arrayJSON[position].longitude, stopover: true });
-			}
-		}//Fin del for
-
+		addMarkers("Usted está aquí",{{ $latitude }},{{ $longitude }},"initial");
+		initialPosition = {{ $latitude }}+","+{{ $longitude }};
 		createRoute();
-	}//Fin de la función
+	}//Fin de la función initMap
 
 	/**
 	Función que agrega los marcadores en el mapa.
@@ -211,8 +181,8 @@
 		{
 			origin: initialPosition,
 			destination: endPosition,
-			waypoints: waypts,
-			optimizeWaypoints: true,
+/*			waypoints: waypts,
+			optimizeWaypoints: true,*/
 			provideRouteAlternatives: false,
 			travelMode: 'DRIVING'
 		};
@@ -226,6 +196,9 @@
 		});
 	}//Fin de la función
 
+	/**
+	Función que muestra la información de un nodo
+	*/
 	function msj()
 	{
 		$('#myModal').modal('show');

@@ -24,9 +24,8 @@ class TypeActivityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $activities = TypeActivities::all();
-        return View::make('activity.index')->with('activities', $activities);
+    {       
+        return View::make('administrator.typeActivities');
     }//Fin del método
 
     /**
@@ -47,8 +46,12 @@ class TypeActivityController extends Controller
      */
     public function store(Request $request)
     {
-        
-    }
+         // Si la validación es OK, estamos listos para almacenar en la base de datos los datos.
+        typeActivities::create(array(
+            'name'=>$request->input('name'),             
+            ));  
+        // Redireccionamos a user
+      }
 
     /**
      * Display the specified resource.
@@ -56,10 +59,30 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeActivities $typeActivities)
+    public function show()
     {
-        //
+        $activities=TypeActivities::all();
+        return "";
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\TypeActivities  $typeActivities
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $activities=TypeActivities::all();
+        return $activities;
+    }
+    /**
+    * Método que retorna un JSON con la información de un nodo en específico.
+    */
+    public function getActivityById(Request $request)
+    {
+        $id = $request->input("id");
+        return typeActivities::where('idtypeactivities',$id);
+    }//Fin del método
 
     /**
      * Show the form for editing the specified resource.
@@ -67,7 +90,7 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeActivities $typeActivities)
+    public function edit(Request $request)
     {
         //
     }
@@ -79,9 +102,14 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeActivities $typeActivities)
+    public function update(Request $request)
     {
-        //
+
+        $activities =find($request->id);
+        $activities->idtypeactivities=$request->id;
+        $activities->name=$request->name;
+        $activities->save();
+
     }
 
     /**
@@ -90,8 +118,11 @@ class TypeActivityController extends Controller
      * @param  \App\TypeActivities  $typeActivities
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeActivities $typeActivities)
-    {
-        //
+    public function destroy(Request $request)
+    {  
+        $id = $request->id;
+        $activities =typeActivities::where('idtypeactivities',$id);
+        $activities->delete();
+       
     }
-}
+}//Fin de la clase

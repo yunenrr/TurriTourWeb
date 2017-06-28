@@ -47,12 +47,16 @@
 
         <li>
           <strong class="form-title"><label for="lbStartPoint">Inicio: </label></strong>
-          <select class="form-control" id="slStartPoint" name="slStartPoint"></select>
+          <select class="form-control" id="slStartPoint" name="slStartPoint">
+            <option>Está aquí</option>
+          </select>
         </li>
 
         <li>
           <strong class="form-title"><label for="lbTypeActivity">Tipo de Actividad: </label></strong>
-          <select class="form-control" id="slTypeActivity"></select>
+          <select class="form-control" id="slTypeActivity">
+            <option>Actividad</option>
+          </select>
         </li>
 
         <li>
@@ -260,7 +264,6 @@ function fillStartPoints(position)
     {
       type:'GET',
       url:'/api/getstartpoints',
-      beforeSend: function () {},
       success:function(data)
       {
         var answer = '';
@@ -270,20 +273,21 @@ function fillStartPoints(position)
         {
           current = data[position];
 
-          if("Tú ubicación".localeCompare(current.name)==0){
-              answer = '<option value='+currentPosition+'>'+current.name+'</option';
-            }
-            else
-              {
-                answer = '<option>'+current.name+'</option';
-              }
-
-            $("#slStartPoint").append(answer);
+          if("Tú ubicación".localeCompare(current.name)==0)
+          {
+            answer += '<option value='+currentPosition+'>'+current.name+'</option>';
+          }
+          else
+          {
+            answer += '<option>'+current.name+'</option>';
+          }
         }//Fin del for
+        $("#slStartPoint").html(answer);
       }
     }
   );
 }//Fin de la función
+
 function fillTypesActivity()
 {
   $.ajax
@@ -291,7 +295,6 @@ function fillTypesActivity()
     {
       type:'GET',
       url:'/api/allactivity',
-      beforeSend: function () {},
       success:function(data)
       {
         var answer = '';
@@ -300,9 +303,9 @@ function fillTypesActivity()
         for(position in data)
         {
           current = data[position];
-            answer = '<option value='+current.idtypeactivities+'>'+current.name+'</option';
-            $("#slTypeActivity").append(answer);
+          answer += '<option value='+current.idtypeactivities+'>'+current.name+'</option>';
         }//Fin del for
+        $("#slTypeActivity").html(answer);
       }
     }
   );

@@ -6,7 +6,9 @@ use App\Node;
 use App\MyNode;
 use App\MyLinkedList;
 use Illuminate\Http\Request;
+use View;
 use Illuminate\Support\Facades\DB;
+
 
 class NodeController extends Controller
 {
@@ -28,7 +30,8 @@ class NodeController extends Controller
      */
     public function index()
     {
-        //
+       $nodes = Node::all();
+        return View::make('administrator.place')->with('nodes', $nodes);
     }
 
     /**
