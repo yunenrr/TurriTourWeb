@@ -92,7 +92,7 @@
     <!-- jQuery Js -->
     
     <script src="assets/js/jquery-1.10.2.js"></script>
-    <script src="js/functionsAdmin.js"></script>
+     @yield('scripts')
     <script src="js/functionsMapAdmin.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     
@@ -105,7 +105,7 @@
     <script src="assets/js/morris/morris.js"></script>
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
-
+    
 
 </body>
 

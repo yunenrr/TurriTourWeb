@@ -65,6 +65,16 @@ Route::Post('api/getsearchparametersbyemail', 'SearchParametersController@getSea
 Route::resource('activity', 'TypeActivityController');
 Route::get('activities', 'TypeActivityController@showAll');
 Route::get('dactivity', 'TypeActivityController@destroy');
-Route::resource('user', 'UserController');
-Route::resource('place', 'NodeController');
+
 Route::resource('categoryPlace', 'CategoryController');
+Route::get('categories', 'CategoryController@showAll');
+Route::get('dcategory', 'CategoryController@destroy');
+
+
+Route::resource('user', 'UserController');
+Route::get('users', 'UserController@showAll');
+Route::get('duser', 'UserController@destroy');
+
+Route::resource('place', 'NodeController');
+Route::get('places', 'NodeController@showAll');
+Route::get('dplace', 'NodeController@destroy');

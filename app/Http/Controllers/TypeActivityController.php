@@ -61,8 +61,7 @@ class TypeActivityController extends Controller
      */
     public function show()
     {
-        $activities=TypeActivities::all();
-        return "";
+       
     }
     /**
      * Display the specified resource.

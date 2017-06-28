@@ -26,7 +26,7 @@ $(document).ready(function(){
             
  });
   $("#btnUpdate").click(function(){
-        alert(document.getElementById("id").value);
+       
         var formData = new FormData(document.getElementById("TypeActivityForm")); 
         var route = "/activity";
         /*se agrega la accion a realizar*/
@@ -42,7 +42,8 @@ $(document).ready(function(){
         processData : false,
         
         });
-
+        document.getElementById('btnUpdate').style.display = 'none';
+          document.getElementById('btnInsert').style.display = 'block';
         document.getElementById("name").value = '';
         loadTypeActivity();
  });
@@ -91,16 +92,26 @@ function splitDataTypeActivities(activities){
     
     /*metodo mostrar y ocultar informacion segun el boton a presionar*/
    function alterHtmlTypeActivity(id){  
-        var idname="#"+id;
-        document.getElementById('btnInsert').style.display = 'none';        
-        document.getElementById('name').value =  $(idname).val();
-        document.getElementById('id').value = id;       
-        document.getElementById('btnUpdate').style.display = 'block';       
+         var route = "/activities";
+        
+        
+     $.get(route, function(res){
+         $(res).each(function(i,item){
+            if(item.idtypeactivities==id){
+              document.getElementById("id").value = item.idtypeactivities;
+              document.getElementById("name").value = item.name;
+             
+            }
+        });
+     });   
+          document.getElementById('btnUpdate').style.display = 'block';
+          document.getElementById('btnInsert').style.display = 'none';
+   
     }/*fin del metodo*/
      /*metodo para eliminar la informacion del provedor*/
     function deleteTypeActivity(idtypeactivities_){
         
-        var route = "http://localhost:8000/dactivity/?id="+idtypeactivities_+"";
+        var route = "dactivity/?id="+idtypeactivities_+"";
         
      $.get(route, function(){
        

@@ -10,12 +10,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                              <form method="POST" action="api/userstore">
+                              <form role="form" id="UserForm" method="POST">
                                 <div class="col-lg-6">
                                     <div class="form-group">                                         
                                         <label>Foto</label>
                                           <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                         <input type="file" name="profilphoto">                                     
+                                         <input type="file" id="profilphoto" >                                     
                                    </div> 
                                     <div class="form-group">                                       
                                             <label>Roll</label>
@@ -24,14 +24,14 @@
                                                 <option value="2">Cliente</option>                                                
                                             </select>                                            
                                         </div>  
-                                         <input id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" id="btnSaveUser" class="btn btn-primary" >Guardar</button> 
-                                        <button type="submit" id="btnUpdateUser" class="btn btn-primary" onclick="return updateUser();" style="display:none;">Actualizar</button>                                     
-                                                                     
+                                        <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
+                                        <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
+                                                                 
                                     </div>
                                                                   
                                     <div class="col-lg-6">
-                                     <form role="form"> 
+                                    
                                       <div class="form-group">
                                          <div class="form-group">
                                             <label>Nombre</label>
@@ -67,19 +67,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido 1</th>
-                                            <th>Apellido 2</th>
-                                            <th>Correo</th>
-                                            <th>Roll</th>
-                                            <th>Actualizar</th>
-                                             <th>Eliminarar</th>
-                                        </tr>
-                                    </thead>
+                                <table class="table" id="tDatos">
+                                    
                                   
                                   
                                 </table>
@@ -98,3 +87,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
                   @endsection
+                   @section('scripts')
+                     <script src="js/functionsUsers.js"></script>
+                   @endsection
+                  

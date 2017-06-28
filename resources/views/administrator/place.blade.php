@@ -12,19 +12,20 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                <form role="form">
+                                <form role="form" id="TypeActivityForm" method="POST">
                                          <div class="form-group">
                                             <label>Nombre</label>
-                                            <input class="form-control" id="namePlace">                                            
+                                            <input  class="form-control" id="id" type="hidden" >
+                                            <input class="form-control" id="name">                                            
                                          </div>
                                          <div class="form-group">
                                             <label>Información</label>
-                                            <textarea class="form-control" rows="5" id="informationPlace"></textarea>
+                                            <textarea class="form-control" rows="5" id="information"></textarea>
                                          </div> 
                                          <div class="form-group">
                                          
                                             <label>Categorias</label>
-                                            <select class="form-control" id="categoryPlace">
+                                            <select class="form-control" id="idcategories">
                                                 <option>Categoria 1</option>
                                                 <option>Categoria 2</option>
                                                 <option>Categoria 3</option>
@@ -35,7 +36,7 @@
                                         <div class="form-group">
                                          
                                             <label>Tipos de actividad</label>
-                                            <select class="form-control" id="typeActivityPlace">
+                                            <select class="form-control" id="idtypeactivity">
                                                 <option>Actividad 1</option>
                                                 <option>Actividad 2</option>
                                                 <option>Actividad 3</option>
@@ -45,93 +46,59 @@
                                         </div> 
                                         <div class="form-group">
                                             <label>Slogan</label>
-                                            <input class="form-control" id="sloganPlace"> 
+                                            <input class="form-control" id="slogan"> 
                                          </div> 
                                         <div class="form-group">
                                             <label>Costo $</label>
-                                            <input class="form-control" id="valuePlace"> 
+                                            <input class="form-control" id="value"> 
                                          </div>  
                                         <div class="form-group">                                         
                                             <label>Logo</label>
                                               <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                             <input type="file">                                     
+                                             <input type="file" id="pathlogo">                                     
                                         </div> 
                                         <div class="form-group">
                                             <label>Link Facebook</label>
-                                            <input class="form-control" id="linkFacebookPlace">                                            
+                                            <input class="form-control" id="urlfacebook">                                            
                                          </div>                                         
-
-                                        <button type="submit" id="btnSavePlace" class="btn btn-primary" onclick="return savePlace();">Guardar</button>
-                                        <button type="submit" id="btnUpdatePlace" style="display:none;" onclick="return updatePlace();" class="btn btn-primary">Actualizar</button>                                     
-                                    </form>                                    
+                                         <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
+                                        <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
+                                                                      
                                 </div>
                                <div class="col-md-6">  
                                                                    
                                         <div id="map" style="max-height: 100%;height: 100%;min-height: 385px;width: auto;"></div>
                                  
                                 
-                                  <div class="form-group" method="post" action="cargar();"> 
+                                  <div class="form-group" method="post" > 
                                     <label>Latitud</label>
-                                    <input type="text" disabled="true" class="form-control" id="latitudePlace" name="" ="latitude">
+                                    <input type="text" disabled="true" class="form-control" id="latitude" name="" ="latitude">
                                     <label>Longitud</label>                                    
-                                    <input class="form-control" disabled="true" id="longitudePlace" name="longitude">
+                                    <input class="form-control" disabled="true" id="longitude" name="longitude">
                                  </div> 
                                  
                                  
                                   <div class="form-group">                                         
-                                      <label>Video/Imagen</label>
+                                      <label>Imagen</label>
                                         <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                       <input type="file">                                     
+                                       <input type="file" id="pathvideoimage">                                     
                                   </div>    
                                   <div class="form-group">
                                     <label>Link web</label>
-                                    <input class="form-control" id="linkWebPlace">                                            
-                                 </div>                      
+                                    <input class="form-control" id="urlweb">                                            
+                                 </div> 
+                                                     
                                </div>
+                               </form> 
 
                                  <!--   Basic Table  -->
                     <div class="panel panel-default" >
                         
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Categoria</th>
-                                            <th>Informacion</th>
-                                            <th>Actualizar</th>
-                                             <th>Eliminarar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Parque Nacional Guayabo</td>
-                                            <td>Parque Nacional</td>
-                                            <td>Recerva Forestal en Turrialba</td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Volcan Turrialba</td>
-                                            <td>Parque Nacional</td>
-                                            <td>El volcan se encuentra actualmente activo</td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>La Wagelia</td>
-                                            <td>Hoteles</td>
-                                            <td>La mejor opción para su permanencia</td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return chargerPlaceDates();">Actualizar</a></td>
-                                            <td><a href="#" class="btn btn-primary" onclick="return deletePlace();">Eliminar</a></td>
-                                        </tr>
-                                    </tbody>
+                                <table class="table" id="tDatos">
+                                  
                                 </table>
                             </div>
                         </div>
@@ -148,3 +115,6 @@
                 </div>
                 <!-- /.col-lg-12 -->
                 @endsection
+                @section('scripts')
+                   <script src="js/functionsPlaces.js"></script>
+                 @endsection
