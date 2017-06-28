@@ -44,14 +44,16 @@
 
 <fieldset>
 <div class="form-group">
-<div class="col-sm-6">
-<strong class="form-title"><label for="fname">Punto de Partida: </label></strong>
-</div>
-<div class="col-sm-6">
-<div class="input-wrap">
-<input type="text" class="form-control" id="fname" name="fname" placeholder="Tú ubicación">
-</div>
-</div>
+	<div class="col-sm-6">
+		<strong class="form-title"><label for="fname">Punto de Partida: </label></strong>
+	</div>
+	<div class="col-sm-6">
+		<div class="input-wrap">
+			<div class="form-control" style="background-color: rgb(207, 207, 207);">
+				<select class="form-control" id="slStartPoint" name="slStartPoint"></select>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="form-group">
@@ -61,13 +63,7 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="lname">
-
-			    <option>Aventura </option>
-			    <option>Senderismo </option>
-			    <option>Gastronomía </option>
-			    <option>Alojamiento </option>
-			  </select>
+			  <select class="form-control" id="slTypeActivity"></select>
 			</div>
 		</div>
 	</div>
@@ -81,13 +77,12 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="lname">
-
-			    <option>5 Kilómetros </option>
-			    <option>10 Kilómetros </option>
-			    <option>15 Kilómetros </option>
-			    <option>20 Kilómetros </option>
-			  </select>
+				<select class="form-control" id="slMaxDistance" name="slMaxDistance">
+		            <option value="5">10  Kilómetros </option>
+		            <option value="10">17 Kilómetros </option>
+		            <option value="15">27 Kilómetros </option>
+		            <option value="20">34 Kilómetros </option>
+	            </select>
 			</div>
 		</div>
 	</div>
@@ -100,13 +95,12 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="lname">
-
-			    <option>5 Minutos </option>
-			    <option>>10 Minutos </option>
-			    <option>>15 Minutos </option>
-			    <option>>25 Minutos </option>
-			  </select>
+			  <select class="form-control" id="slMaxDuration" name="slMaxDuration">
+	            <option value="15">15 Minutos </option>
+	            <option value="25">25 Minutos </option>
+	            <option value="40">40 Minutos </option>
+	            <option value="50">50 Minutos </option>
+          	  </select>
 			</div>
 		</div>
 	</div>
@@ -119,13 +113,11 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="lname">
-
-			    <option>Bajo </option>
-			    <option>Medio </option>
-			    <option>Alto </option>
-
-			  </select>
+			  <select class="form-control" id="slCost" name="slCost">
+	            <option value="1">Bajo </option>
+	            <option value="2">Medio </option>
+	            <option value="3">Alto </option>
+	          </select>
 			</div>
 		</div>
 	</div>
@@ -163,5 +155,74 @@
 
   <div class="col-sm-2"></div>
 </div><br>
+<script type="text/javascript" >
 
+navigator.geolocation.getCurrentPosition(fillStartPoints);
+
+var nodes = new Array();
+
+fillTypesActivity();
+
+/*
+*The next two methods it are responsible for load the spinners of the types activities
+* and start points respectively.
+*/
+function fillStartPoints(position)
+{
+  var currentPosition = (position.coords.latitude+","+position.coords.longitude);
+
+  $.ajax
+  (
+    {
+      type:'GET',
+      url:'/api/getstartpoints',
+      beforeSend: function () {},
+      success:function(data)
+      {
+        var answer = '';
+
+        //Recorremos los datos
+        for(position in data)
+        {
+          current = data[position];
+
+          if("Tú ubicación".localeCompare(current.name)==0){
+              answer = '<option value='+currentPosition+'>'+current.name+'</option';
+            }
+            else
+              {
+                answer = '<option>'+current.name+'</option';
+              }
+
+            $("#slStartPoint").append(answer);
+        }//Fin del for
+      }
+    }
+  );
+}//Fin de la función
+function fillTypesActivity()
+{
+  $.ajax
+  (
+    {
+      type:'GET',
+      url:'/api/allactivity',
+      beforeSend: function () {},
+      success:function(data)
+      {
+        var answer = '';
+
+        //Recorremos los datos
+        for(position in data)
+        {
+          current = data[position];
+            answer = '<option value='+current.idtypeactivities+'>'+current.name+'</option';
+            $("#slTypeActivity").append(answer);
+        }//Fin del for
+      }
+    }
+  );
+}//Fin de la función
+
+</script>
 @endsection
