@@ -77,11 +77,7 @@
 
         <li>
           <strong class="form-title"><label for="lname">Costo Promedio: </label></strong>
-          <select class="form-control" id="slCost" name="slCost">
-            <option value="1">Bajo </option>
-            <option value="2">Medio </option>
-            <option value="3">Alto </option>
-          </select>
+          
         </li>
 
         <li>
@@ -313,6 +309,4 @@ function fillTypesActivity()
 }//Fin de la función
 
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ"></script>
 @endsection
