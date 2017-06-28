@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Node;
+use App\MyNode;
+use App\MyLinkedList;
 use Illuminate\Http\Request;
 use View;
+use Illuminate\Support\Facades\DB;
+
 
 class NodeController extends Controller
 {
@@ -16,14 +20,6 @@ class NodeController extends Controller
     {
         $id = $request->input("id");
         return Node::where('idnodes',$id)->get();
-    }//Fin del método
-
-    /**
-         * Método que retorna un JSON con la información de todos los nodos
-    */
-    public function getNodes()
-    {
-        return Node::all();
     }//Fin del método
 
     /**************************************************** CRUD ************************************************/

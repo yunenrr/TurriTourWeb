@@ -31,6 +31,7 @@ Route::get('/search-routes', function () {
 });
 
 Route::post('search-routes','SearchParametersController@searchRoutes');
+Route::post('/','SearchParametersController@searchRoutes');
 
 
 Route::get('/game', function () 
