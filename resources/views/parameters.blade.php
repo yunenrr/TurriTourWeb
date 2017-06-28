@@ -164,7 +164,7 @@ var nodes = new Array();
 fillTypesActivity();
 
 /*
-*The next two methods it are responsible for load the spinners of the types activities
+*The next two methods it are responsible for load the group of the types activities
 * and start points respectively.
 */
 function fillStartPoints(position)
