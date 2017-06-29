@@ -111,8 +111,8 @@
 								</div>
 								<div id="collapse2" class="panel-collapse collapse in" role="tabpanel">
 									<div class="form-control" style="background-color: #474d4b;">
-									  <select class="form-control" id="selRoutes">
-									  	<option>Selecciones</option>
+									  <select class="form-control" id="selRoutes" onchange="refreshMap();">
+									  	<option>Seleccione</option>
 									    <option>1</option>
 									    <option>2</option>
 									    <option>3</option>
@@ -130,10 +130,10 @@
 </main>
 <script type="text/javascript" >
 	var map;
-	var arrayObjects = [];
 	var initialPosition = "";
 	var endPosition = "";
 	var waypts = [];
+	var markers = []; //Arreglo de marcadores
 
 	//Funciones iniciales para obtener todos los necesarios
 	fillFilterOptions(); //Llenamos las opciones para filtrar
@@ -163,7 +163,11 @@
 	{
 		var position = {lat: lat, lng: long};
 		nameVar = new google.maps.Marker({position: position,map: map,title:nameNode});
+
+		//Validamos que sea un nodo diferente al de origen
 		if(nameNode !== "Usted está aquí"){nameVar.addListener('click', msj);}
+
+		markers.push(nameVar); //Agregamos al marcador al arreglo
 	}//Fin de la función
 
 	/**
@@ -202,6 +206,28 @@
 	function msj()
 	{
 		$('#myModal').modal('show');
+	}//Fin de la función
+
+	/**
+	Función que refresca el mapa
+	*/
+	function refreshMap()
+	{
+		deleteMarkers();
+	}//Fin de la función
+
+	/**
+	Función que elimina los marcadores del mapa
+	*/
+	function deleteMarkers()
+	{
+      	// Sets the map on all markers in the array.
+        for (var i = 0; i < markers.length; i++) 
+        {
+          markers[i].setMap(null);
+        }
+
+		markers = []; //Se limpia el arreglo
 	}//Fin de la función
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>

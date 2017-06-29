@@ -3,7 +3,6 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
         <title>Turri Tour</title>
         <link rel="stylesheet" href="{{ URL::asset('vendors/A.font-awesome%2c%2c_css%2c%2c_font-awesome.css%2bmaterial-design-icons%2c%2c_material-icons.css%2cMcc.uOhyMDMOxj.css.pagespeed.cf.K8D6eSun2t.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/fonts/icomoon/A.icomoon.css.pagespeed.cf.h1hiNiS22M.css') }}" />
