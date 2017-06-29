@@ -62,8 +62,19 @@ class NodeController extends Controller
      */
     public function store(Request $request)
     {
-       typenodes::create(array(
+       Node::create(array(
+        'latitude'=>$request->input('latitude'),             
+        'longitude'=>$request->input('logitude'),             
+        'idcategories'=>$request->input('idcategories'),             
+        'idtypeactivity'=>$request->input('idtypeactivity'),             
+        'value'=>$request->input('value'),             
         'name'=>$request->input('name'),             
+        'information'=>$request->input('information'),             
+        'slogan'=>$request->input('slogan'),             
+        'pathlogo'=>$request->input('pathlogo'),             
+        'pathvideoimage'=>$request->input('pathvideoimage'),             
+        'urlfacebook'=>$request->input('urlfacebook'),             
+        'urlweb'=>$request->input('urlweb'),             
         ));  
     }
 
@@ -99,13 +110,18 @@ class NodeController extends Controller
     public function update(Request $request, Node $node)
     {
         $nodes =find($request->id);
-        $nodes->idtypenodes=$request->email;
+        $nodes->latitude=$request->latitude;
+        $nodes->longitude=$request->longitude;
+        $nodes->idcategories=$request->idcategories;
+        $nodes->idtypeactivity=$request->idtypeactivity;
+        $nodes->value=$request->value;
         $nodes->name=$request->name;
-        $nodes->firstlastname=$request->firstlastname;
-        $nodes->secondlastname=$request->secondlastname;
-        $nodes->password=$request->password;
-        $nodes->idroles=$request->idroles;
-        $nodes->profilphoto=$request->profilphoto;
+        $nodes->information=$request->information;
+        $nodes->slogan=$request->slogan;
+        $nodes->pathlogo=$request->pathlogo;
+        $nodes->pathvideoimage=$request->pathvideoimage;
+        $nodes->urlfacebook=$request->urlfacebook;
+        $nodes->urlweb=$request->urlweb;
         $nodes->save();
     }
 

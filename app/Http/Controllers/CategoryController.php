@@ -54,8 +54,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        
        Category::create(array(
-            'name'=>$request->name,             
+            'name'=>$request->name,           
             'pathimage'=>$request->pathimage,             
             ));  
     }

@@ -3,6 +3,8 @@
 var idToUpdate; 
 $(document).ready(function(){
     loadPlace();
+    loadCategories();
+    loadtypeactivities();
 });
 
  $("#btnInsert").click(function(){
@@ -53,7 +55,17 @@ $(document).ready(function(){
         
         });
 
+        document.getElementById("id").value = '';
         document.getElementById("name").value = '';
+        document.getElementById("latitude").value = '';
+        document.getElementById("longitude").value = '';
+        document.getElementById("information").value = '';
+        document.getElementById("idcategories").value = '';
+        document.getElementById("idtypeactivity").value = '';
+        document.getElementById("slogan").value = '';
+        document.getElementById("value").value = '';
+        document.getElementById("urlfacebook").value = '';
+        document.getElementById("urlweb").value ='';
         loadPlace();
  });
   
@@ -113,7 +125,7 @@ function splitDataPlaces(places){
      $.get(route, function(res){
          $(res).each(function(i,item){
             if(item.idnodes==id){              
-              document.getElementById("id").value = item.nodes;
+              document.getElementById("id").value = item.idnodes;
               document.getElementById("name").value = item.name;
               document.getElementById("latitude").value = item.latitude;
               document.getElementById("longitude").value = item.longitude;
@@ -150,4 +162,29 @@ function splitDataPlaces(places){
      });  
             loadPlace(); 
     }/*end of the method delete provedores*/
-    
+    /*metodo para almacenar la informacion de la actividad*/
+    function loadCategories(){
+       var route = "/categories";
+        var innerHtml="";
+     $.get(route, function(res){
+         $(res).each(function(i,item){
+            innerHtml+="";
+            innerHtml += " <option value='"+item.idcategories+"'>"+item.name+"</option>";
+            $("#idcategories").html(innerHtml);
+     }); 
+     }); 
+   
+    }/*end of the method*/
+    /*metodo para almacenar la informacion de la actividad*/
+    function loadtypeactivities(){
+        var route = "/activities";
+        var innerHtml="";
+        $.get(route, function(res){
+         $(res).each(function(i,item){
+            innerHtml+="";
+            innerHtml += " <option value='"+item.idtypeactivity+"'>"+item.name+"</option>";
+            $("#idtypeactivity").html(innerHtml);
+     });
+     });  
+    }/*end of the method*/
+

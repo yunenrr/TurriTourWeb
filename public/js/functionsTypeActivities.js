@@ -6,10 +6,9 @@ $(document).ready(function(){
 });
 
  $("#btnInsert").click(function(){
+  alert("insert");
         var formData = new FormData(document.getElementById("TypeActivityForm")); 
         var route = "/activity";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "store");
         
         $.ajax({
         url : route,
@@ -26,15 +25,13 @@ $(document).ready(function(){
             
  });
   $("#btnUpdate").click(function(){
-       
-        var formData = new FormData(document.getElementById("TypeActivityForm")); 
+        var formData = new FormData(document.getElementById("TypeActivityForm"));
+        var id=document.getElementById("id").value; 
         var route = "/activity";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "update");
         
         $.ajax({
         url : route,
-        type : "post",
+        type : "PUT",
         dataType : "json",
         data : formData,
         cache : false,

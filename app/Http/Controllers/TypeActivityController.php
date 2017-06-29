@@ -103,12 +103,11 @@ class TypeActivityController extends Controller
      */
     public function update(Request $request)
     {
-
-        $activities =find($request->id);
-        $activities->idtypeactivities=$request->id;
+   
+        $activities =typeActivities::findOrFail($request->id);
         $activities->name=$request->name;
         $activities->save();
-
+     
     }
 
     /**

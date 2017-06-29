@@ -67,6 +67,7 @@ Route::get('activities', 'TypeActivityController@showAll');
 Route::get('dactivity', 'TypeActivityController@destroy');
 
 Route::resource('categoryPlace', 'CategoryController');
+Route::post('icategoryPlace', 'CategoryController@store');
 Route::get('categories', 'CategoryController@showAll');
 Route::get('dcategory', 'CategoryController@destroy');
 

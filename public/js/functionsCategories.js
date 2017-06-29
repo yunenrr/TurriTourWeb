@@ -6,10 +6,9 @@ $(document).ready(function(){
 });
 
  $("#btnInsert").click(function(){
+
         var formData = new FormData(document.getElementById("CategoryForm")); 
-        var route = "categoryPlace";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "store");
+        var route = "/icategoryPlace";
         
         $.ajax({
         url : route,
@@ -21,10 +20,9 @@ $(document).ready(function(){
         processData : false,
         
         }); 
-           document.getElementById('btnUpdate').style.display = 'none';
-           document.getElementById('btnInsert').style.display = 'block';           
+                     
            document.getElementById("name").value = '';
-           document.getElementById("pathimage").value = '';
+           document.getElementById("img").value = '';
             loadCategory();
             
  });
@@ -32,12 +30,10 @@ $(document).ready(function(){
         
         var formData = new FormData(document.getElementById("CategoryForm")); 
         var route = "categoryPlace";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "update");
         
         $.ajax({
         url : route,
-        type : "post",
+        type : "PUT",
         dataType : "json",
         data : formData,
         cache : false,
@@ -45,9 +41,10 @@ $(document).ready(function(){
         processData : false,
         
         });
-
+        document.getElementById('btnUpdate').style.display = 'none';
+        document.getElementById('btnInsert').style.display = 'block'; 
         document.getElementById("name").value = '';
-        document.getElementById("pathimage").value = '';
+        document.getElementById("img").value = '';
         loadCategory();
  });
   
@@ -65,7 +62,7 @@ $(document).ready(function(){
     /*metodo para construir la informacion de la categoria*/
 function splitDatacategories(categories){
         var name, idcategories;
-        var innerHtml=" <tr><th>#</th><th>Categorias</th><th>Actualizar</th><th>Eliminarar</th></tr>";
+        var innerHtml=" <tr><th>#</th><th>Nombre</th><th>Imagen</th><th>Actualizar</th><th>Eliminarar</th></tr>";
         /*se recorre el array de categorias*/
         for (var i = 0; i < categories.length; i++) {
             innerHtml+="";
@@ -78,8 +75,8 @@ function splitDatacategories(categories){
             innerHtml += "<tr >"+
                           "<td >"+idcategories+"</td>"+
                           "<td id='"+idcategories+"name' value='"+name+"'>"+name+"</td>"+
-                          "<td id='"+idcategories+"image' value='"+pathimage+"'>"+pathimage+"</td>"+
-                          "<td><button   onclick='return alterHtmlCategory("+idcategories+")' class='edit-modal btn btn-info' data-id='"+idcategories+"'"+
+                          "<td><img src='"+pathimage+"' border='0' width='40m' height='40m' id='imageview'></td>"+
+                         "<td><button   onclick='return alterHtmlCategory("+idcategories+")' class='edit-modal btn btn-info' data-id='"+idcategories+"'"+
                                   "data-name='"+name+"'>"+
                                   "<span class='glyphicon glyphicon-edit'></span> Editar"+
                           "</button> </td>"+                          
@@ -106,7 +103,7 @@ function splitDatacategories(categories){
             if(item.idcategories==id){              
               document.getElementById("id").value = item.idcategories;
               document.getElementById("name").value = item.name;
-              document.getElementById("pathimage").value = item.pathimage;
+              document.getElementById("img").value = item.pathimage;
             }
         });
      });   
@@ -124,3 +121,9 @@ function splitDatacategories(categories){
             loadCategory(); 
     }/*end of the method delete provedores*/
     
+
+    $("#pathimage").change(function() {
+        var rute="img/gallery/foto.jpg"
+        document.getElementById("imageview").src=rute;
+         document.getElementById("img").value= document.getElementById("pathimage").files[0].name;
+    });
