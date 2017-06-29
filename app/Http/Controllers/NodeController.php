@@ -18,8 +18,9 @@ class NodeController extends Controller
     */
     public function apiGetForMap(Request $request)
     {
-        $id = $request->input("id");
-        return Node::where('idnodes',$id)->get();
+        $lat = $request->input("lat");
+        $lon = $request->input("lon");
+        return Node::where([['latitude', '=', $lat],['longitude', '=', $lon]])->get();
     }//Fin del método
 
     /**************************************************** CRUD ************************************************/
