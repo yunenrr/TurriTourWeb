@@ -113,10 +113,10 @@
 									<div class="form-control" style="background-color: #474d4b;">
 									  <select class="form-control" id="selRoutes" onchange="refreshMap();">
 									  	<option>Seleccione</option>
-									    <option>1</option>
-									    <option>2</option>
-									    <option>3</option>
-									    <option>4</option>
+									    <option value="northwestRoute">1</option>
+									    <option value="northeastRoute">2</option>
+									    <option value="southwestRoute">3</option>
+									    <option value="southeastRoute">4</option>
 									  </select>
 									</div>
 								</div>
@@ -129,8 +129,17 @@
 	</div>
 </main>
 <script type="text/javascript" >
+	/* Se recuperan las 4 rutas que me pasa el Controller */
+	var northwestRoute = JSON.parse('{{ $northwestRoute }}'.replace(/&quot;/g,'"'));
+	var northeastRoute = JSON.parse('{{ $northeastRoute }}'.replace(/&quot;/g,'"'));
+	var southwestRoute = JSON.parse('{{ $southwestRoute }}'.replace(/&quot;/g,'"'));
+	var southeastRoute = JSON.parse('{{ $southeastRoute }}'.replace(/&quot;/g,'"'));
+	
+	/* Variables necesarias para pintar la ruta y mostrar el mapa */
 	var map;
 	var initialPosition = "";
+	var initialLatitude = {{ $latitude }};
+	var initialLongitude = {{ $longitude }};
 	var endPosition = "";
 	var waypts = [];
 	var markers = []; //Arreglo de marcadores
@@ -151,9 +160,8 @@
 				zoom: 13
 			}
 		);
-		addMarkers("Usted está aquí",{{ $latitude }},{{ $longitude }},"initial");
-		initialPosition = {{ $latitude }}+","+{{ $longitude }};
-		createRoute();
+
+		runArray(northwestRoute);
 	}//Fin de la función initMap
 
 	/**
@@ -185,8 +193,8 @@
 		{
 			origin: initialPosition,
 			destination: endPosition,
-/*			waypoints: waypts,
-			optimizeWaypoints: true,*/
+			waypoints: waypts,
+			optimizeWaypoints: true,
 			provideRouteAlternatives: false,
 			travelMode: 'DRIVING'
 		};
@@ -214,6 +222,14 @@
 	function refreshMap()
 	{
 		deleteMarkers();
+
+		switch(document.getElementById("selRoutes").value)
+		{
+			case 'northwestRoute':runArray(northwestRoute);break;
+			case 'northeastRoute':runArray(northeastRoute);break;
+			case 'southwestRoute':runArray(southwestRoute);break;
+			default:runArray(southeastRoute);break;
+		}
 	}//Fin de la función
 
 	/**
@@ -229,6 +245,35 @@
 
 		markers = []; //Se limpia el arreglo
 	}//Fin de la función
+
+	/**
+	Función que recorre el arreglo correspondiente
+	*/
+	function runArray(arrayOfNodes)
+	{
+		//Agregamos la posición de inicio
+		addMarkers("Usted está aquí",initialLatitude,initialLongitude,"initial");
+		initialPosition = initialLatitude+","+initialLongitude;
+
+		//Recorremos el arreglo de nodos
+		for(position in arrayOfNodes)
+		{
+			//alert(arrayOfNodes[position].idnodes);
+			addMarkers(arrayOfNodes[position].name,arrayOfNodes[position].latitude,
+				arrayOfNodes[position].longitude,arrayOfNodes[position].name+position);
+
+			if(position == arrayOfNodes.length-1)
+			{
+				endPosition = arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude;
+			}
+			else
+			{
+				waypts.push({ location: arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude, stopover: true });
+			}
+		}//Fin del for
+
+		createRoute();
+	}//Fin del método
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>
 @endsection
