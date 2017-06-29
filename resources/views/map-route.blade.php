@@ -88,21 +88,6 @@
 								<!-- Encabezado del grupo -->
 								<div class="panel-heading">
 									<h4 class="panel-title">
-										<a role="button" data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1">Categorías</a>
-									</h4>
-								</div>
-								<div id="collapse1" class="panel-collapse collapse in" role="tabpanel">
-									<div class="panel-body">
-										<ul class="side-list check-list" id="ulFilterCategory">
-										</ul>
-										<strong class="sub-link"><a href="#">Filtrar</a></strong>
-									</div>
-								</div>
-							</div>
-							<div class="accordion-group">
-								<!-- Encabezado del grupo -->
-								<div class="panel-heading">
-									<h4 class="panel-title">
 										<a role="button" data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">Rutas</a>
 									</h4>
 								</div>

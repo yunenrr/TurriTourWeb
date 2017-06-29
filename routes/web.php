@@ -44,13 +44,12 @@ Route::get('map-route', function ()
     return view('map-route');
 });
 
-Route::get('/place/{idplace}', function () 
-{
-    return view('place');
-});
-
 Route::get('/administrator', function () {
     return view('/administrator/indexView');
+});
+
+Route::get('email', function(){
+
 });
 
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
