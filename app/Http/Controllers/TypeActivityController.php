@@ -14,7 +14,7 @@ class TypeActivityController extends Controller
     */
     public function apiGetAllActivities()
     {
-        TypeActivities::all();
+        return TypeActivities::all();
     }//Fin del método
 
     /************************************************ CRUD*******************************************/
@@ -124,4 +124,4 @@ class TypeActivityController extends Controller
         $activities->delete();
        
     }
-}
+}//Fin de la clase
