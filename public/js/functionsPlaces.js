@@ -3,64 +3,95 @@
 var idToUpdate; 
 $(document).ready(function(){
     loadPlace();
+    loadCategories();
+    loadtypeactivities();
 });
 
  $("#btnInsert").click(function(){
-        var formData = new FormData(document.getElementById("PlaceForm")); 
-        var route = "/place";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "store");
+         alert($("#idtypeactivities").val());
+        var name=document.getElementById("name").value;
+        var latitude= document.getElementById("latitude").value ;
+        var longitude= document.getElementById("longitude").value;
+        var information=document.getElementById("information").value;
+        var idcategories=document.getElementById("idcategories").value;
+        var idtypeactivity=document.getElementById("idtypeactivities").value;
+       
+        var slogan=document.getElementById("slogan").value;
+        var value=document.getElementById("value").value;
+        var urlfacebook=document.getElementById("urlfacebook").value;
+        var urlweb=document.getElementById("urlweb").value;
+        var pathvideoimage=document.getElementById("pathvideoimage").value;
+        var pathlogo=document.getElementById("pathlogo").value;
+      
+
+        var route = "insertplace/?name="+name+
+        "&latitude="+latitude+"&longitude="+longitude+"&information="+information+
+        "&idcategories="+idcategories+"&idtypeactivity="+idtypeactivity+
+        "&slogan="+slogan+"&value="+value+"&urlfacebook="+urlfacebook+"&urlweb="+urlweb+
+        "&pathvideoimage="+pathvideoimage+"&pathlogo="+pathlogo;
         
-        $.ajax({
-        url : route,
-        type : "post",
-        dataType : "json",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false,
-        
-        });            
-              document.getElementById("id").value = '';
-              document.getElementById("name").value = '';
-              document.getElementById("latitude").value = '';
-              document.getElementById("longitude").value = '';
-              document.getElementById("information").value = '';
-              document.getElementById("idcategories").value = '';
-              document.getElementById("idtypeactivity").value = '';
-              document.getElementById("slogan").value = '';
-              document.getElementById("value").value = '';
-              document.getElementById("urlfacebook").value = '';
-              document.getElementById("urlweb").value ='';
-            loadPlace();
+     $.get(route, function(){
+       
+     });  
+   
+       
+          document.getElementById("name").value = '';
+          document.getElementById("latitude").value = '';
+          document.getElementById("longitude").value = '';
+          document.getElementById("information").value = '';
+          document.getElementById("idcategories").value = '';
+          document.getElementById("idtypeactivities").value = '';
+          document.getElementById("slogan").value = '';
+          document.getElementById("value").value = '';
+          document.getElementById("urlfacebook").value = '';
+          document.getElementById("urlweb").value ='';
+        loadPlace();
             
  });
   $("#btnUpdate").click(function(){
-        alert(document.getElementById("id").value);
+        var id=document.getElementById("id").value;
+        alert(id);
+        var name=document.getElementById("name").value;
+        var latitude= document.getElementById("latitude").value ;
+        var longitude= document.getElementById("longitude").value;
+        var information=document.getElementById("information").value;
+        var idcategories=document.getElementById("idcategories").value;
+        var idtypeactivity=document.getElementById("idtypeactivities").value;
+        var slogan=document.getElementById("slogan").value;
+        var value=document.getElementById("value").value;
+        var urlfacebook=document.getElementById("urlfacebook").value;
+        var urlweb=document.getElementById("urlweb").value;
+        var pathvideoimage=document.getElementById("pathvideoimage").value;
+        var pathlogo=document.getElementById("pathlogo").value;
         var formData = new FormData(document.getElementById("PlaceForm")); 
-        var route = "/place";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "update");
+        var route = "updateplace/?id="+id+"&name="+name+
+        "&latitude="+latitude+"&longitude="+longitude+"&information="+information+
+        "&idcategories="+idcategories+"&idtypeactivity="+idtypeactivity+
+        "&slogan="+slogan+"&value="+value+"&urlfacebook="+urlfacebook+"&urlweb="+urlweb+
+        "&pathvideoimage="+pathvideoimage+"&pathlogo="+pathlogo;
         
-        $.ajax({
-        url : route,
-        type : "post",
-        dataType : "json",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false,
-        
-        });
-
-        document.getElementById("name").value = '';
+     $.get(route, function(){
+       
+     });  
+   
+       
+          document.getElementById("name").value = '';
+          document.getElementById("latitude").value = '';
+          document.getElementById("longitude").value = '';
+          document.getElementById("information").value = '';
+          document.getElementById("idcategories").value = '';
+          document.getElementById("idtypeactivities").value = '';
+          document.getElementById("slogan").value = '';
+          document.getElementById("value").value = '';
+          document.getElementById("urlfacebook").value = '';
+          document.getElementById("urlweb").value ='';
         loadPlace();
  });
   
     /*metodo para almacenar la informacion de la actividad*/
     function loadPlace(){
         var tdatos = $("#tDatos"); 
-        var route = "/places";
+        var route = "/allplaces";
         
      $.get(route, function(res){
         splitDataPlaces(res);
@@ -107,19 +138,19 @@ function splitDataPlaces(places){
     
     /*metodo mostrar y ocultar informacion segun el boton a presionar*/
    function alterHtmlPlace(id){  
-        var route = "/places";
+        var route = "/allplaces";
         
         
      $.get(route, function(res){
          $(res).each(function(i,item){
             if(item.idnodes==id){              
-              document.getElementById("id").value = item.nodes;
+              document.getElementById("id").value = item.idnodes;
               document.getElementById("name").value = item.name;
               document.getElementById("latitude").value = item.latitude;
               document.getElementById("longitude").value = item.longitude;
               document.getElementById("information").value = item.information;
               document.getElementById("idcategories").value = item.idcategories;
-              document.getElementById("idtypeactivity").value = item.idtypeactivity;
+              document.getElementById("idtypeactivities").value = item.idtypeactivity;
               document.getElementById("slogan").value = item.slogan;
               document.getElementById("value").value = item.value;
               document.getElementById("urlfacebook").value = item.urlfacebook;
@@ -130,24 +161,40 @@ function splitDataPlaces(places){
           document.getElementById('btnUpdate').style.display = 'block';
           document.getElementById('btnInsert').style.display = 'none';
     }/*fin del metodo*/
-     /*metodo para eliminar la informacion del provedor*/
-    function deleteCategory(idcategories_){
-        
-        var route = "http://localhost:8000/dcategory/?id="+idcategories_+"";
-        
-     $.get(route, function(){
-       
-     });  
-            loadCategory();    
-    }/*fin del metodo*/
+
      /*metodo para eliminar la informacion del provedor*/
     function deletePlace(idnodes_){
         
-        var route = "dplace/?id="+idnodes_+"";
+        var route = "deleteplace/?id="+idnodes_+"";
         
      $.get(route, function(){
        
      });  
             loadPlace(); 
     }/*end of the method delete provedores*/
-    
+    /*metodo para almacenar la informacion de la actividad*/
+    function loadCategories(){
+       var route = "/allcategories";
+        var innerHtml="";
+     $.get(route, function(res){
+         $(res).each(function(i,item){
+            innerHtml+="";
+            innerHtml += " <option value='"+item.idcategories+"'>"+item.name+"</option>";
+            $("#idcategories").html(innerHtml);
+     }); 
+     }); 
+   
+    }/*end of the method*/
+    /*metodo para almacenar la informacion de la actividad*/
+    function loadtypeactivities(){
+        var route = "/allactivities";
+        var innerHtml="";
+        $.get(route, function(res){
+         $(res).each(function(i,item){
+            innerHtml+="";
+            innerHtml += " <option value='"+item.idtypeactivity+"'>"+item.name+"</option>";
+            $("#idtypeactivities").html(innerHtml);
+     });
+     });  
+    }/*end of the method*/
+

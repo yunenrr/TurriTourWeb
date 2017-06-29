@@ -43,8 +43,8 @@ function setMapa (lat_,lng_)
       marker.addListener( 'dragend', function (event)
       {
         //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
-        document.getElementById("longitudePlace").value =this.getPosition().lng();
-        document.getElementById("latitudePlace").value = this.getPosition().lat(); 
+        document.getElementById("longitude").value =this.getPosition().lng();
+        document.getElementById("latitude").value = this.getPosition().lat(); 
       });
 }
 

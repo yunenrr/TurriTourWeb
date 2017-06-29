@@ -48,7 +48,7 @@ class TypeActivityController extends Controller
     {
          // Si la validación es OK, estamos listos para almacenar en la base de datos los datos.
         typeActivities::create(array(
-            'name'=>$request->input('name'),             
+            'name'=>$request->name,             
             ));  
         // Redireccionamos a user
       }
@@ -103,12 +103,12 @@ class TypeActivityController extends Controller
      */
     public function update(Request $request)
     {
+   
+        $activities =TypeActivities::where('idtypeactivities',$request->idtypeactivities);
 
-        $activities =find($request->id);
-        $activities->idtypeactivities=$request->id;
-        $activities->name=$request->name;
-        $activities->save();
-
+        $activities->update(array(
+            'name'=>$request->name,             
+            ));          
     }
 
     /**

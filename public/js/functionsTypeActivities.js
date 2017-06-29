@@ -6,10 +6,9 @@ $(document).ready(function(){
 });
 
  $("#btnInsert").click(function(){
+  alert("insert");
         var formData = new FormData(document.getElementById("TypeActivityForm")); 
         var route = "/activity";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "store");
         
         $.ajax({
         url : route,
@@ -26,22 +25,14 @@ $(document).ready(function(){
             
  });
   $("#btnUpdate").click(function(){
+        var formData = new FormData(document.getElementById("TypeActivityForm"));
+        var idtypeactivities=document.getElementById("id").value; 
+        var name=document.getElementById("name").value; 
+        var route = "updateactivity/?name="+name+"&idtypeactivities="+idtypeactivities;
+        
+     $.get(route, function(){
        
-        var formData = new FormData(document.getElementById("TypeActivityForm")); 
-        var route = "/activity";
-        /*se agrega la accion a realizar*/
-        formData.append("action", "update");
-        
-        $.ajax({
-        url : route,
-        type : "post",
-        dataType : "json",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false,
-        
-        });
+     }); 
         document.getElementById('btnUpdate').style.display = 'none';
           document.getElementById('btnInsert').style.display = 'block';
         document.getElementById("name").value = '';
@@ -51,7 +42,7 @@ $(document).ready(function(){
     /*metodo para almacenar la informacion de la actividad*/
     function loadTypeActivity(){
         var tdatos = $("#tDatos"); 
-        var route = "/activities";
+        var route = "/allactivities";
         
      $.get(route, function(res){
         splitDataTypeActivities(res);
@@ -92,7 +83,7 @@ function splitDataTypeActivities(activities){
     
     /*metodo mostrar y ocultar informacion segun el boton a presionar*/
    function alterHtmlTypeActivity(id){  
-         var route = "/activities";
+         var route = "/allactivities";
         
         
      $.get(route, function(res){
@@ -111,7 +102,7 @@ function splitDataTypeActivities(activities){
      /*metodo para eliminar la informacion del provedor*/
     function deleteTypeActivity(idtypeactivities_){
         
-        var route = "dactivity/?id="+idtypeactivities_+"";
+        var route = "deleteactivity/?id="+idtypeactivities_+"";
         
      $.get(route, function(){
        

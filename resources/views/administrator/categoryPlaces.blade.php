@@ -13,20 +13,21 @@
                                 <div class="col-lg-6">
                                 <form role="form" id="CategoryForm" method="POST">
                                        <div class="form-group">
-                                         <div class="form-group">
+                                         
                                             <label>Nombre</label>
                                             <input  class="form-control" id="id" type="hidden" >
-                                            <input class="form-control" id="name">                                            
-                                         </div>                                         
-                                         <div class="form-group">                                         
+                                            <input class="form-control" id="name">                                        
+                                                                              
+                                                                               
                                             <label>Imagen de Categoria</label>
-                                              <img src='assets/img/log.png' border='0' width='40%' height='40%'>
+                                              <img src='assets/img/log.png' border='0' width='40%' height='40%' id="imageview">
                                              <input type="file" id="pathimage" >                                     
-                                        </div>                                                                                     
+                                                                                                                           
                                         </div>  
                                         <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
                                         <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
+                                        
                                      </form>                                    
                                 </div>
                                

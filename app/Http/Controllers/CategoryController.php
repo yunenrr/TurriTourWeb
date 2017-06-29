@@ -23,7 +23,7 @@ class CategoryController extends Controller
      */
     public function index()
     {      
-        return View::make('administrator.categoryPlaces');
+        return View::make('administrator.categoryplaces');
     }
  /**
      * Display a listing of the resource.
@@ -37,16 +37,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -54,12 +44,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        
        Category::create(array(
-            'name'=>$request->name,             
+            'name'=>$request->name,           
             'pathimage'=>$request->pathimage,             
             ));  
     }
-
+   
     /**
      * Display the specified resource.
      *
@@ -91,10 +82,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request)
     {
-        $categories =find($request->id);
-        $categories->name=$request->name;
-        $categories->pathimage=$request->pathimage;
-        $categories->save();
+        $categories =Category::where('idcategories',$request->idcategories);
+
+        $categories->update(array(
+            'name'=>$request->name,           
+            'pathimage'=>$request->pathimage,             
+            ));       
+
     }
 
     /**
@@ -106,7 +100,7 @@ class CategoryController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        $activities =Category::where('idcategories',$id);
-        $activities->delete();
+        $categories =Category::where('idcategories',$id);
+        $categories->delete();
     }
 }//Fin de la clase
