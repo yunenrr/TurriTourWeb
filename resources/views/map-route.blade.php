@@ -143,6 +143,8 @@
 	var endPosition = "";
 	var waypts = [];
 	var markers = []; //Arreglo de marcadores
+	var directionsService;
+	var directionsDisplay;
 
 	//Funciones iniciales para obtener todos los necesarios
 	fillFilterOptions(); //Llenamos las opciones para filtrar
@@ -160,6 +162,12 @@
 				zoom: 13
 			}
 		);
+		
+		directionsService = new google.maps.DirectionsService();
+		directionsDisplay = new google.maps.DirectionsRenderer({
+			map: map,
+			suppressMarkers: true
+		});
 
 		runArray(northwestRoute);
 	}//Fin de la función initMap
@@ -183,12 +191,6 @@
 	*/
 	function createRoute()
 	{
-
-		var directionsService = new google.maps.DirectionsService();
-		var directionsDisplay = new google.maps.DirectionsRenderer({
-			map: map,
-			suppressMarkers: true
-		});
 		var request = 
 		{
 			origin: initialPosition,
@@ -244,6 +246,7 @@
         }
 
 		markers = []; //Se limpia el arreglo
+		waypts = []; // Se limpia el arreglo de marcadores de ruta
 	}//Fin de la función
 
 	/**
