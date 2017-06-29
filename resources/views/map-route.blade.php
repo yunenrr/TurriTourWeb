@@ -36,7 +36,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 					          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="{{URL::asset('/img/logos/logo-la-marta.png')}}" />
+					          		<img class="responsive" style="max-width: 150px;margin-left:30%;" src="" id="imgLogo" />
 				          		</div>
 				          		<div class="modal-body">
 				          			<div class="panel-group" id="accordion">
@@ -47,10 +47,7 @@
 			          							</h4>
 		          							</div>
 		          							<div id="divInformationNode" class="panel-collapse collapse in">
-		          							<div class="panel-body" style="text-align: justify;">
-												La Marta tiene una extensión de más de 1518 hectáreas de terreno. Forma parte de la reserva de la Biosfera de la Amistad, considerada por la UNESCO Patrimonio Mundial de la Humanidad, y es el primer refugio privado de vida silvestre del país. Aproximadamente un 60 % del territorio corresponde a bosque primario, y el 40 % restante está cubierto por bosque secundario en distintas etapas de regeneración natural.
-												La topografía propia de la cordillera de Talamanca, unida a la presencia de dos ríos en la zona (ríos Gato y La Marta) y al rango altitudinal en el que se encuentra el Refugio, generan una amplia variedad de hábitats que permiten la presencia de gran cantidad de animales y plantas. El Refugio da albergue tanto a especies de animales residentes como a especies migratorias, es decir, a animales que se movilizan a veces cientos de kilómetros en una región buscando alimento y cobertura.
-									      </div>
+		          							<div class="panel-body" style="text-align: justify;" id="informationNode"></div>
 									    </div>
 									  </div>
 									  <div class="panel panel-default">
@@ -63,12 +60,12 @@
 									    	<div class="panel-body">
 												<ul class="social-wrap">
 													<li class="facebook">
-														<a href="https://www.facebook.com/RefugioDeVidaSilvestreLaMarta" target="_blank">
+														<a href="" target="_blank" id="urlFacebook">
 															<span class="icon-facebook"></span>
 														</a>
 													</li>
 													<li class="dribble">
-														<a href="http://www.lamarta.org/es" target="_blank">
+														<a href="" target="_blank" id="urlWeb">
 															<span class="icon-asia"></span>
 														</a>
 													</li>
@@ -77,7 +74,7 @@
 									    </div>
 									  </div>
 									</div> 
-				          			<img src="{{ URL::asset('img/gallery/img-10-2.jpg') }}" />
+				          			<img src="" id="imgNode"/>
 			          			</div>
 	          				</div>
 					    </div>
@@ -181,7 +178,36 @@
 		nameVar = new google.maps.Marker({position: position,map: map,title:nameNode});
 
 		//Validamos que sea un nodo diferente al de origen
-		if(nameNode !== "Usted está aquí"){nameVar.addListener('click', msj);}
+		if(nameNode !== "Usted está aquí")
+		{
+			nameVar.addListener
+			('click',
+				function()
+				{
+					var positionString = nameVar.position.toString();
+					var positionArray = positionString.split(",");
+					positionArray[0] = positionArray[0].substring(1,positionArray[0].length);
+					positionArray[1] = positionArray[1].substring(1,positionArray[1].length);
+					
+	                $.ajax
+	                (
+	                    {
+	                        type: 'GET', //Se accede mediante POST
+	                        url: 'api/getnode?lat='+positionArray[0]+'&lon='+positionArray[1],
+	                        success: function(data)
+	                        {
+	                        	$("#informationNode").text(data[0].information);
+	                        	$("#urlFacebook").attr("href", data[0].urlfacebook);
+	                        	$("#urlWeb").attr("href", data[0].urlweb);
+	                        	$("#imgLogo").attr("src", data[0].pathlogo);
+	                        	$("#imgNode").attr("src", data[0].pathvideoimage);
+	                        	$('#myModal').modal('show');
+	                        }//Fin del success
+	                    }
+	                );
+				}//Fin de la función
+			)
+		}
 
 		markers.push(nameVar); //Agregamos al marcador al arreglo
 	}//Fin de la función
@@ -208,14 +234,6 @@
 				directionsDisplay.setDirections(result);
 			}
 		});
-	}//Fin de la función
-
-	/**
-	Función que muestra la información de un nodo
-	*/
-	function msj()
-	{
-		$('#myModal').modal('show');
 	}//Fin de la función
 
 	/**
@@ -258,24 +276,27 @@
 		addMarkers("Usted está aquí",initialLatitude,initialLongitude,"initial");
 		initialPosition = initialLatitude+","+initialLongitude;
 
-		//Recorremos el arreglo de nodos
-		for(position in arrayOfNodes)
+		//Se valida que la ruta tenga al menos un nodo
+		if(arrayOfNodes.length > 0)
 		{
-			//alert(arrayOfNodes[position].idnodes);
-			addMarkers(arrayOfNodes[position].name,arrayOfNodes[position].latitude,
-				arrayOfNodes[position].longitude,arrayOfNodes[position].name+position);
-
-			if(position == arrayOfNodes.length-1)
+			//Recorremos el arreglo de nodos
+			for(position in arrayOfNodes)
 			{
-				endPosition = arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude;
-			}
-			else
-			{
-				waypts.push({ location: arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude, stopover: true });
-			}
-		}//Fin del for
+				addMarkers(arrayOfNodes[position].name,arrayOfNodes[position].latitude,
+					arrayOfNodes[position].longitude,arrayOfNodes[position].name+position);
 
-		createRoute();
+				if(position == arrayOfNodes.length-1)
+				{
+					endPosition = arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude;
+				}
+				else
+				{
+					waypts.push({ location: arrayOfNodes[position].latitude+","+arrayOfNodes[position].longitude, stopover: true });
+				}
+			}//Fin del for
+			createRoute();
+		}//Fin del if
+		else{directionsDisplay.setDirections({routes: []});}
 	}//Fin del método
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAJR9mkRkdrTsO5yjbBaGQxPjOzXuyfUQ&callback=initMap" async defer></script>
