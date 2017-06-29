@@ -30,8 +30,18 @@ class NodeController extends Controller
      */
     public function index()
     {
+       
+        return View::make('administrator.place');
+    }
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
        $nodes = Node::all();
-        return View::make('administrator.place')->with('nodes', $nodes);
+        return $nodes;
     }
 
     /**
@@ -52,7 +62,9 @@ class NodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       typenodes::create(array(
+        'name'=>$request->input('name'),             
+        ));  
     }
 
     /**
@@ -86,7 +98,15 @@ class NodeController extends Controller
      */
     public function update(Request $request, Node $node)
     {
-        //
+        $nodes =find($request->id);
+        $nodes->idtypenodes=$request->email;
+        $nodes->name=$request->name;
+        $nodes->firstlastname=$request->firstlastname;
+        $nodes->secondlastname=$request->secondlastname;
+        $nodes->password=$request->password;
+        $nodes->idroles=$request->idroles;
+        $nodes->profilphoto=$request->profilphoto;
+        $nodes->save();
     }
 
     /**
@@ -95,8 +115,10 @@ class NodeController extends Controller
      * @param  \App\Node  $node
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Node $node)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        $nodes =Node::where('idnodes',$id);
+        $nodes->delete();
     }
 }//Fin de la clase

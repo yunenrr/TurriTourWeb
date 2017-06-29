@@ -13,12 +13,10 @@
                                 <div class="col-lg-6">
                                  <form role="form" id="TypeActivityForm" method="POST">
                                        <div class="form-group">
-                                         <div class="form-group">
                                             <label>Tipo de actividad</label>
                                             <input  class="form-control" id="id" type="hidden" >
                                             <input class="form-control" id="name" name="name">                                            
-                                         </div>                                                                                                                             
-                                        </div>  
+                                         </div>  
                                         <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
                                         <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
@@ -50,4 +48,7 @@
                 <!-- /.col-lg-12 -->
 
         
+ @endsection
+ @section('scripts')
+   <script src="js/functionsTypeActivities.js"></script>
  @endsection

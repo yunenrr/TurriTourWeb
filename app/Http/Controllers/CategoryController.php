@@ -22,9 +22,18 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {      
+        return View::make('administrator.categoryPlaces');
+    }
+ /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
     {
-         $category = Category::all();
-        return View::make('administrator.categoryPlaces')->with('category', $category);
+        $category = Category::all();
+        return $category;
     }
 
     /**
@@ -45,7 +54,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       Category::create(array(
+            'name'=>$request->name,             
+            'pathimage'=>$request->pathimage,             
+            ));  
     }
 
     /**
@@ -77,9 +89,12 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request)
     {
-        //
+        $categories =find($request->id);
+        $categories->name=$request->name;
+        $categories->pathimage=$request->pathimage;
+        $categories->save();
     }
 
     /**
@@ -88,8 +103,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->id;
+        $activities =Category::where('idcategories',$id);
+        $activities->delete();
     }
 }//Fin de la clase
