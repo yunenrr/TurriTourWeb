@@ -27,7 +27,7 @@
                                         <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
                                         <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
-                                        <input  class="form-control" id="img"  >
+                                        
                                      </form>                                    
                                 </div>
                                

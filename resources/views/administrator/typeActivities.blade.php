@@ -11,7 +11,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                 <form role="form" id="TypeActivityForm" method="POST">
+                                 <form role="form" id="TypeActivityForm" >
                                        <div class="form-group">
                                             <label>Tipo de actividad</label>
                                             <input  class="form-control" id="id" type="hidden" >

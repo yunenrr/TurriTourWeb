@@ -6,52 +6,38 @@ $(document).ready(function(){
 });
 
  $("#btnInsert").click(function(){
-
-        var formData = new FormData(document.getElementById("CategoryForm")); 
-        var route = "/icategoryPlace";
+        var name=document.getElementById("name").value;
+        var pathimage=document.getElementById("pathimage").value;
+        var route = "insertcategoryplace/?name="+name+"&pathimage="+pathimage;
         
-        $.ajax({
-        url : route,
-        type : "post",
-        dataType : "json",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false,
-        
-        }); 
-                     
+     $.get(route, function(){
+       
+     });  
+                 
            document.getElementById("name").value = '';
-           document.getElementById("img").value = '';
             loadCategory();
             
  });
   $("#btnUpdate").click(function(){
+       var idcategories=document.getElementById("id").value;
+       var name=document.getElementById("name").value;
+        var pathimage=document.getElementById("pathimage").value;
+        var route = "updatecategoryplace/?name="+name+"&pathimage="+pathimage+"&idcategories="+idcategories;
         
-        var formData = new FormData(document.getElementById("CategoryForm")); 
-        var route = "categoryPlace";
-        
-        $.ajax({
-        url : route,
-        type : "PUT",
-        dataType : "json",
-        data : formData,
-        cache : false,
-        contentType : false,
-        processData : false,
-        
-        });
+     $.get(route, function(){
+       
+     });  
+  
         document.getElementById('btnUpdate').style.display = 'none';
         document.getElementById('btnInsert').style.display = 'block'; 
         document.getElementById("name").value = '';
-        document.getElementById("img").value = '';
         loadCategory();
  });
   
     /*metodo para almacenar la informacion de la actividad*/
     function loadCategory(){
         var tdatos = $("#tDatos"); 
-        var route = "/categories";
+        var route = "/allcategories";
         
      $.get(route, function(res){
         splitDatacategories(res);
@@ -95,7 +81,7 @@ function splitDatacategories(categories){
     /*metodo mostrar y ocultar informacion segun el boton a presionar*/
    function alterHtmlCategory(id){  
      
-        var route = "/categories";
+        var route = "/allcategories";
         
         
      $.get(route, function(res){
@@ -103,7 +89,7 @@ function splitDatacategories(categories){
             if(item.idcategories==id){              
               document.getElementById("id").value = item.idcategories;
               document.getElementById("name").value = item.name;
-              document.getElementById("img").value = item.pathimage;
+              document.getElementById("pathimage").value = item.pathimage;
             }
         });
      });   
@@ -113,7 +99,7 @@ function splitDatacategories(categories){
      /*metodo para eliminar la informacion del provedor*/
     function deleteCategory(idcategories_){
         
-        var route = "dcategory/?id="+idcategories_+"";
+        var route = "deletecategory/?id="+idcategories_+"";
         
      $.get(route, function(){
        
@@ -123,7 +109,8 @@ function splitDatacategories(categories){
     
 
     $("#pathimage").change(function() {
+      
         var rute="img/gallery/foto.jpg"
         document.getElementById("imageview").src=rute;
-         document.getElementById("img").value= document.getElementById("pathimage").files[0].name;
+         
     });

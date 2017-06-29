@@ -63,18 +63,18 @@ class NodeController extends Controller
     public function store(Request $request)
     {
        Node::create(array(
-        'latitude'=>$request->input('latitude'),             
-        'longitude'=>$request->input('logitude'),             
-        'idcategories'=>$request->input('idcategories'),             
-        'idtypeactivity'=>$request->input('idtypeactivity'),             
-        'value'=>$request->input('value'),             
-        'name'=>$request->input('name'),             
-        'information'=>$request->input('information'),             
-        'slogan'=>$request->input('slogan'),             
-        'pathlogo'=>$request->input('pathlogo'),             
-        'pathvideoimage'=>$request->input('pathvideoimage'),             
-        'urlfacebook'=>$request->input('urlfacebook'),             
-        'urlweb'=>$request->input('urlweb'),             
+        'latitude'=>$request->latitude,             
+        'longitude'=>$request->longitude,             
+        'idcategories'=>$request->idcategories,             
+        'idtypeactivity'=>107,             
+        'value'=>$request->value,             
+        'name'=>$request->name,             
+        'information'=>$request->information,             
+        'slogan'=>$request->slogan,             
+        'pathlogo'=>$request->pathlogo,             
+        'pathvideoimage'=>$request->pathvideoimage,             
+        'urlfacebook'=>$request->urlfacebook,             
+        'urlweb'=>$request->urlweb,             
         ));  
     }
 
@@ -109,20 +109,21 @@ class NodeController extends Controller
      */
     public function update(Request $request, Node $node)
     {
-        $nodes =find($request->id);
-        $nodes->latitude=$request->latitude;
-        $nodes->longitude=$request->longitude;
-        $nodes->idcategories=$request->idcategories;
-        $nodes->idtypeactivity=$request->idtypeactivity;
-        $nodes->value=$request->value;
-        $nodes->name=$request->name;
-        $nodes->information=$request->information;
-        $nodes->slogan=$request->slogan;
-        $nodes->pathlogo=$request->pathlogo;
-        $nodes->pathvideoimage=$request->pathvideoimage;
-        $nodes->urlfacebook=$request->urlfacebook;
-        $nodes->urlweb=$request->urlweb;
-        $nodes->save();
+        $nodes =Node::where('idnodes',$request->id);
+        $nodes->update(array(
+        'latitude'=>$request->latitude,             
+        'longitude'=>$request->longitude,             
+        'idcategories'=>$request->idcategories,             
+        'idtypeactivity'=>107,             
+        'value'=>$request->value,             
+        'name'=>$request->name,             
+        'information'=>$request->information,             
+        'slogan'=>$request->slogan,             
+        'pathlogo'=>$request->pathlogo,             
+        'pathvideoimage'=>$request->pathvideoimage,             
+        'urlfacebook'=>$request->urlfacebook,             
+        'urlweb'=>$request->urlweb,             
+        ));  
     }
 
     /**

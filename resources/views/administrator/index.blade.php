@@ -67,7 +67,7 @@
                         <a href="/activity" onclick=""><i class="fa fa-table"></i>Tipos de actividad</a>
                     </li> 
                     <li>
-                        <a href="/categoryPlace" onclick=""><i class="fa fa-table"></i>Categoria de Lugar</a>
+                        <a href="/categoryplace" onclick=""><i class="fa fa-table"></i>Categoria de Lugar</a>
                     </li> 
                                                          
                 </ul>

@@ -63,19 +63,26 @@ Route::Post('api/userstore', 'UserController@store');
 Route::Post('api/getsearchparametersbyemail', 'SearchParametersController@getSearchParametersByEmail');
 
 Route::resource('activity', 'TypeActivityController');
-Route::get('activities', 'TypeActivityController@showAll');
-Route::get('dactivity', 'TypeActivityController@destroy');
-
-Route::resource('categoryPlace', 'CategoryController');
-Route::post('icategoryPlace', 'CategoryController@store');
-Route::get('categories', 'CategoryController@showAll');
-Route::get('dcategory', 'CategoryController@destroy');
-
-
+Route::resource('categoryplace', 'CategoryController');
 Route::resource('user', 'UserController');
-Route::get('users', 'UserController@showAll');
-Route::get('duser', 'UserController@destroy');
-
 Route::resource('place', 'NodeController');
-Route::get('places', 'NodeController@showAll');
-Route::get('dplace', 'NodeController@destroy');
+
+//administrator ajax
+Route::get('allactivities', 'TypeActivityController@showAll');
+Route::get('deleteactivity', 'TypeActivityController@destroy');
+Route::get('updateactivity', 'TypeActivityController@update');
+
+Route::get('allcategories', 'CategoryController@showAll');
+Route::get('deletecategory', 'CategoryController@destroy');
+Route::get('insertcategoryplace', 'CategoryController@store');
+Route::get('updatecategoryplace', 'CategoryController@update');
+
+Route::get('allusers', 'UserController@showAll');
+Route::get('deleteuser', 'UserController@destroy');
+Route::get('insertuser', 'UserController@insert');
+Route::get('updateuser', 'UserController@update');
+
+Route::get('allplaces', 'NodeController@showAll');
+Route::get('deleteplace', 'NodeController@destroy');
+Route::get('insertplace', 'NodeController@store');
+Route::get('updateplace', 'NodeController@update');

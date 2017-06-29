@@ -26,13 +26,14 @@
                                          
                                             <label>Categorias</label>
                                             <select class="form-control" id="idcategories">
+                                            
                                                 
                                             </select>                                            
                                         </div>  
                                         <div class="form-group">
                                          
                                             <label>Tipos de actividad</label>
-                                            <select class="form-control" id="idtypeactivity">
+                                            <select class="form-control" id="idtypeactivities">
                                                
                                             </select>                                            
                                         </div> 
