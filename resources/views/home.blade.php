@@ -54,7 +54,7 @@
 
         <li>
           <strong class="form-title"><label for="lbTypeActivity">Tipo de Actividad: </label></strong>
-          <select class="form-control" id="slTypeActivity">
+          <select class="form-control" id="slTypeActivity" name="slTypeActivity">
             <option>Actividad</option>
           </select>
         </li>
@@ -62,10 +62,10 @@
         <li>
           <strong class="form-title"><label for="lname">Distancia Máxima: </label></strong>
           <select class="form-control" id="slMaxDistance" name="slMaxDistance">
-            <option value="5">10  Kilómetros </option>
-            <option value="10">17 Kilómetros </option>
-            <option value="15">27 Kilómetros </option>
-            <option value="20">34 Kilómetros </option>
+            <option value="10">10 Kilómetros </option>
+            <option value="17">17 Kilómetros </option>
+            <option value="27">27 Kilómetros </option>
+            <option value="34">34 Kilómetros </option>
           </select>
         </li>
 
@@ -81,7 +81,11 @@
 
         <li>
           <strong class="form-title"><label for="lname">Costo Promedio: </label></strong>
-          
+          <select class="form-control" id="slAverageCost" name="slAverageCost">
+            <option value="1">Bajo</option>
+            <option value="2">Medio</option>
+            <option value="3">Alto</option>
+          </select>
         </li>
 
         <li>

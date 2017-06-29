@@ -65,8 +65,7 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="slTypeActivity">
-			  	<option>Actividad</option>
+			  <select class="form-control" id="slTypeActivity" name="slTypeActivity">
 			  </select>
 			</div>
 		</div>
@@ -82,10 +81,10 @@
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
 				<select class="form-control" id="slMaxDistance" name="slMaxDistance">
-		            <option value="5">10  Kilómetros </option>
-		            <option value="10">17 Kilómetros </option>
-		            <option value="15">27 Kilómetros </option>
-		            <option value="20">34 Kilómetros </option>
+		            <option value="10">10  Kilómetros </option>
+		            <option value="17">17 Kilómetros </option>
+		            <option value="27">27 Kilómetros </option>
+		            <option value="34">34 Kilómetros </option>
 	            </select>
 			</div>
 		</div>
@@ -117,8 +116,7 @@
 	<div class="col-sm-6">
 		<div class="input-wrap">
 			<div class="form-control" style="background-color: rgb(207, 207, 207);">
-			  <select class="form-control" id="slCost" name="slCost">
-			  	<option value="0">Seleccione </option>
+			  <select class="form-control" id="slAverageCost" name="slAverageCost">
 	            <option value="1">Bajo </option>
 	            <option value="2">Medio </option>
 	            <option value="3">Alto </option>
