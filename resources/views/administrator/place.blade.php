@@ -12,7 +12,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                <form role="form" id="TypeActivityForm" method="POST">
+                                <form role="form" id="PlaceForm" >
                                          <div class="form-group">
                                             <label>Nombre</label>
                                             <input  class="form-control" id="id" type="hidden" >
@@ -45,10 +45,11 @@
                                             <label>Costo $</label>
                                             <input class="form-control" id="value"> 
                                          </div>  
-                                        <div class="form-group">                                         
+                                        <div class="form-group" id="logoform">                                         
                                             <label>Logo</label>
-                                              <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                             <input type="file" id="pathlogo">                                     
+                                            <img src='assets/img/log.png' border='0' width='80em' height='80em' id="imageviewlogo">
+                                            <input type="file" id="file2" name="file2" >  
+                                            <input  id="ruteimagelogo" type="hidden" name="ruteimagelogo" >                                                                                  
                                         </div> 
                                         <div class="form-group">
                                             <label>Link Facebook</label>
@@ -72,10 +73,11 @@
                                  </div> 
                                  
                                  
-                                  <div class="form-group">                                         
+                                  <div class="form-group" id="imageform">                                         
                                       <label>Imagen</label>
-                                        <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                       <input type="file" id="pathvideoimage">                                     
+                                         <img src='assets/img/log.png' border='0' width='80em' height='80em' id="imageview">
+                                         <input type="file" id="file" name="file" >  
+                                         <input  id="ruteimage" type="hidden" name="ruteimage" >                                                                            
                                   </div>    
                                   <div class="form-group">
                                     <label>Link web</label>

@@ -14,8 +14,9 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">                                         
                                         <label>Foto</label>
-                                          <img src='assets/img/log.png' border='0' width='40%' height='40%'>
-                                         <input type="file" id="profilphoto" >                                     
+                                         <img src='assets/img/log.png' border='0' width='200em' height='200em' id="imageview">
+                                         <input type="file" id="file" name="file" >  
+                                         <input  id="ruteimage" type="hidden" name="ruteimage" >                                   
                                    </div> 
                                     <div class="form-group">                                       
                                             <label>Roll</label>

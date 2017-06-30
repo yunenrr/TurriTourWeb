@@ -8,20 +8,18 @@ $(document).ready(function(){
 });
 
  $("#btnInsert").click(function(){
-         alert($("#idtypeactivities").val());
         var name=document.getElementById("name").value;
         var latitude= document.getElementById("latitude").value ;
         var longitude= document.getElementById("longitude").value;
         var information=document.getElementById("information").value;
         var idcategories=document.getElementById("idcategories").value;
-        var idtypeactivity=document.getElementById("idtypeactivities").value;
-       
+        var idtypeactivity=document.getElementById("idtypeactivities").value;       
         var slogan=document.getElementById("slogan").value;
         var value=document.getElementById("value").value;
         var urlfacebook=document.getElementById("urlfacebook").value;
         var urlweb=document.getElementById("urlweb").value;
-        var pathvideoimage=document.getElementById("pathvideoimage").value;
-        var pathlogo=document.getElementById("pathlogo").value;
+        var pathvideoimage=document.getElementById("ruteimage").value;
+        var pathlogo=document.getElementById("ruteimagelogo").value;
       
 
         var route = "insertplace/?name="+name+
@@ -45,6 +43,10 @@ $(document).ready(function(){
           document.getElementById("value").value = '';
           document.getElementById("urlfacebook").value = '';
           document.getElementById("urlweb").value ='';
+          document.getElementById("ruteimagelogo").value ='';
+          document.getElementById("ruteimage").value ='';
+          document.getElementById("imageviewlogo").src ='assets/img/log.png';
+          document.getElementById("imageview").src ='assets/img/log.png';
         loadPlace();
             
  });
@@ -61,8 +63,8 @@ $(document).ready(function(){
         var value=document.getElementById("value").value;
         var urlfacebook=document.getElementById("urlfacebook").value;
         var urlweb=document.getElementById("urlweb").value;
-        var pathvideoimage=document.getElementById("pathvideoimage").value;
-        var pathlogo=document.getElementById("pathlogo").value;
+        var pathvideoimage=document.getElementById("ruteimage").value;
+        var pathlogo=document.getElementById("ruteimagelogo").value;
         var formData = new FormData(document.getElementById("PlaceForm")); 
         var route = "updateplace/?id="+id+"&name="+name+
         "&latitude="+latitude+"&longitude="+longitude+"&information="+information+
@@ -85,6 +87,13 @@ $(document).ready(function(){
           document.getElementById("value").value = '';
           document.getElementById("urlfacebook").value = '';
           document.getElementById("urlweb").value ='';
+          document.getElementById("ruteimagelogo").value ='';
+          document.getElementById("ruteimage").value ='';
+          document.getElementById("imageviewlogo").src ='assets/img/log.png';
+          document.getElementById("imageview").src ='assets/img/log.png';
+
+          document.getElementById('btnUpdate').style.display = 'none';
+          document.getElementById('btnInsert').style.display = 'block';
         loadPlace();
  });
   
@@ -150,11 +159,15 @@ function splitDataPlaces(places){
               document.getElementById("longitude").value = item.longitude;
               document.getElementById("information").value = item.information;
               document.getElementById("idcategories").value = item.idcategories;
-              document.getElementById("idtypeactivities").value = item.idtypeactivity;
+              document.getElementById("idtypeactivities").value = item.idtypeactivities;
               document.getElementById("slogan").value = item.slogan;
               document.getElementById("value").value = item.value;
               document.getElementById("urlfacebook").value = item.urlfacebook;
               document.getElementById("urlweb").value = item.urlweb;
+              document.getElementById("imageview").src = item.pathvideoimage;
+              document.getElementById("ruteimage").value = item.pathvideoimage;
+              document.getElementById("imageviewlogo").src = item.pathlogo;
+              document.getElementById("ruteimagelogo").value = item.pathlogo;
             }
         });
      });   
@@ -192,9 +205,50 @@ function splitDataPlaces(places){
         $.get(route, function(res){
          $(res).each(function(i,item){
             innerHtml+="";
-            innerHtml += " <option value='"+item.idtypeactivity+"'>"+item.name+"</option>";
+            innerHtml += " <option value='"+item.idtypeactivities+"'>"+item.name+"</option>";
             $("#idtypeactivities").html(innerHtml);
      });
      });  
     }/*end of the method*/
+
+    $("#file").change(function() {
+      
+        var formData = new FormData($("#PlaceForm")[0]);
+           
+            var ruta = "uploadImage.php";
+            $.ajax({
+                url: ruta,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(datos)
+                {
+                    alert(datos);
+                    document.getElementById("imageview").src=datos;
+                    document.getElementById("ruteimage").value=datos;
+                }
+            });       
+         
+    });
+    $("#file2").change(function() {
+      
+        var formData = new FormData($("#PlaceForm")[0]);
+           
+            var ruta = "uploadImage2.php";
+            $.ajax({
+                url: ruta,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(datos)
+                {
+                  alert(datos);
+                    document.getElementById("imageviewlogo").src=datos;
+                    document.getElementById("ruteimagelogo").value=datos;
+                }
+            });       
+         
+    });
 
