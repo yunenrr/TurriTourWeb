@@ -160,7 +160,7 @@
 </div><br>
 <script type="text/javascript" >
 
-//navigator.geolocation.getCurrentPosition(fillStartPoints); NO ME ESTA SIRVIENDO, NUNCA LLAMA AL MÉTODO
+navigator.geolocation.getCurrentPosition(fillStartPoints);
 fillStartPoints();
 
 var nodes = new Array();
