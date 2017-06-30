@@ -98,7 +98,7 @@
 
         <!-- Script -->
         <script type="text/javascript" src="{{ URL::asset('vendors/jquery/jquery-2.1.4.min.js.pagespeed.jm.BnirE05kB4.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('vendors/bootstrap%2c_javascripts%2c_bootstrap.min.js%2bjquery-placeholder%2c_jquery.placeholder.min.js%2bmatch-height%2c_jquery.matchHeight.js%2bwow%2c_wow.min.js%2bstellar%2c_jquer') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('vendors/bootstrap%2c_javascripts%2c_bootstrap.min.js%2bjquery-placeholder%2c_jquery.placeholder.min.js%2bmatch-height%2c_jquery.matchHeight.js%2bwow%2c_wow.min.js') }}"></script>
         <script>eval(mod_pagespeed_5soB4fkDwh);</script>
         <script>eval(mod_pagespeed_WzEgH7Mbwj);</script>
         <script>eval(mod_pagespeed_6JRIscR3AF);</script>
@@ -109,7 +109,7 @@
         <script>eval(mod_pagespeed_pXfm80nLex);</script>
         <script>eval(mod_pagespeed_G2qnf2j0tb);</script>
         <script type="text/javascript" src="{{ URL::asset('vendors/jquery-ui/jquery-ui.min.js.pagespeed.jm.q8NOJHfIqQ.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('vendors/jQuery-touch-punch%2c_jquery.ui.touch-punch.min.js%2bfancybox%2c_jquery.fancybox.js%2bowl-carousel%2c_owl.carousel.min.js%2bjcf%2c_js%2c_jcf.js.pagespeed.jc.orefCYZDVq.8') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('vendors/jQuery-touch-punch%2c_jquery.ui.touch-punch.min.js%2bfancybox%2c_jquery.fancybox.js%2bowl-carousel%2c_owl.carousel.min.js%2bjcf%2c_js%2c_jcf.js.pagespeed.jc.orefCYZDVq.8.js') }}"></script>
 
         <script>eval(mod_pagespeed_nTDailUT1x);</script>
         <script>eval(mod_pagespeed_SBHk$Uaekg);</script>
@@ -126,7 +126,7 @@
         <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/jquery.themepunch.tools.min.js.pagespeed.jm.8V-tfkN7ro.js') }}"></script>
         <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/jquery.themepunch.revolution.min.js.pagespeed.jm.ZqIGaMtVT-.js') }}"></script>
          <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/jquery.themepunch.tools.min.js%2cqrev%3d5.0.pagespeed.jm.8V-tfkN7ro.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/jquery.themepunch.revolution.min.js%2cqrev%3d%3d5.0%2bextensions%2c_revolution.extension.slideanims.min.js%2bextensions%2c_revolution.extension.actions.m') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/jquery.themepunch.revolution.min.js%2cqrev%3d%3d5.0%2bextensions%2c_revolution.extension.slideanims.min.js%2bextensions%2c_revolution.extension.actions.m.js') }}"></script>
         <script>eval(mod_pagespeed_0ItxS9g9JK);</script>
         <script>eval(mod_pagespeed_D_nD3zG6QK);</script>
         <script>eval(mod_pagespeed_JyeXd_nsvq);</script>
@@ -134,7 +134,7 @@
         <script>eval(mod_pagespeed_E9e6JRQe5S);</script>
         <script>eval(mod_pagespeed_rEveLN3F44);</script>
         <script type="text/javascript" src="{{ URL::asset('vendors/revolution/js/extensions/revolution.extension.video.min.js') }}"></script>
-        <script type="text/javascript" src="{{ URL::asset('vendors%2c_revolution%2c_js%2c_extensions%2c_revolution.extension.navigation.min.js%2bvendors%2c_revolution%2c_js%2c_extensions%2c_revolution.extension.kenburn.min.js%2bjs%2c_revoluti') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('vendors%2c_revolution%2c_js%2c_extensions%2c_revolution.extension.navigation.min.js%2bvendors%2c_revolution%2c_js%2c_extensions%2c_revolution.extension.kenburn.min.js') }}"></script>
         <script>eval(mod_pagespeed_pbVYzrd81s);</script>
         <script>eval(mod_pagespeed_25NkK2SeCf);</script>
          

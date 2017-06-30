@@ -26,22 +26,15 @@
                                          
                                             <label>Categorias</label>
                                             <select class="form-control" id="idcategories">
-                                                <option>Categoria 1</option>
-                                                <option>Categoria 2</option>
-                                                <option>Categoria 3</option>
-                                                <option>Categoria 4</option>
-                                                <option>Categoria 5</option>
+                                            
+                                                
                                             </select>                                            
                                         </div>  
                                         <div class="form-group">
                                          
                                             <label>Tipos de actividad</label>
-                                            <select class="form-control" id="idtypeactivity">
-                                                <option>Actividad 1</option>
-                                                <option>Actividad 2</option>
-                                                <option>Actividad 3</option>
-                                                <option>Actividad 4</option>
-                                                <option>Actividad 5</option>
+                                            <select class="form-control" id="idtypeactivities">
+                                               
                                             </select>                                            
                                         </div> 
                                         <div class="form-group">

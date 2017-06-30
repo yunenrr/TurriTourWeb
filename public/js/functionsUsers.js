@@ -91,7 +91,7 @@ function splitDataUsers(users){
                           "<td >"+firstlastname+"</td>"+
                           "<td >"+secondlastname+"</td>"+
                           "<td >"+password+"</td>"+
-                          "<td >"+profilphoto+"</td>"+
+                          "<td><img src='"+profilphoto+"' border='0' width='40m' height='40m' id='imageview'></td>"+
                           "<td><button id='"+email+"' onclick='return alterHtmlUser(this)' class='edit-modal btn btn-info' data-id='"+email+"'"+
                                   "data-name='"+name+"'>"+
                                   "<span class='glyphicon glyphicon-edit'></span> Editar"+

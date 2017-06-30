@@ -63,8 +63,19 @@ class NodeController extends Controller
      */
     public function store(Request $request)
     {
-       typenodes::create(array(
-        'name'=>$request->input('name'),             
+       Node::create(array(
+        'latitude'=>$request->latitude,             
+        'longitude'=>$request->longitude,             
+        'idcategories'=>$request->idcategories,             
+        'idtypeactivity'=>107,             
+        'value'=>$request->value,             
+        'name'=>$request->name,             
+        'information'=>$request->information,             
+        'slogan'=>$request->slogan,             
+        'pathlogo'=>$request->pathlogo,             
+        'pathvideoimage'=>$request->pathvideoimage,             
+        'urlfacebook'=>$request->urlfacebook,             
+        'urlweb'=>$request->urlweb,             
         ));  
     }
 
@@ -99,15 +110,21 @@ class NodeController extends Controller
      */
     public function update(Request $request, Node $node)
     {
-        $nodes =find($request->id);
-        $nodes->idtypenodes=$request->email;
-        $nodes->name=$request->name;
-        $nodes->firstlastname=$request->firstlastname;
-        $nodes->secondlastname=$request->secondlastname;
-        $nodes->password=$request->password;
-        $nodes->idroles=$request->idroles;
-        $nodes->profilphoto=$request->profilphoto;
-        $nodes->save();
+        $nodes =Node::where('idnodes',$request->id);
+        $nodes->update(array(
+        'latitude'=>$request->latitude,             
+        'longitude'=>$request->longitude,             
+        'idcategories'=>$request->idcategories,             
+        'idtypeactivity'=>107,             
+        'value'=>$request->value,             
+        'name'=>$request->name,             
+        'information'=>$request->information,             
+        'slogan'=>$request->slogan,             
+        'pathlogo'=>$request->pathlogo,             
+        'pathvideoimage'=>$request->pathvideoimage,             
+        'urlfacebook'=>$request->urlfacebook,             
+        'urlweb'=>$request->urlweb,             
+        ));  
     }
 
     /**
