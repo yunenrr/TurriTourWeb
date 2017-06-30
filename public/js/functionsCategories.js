@@ -7,7 +7,7 @@ $(document).ready(function(){
 
  $("#btnInsert").click(function(){
         var name=document.getElementById("name").value;
-        var pathimage=document.getElementById("pathimage").value;
+        var pathimage=document.getElementById("ruteimage").value;
         var route = "insertcategoryplace/?name="+name+"&pathimage="+pathimage;
         
      $.get(route, function(){
@@ -21,7 +21,7 @@ $(document).ready(function(){
   $("#btnUpdate").click(function(){
        var idcategories=document.getElementById("id").value;
        var name=document.getElementById("name").value;
-        var pathimage=document.getElementById("pathimage").value;
+        var pathimage=document.getElementById("ruteimage").value;
         var route = "updatecategoryplace/?name="+name+"&pathimage="+pathimage+"&idcategories="+idcategories;
         
      $.get(route, function(){
@@ -89,7 +89,7 @@ function splitDatacategories(categories){
             if(item.idcategories==id){              
               document.getElementById("id").value = item.idcategories;
               document.getElementById("name").value = item.name;
-              document.getElementById("pathimage").value = item.pathimage;
+              document.getElementById("imageview").src = item.pathimage;
             }
         });
      });   
@@ -108,9 +108,23 @@ function splitDatacategories(categories){
     }/*end of the method delete provedores*/
     
 
-    $("#pathimage").change(function() {
+    $("#file").change(function() {
       
-        var rute="img/gallery/foto.jpg"
-        document.getElementById("imageview").src=rute;
+        var formData = new FormData($("#CategoryForm")[0]);
+           
+            var ruta = "uploadImage.php";
+            $.ajax({
+                url: ruta,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(datos)
+                {
+                    document.getElementById("imageview").src=datos;
+                    document.getElementById("ruteimage").value=datos;
+                }
+            });       
          
     });
+    

@@ -11,7 +11,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                <form role="form" id="CategoryForm" method="POST">
+                                <form role="form" id="CategoryForm" >
                                        <div class="form-group">
                                          
                                             <label>Nombre</label>
@@ -21,14 +21,16 @@
                                                                                
                                             <label>Imagen de Categoria</label>
                                               <img src='assets/img/log.png' border='0' width='40%' height='40%' id="imageview">
-                                             <input type="file" id="pathimage" >                                     
+                                             <input type="file" id="file" name="file" >  
+                                             <input  id="ruteimage" type="hidden" name="ruteimage" >                                   
                                                                                                                            
                                         </div>  
                                         <input  id="token" type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <a  id="btnInsert"><i  class="btn btn-primary" >Guardar</i></a>
                                         <a id="btnUpdate" style="display:none;"><i class="btn btn-primary" >Actualizar</i></a>
                                         
-                                     </form>                                    
+                                     </form>  
+                                                                        
                                 </div>
                                
                                 <!--   Basic Table  -->
