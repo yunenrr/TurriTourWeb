@@ -15,6 +15,7 @@ $(document).ready(function(){
      });  
                  
            document.getElementById("name").value = '';
+           document.getElementById("imageview").src ='assets/img/log.png';
             loadCategory();
             
  });
@@ -31,6 +32,7 @@ $(document).ready(function(){
         document.getElementById('btnUpdate').style.display = 'none';
         document.getElementById('btnInsert').style.display = 'block'; 
         document.getElementById("name").value = '';
+        document.getElementById("imageview").src ='assets/img/log.png';
         loadCategory();
  });
   

@@ -65,13 +65,13 @@ class UserController extends Controller
      
         // Si la validación es OK, estamos listos para almacenar en la base de datos los datos.
         User::create(array(
-            'email'=>$request->input('email'), 
-            'password'=>$request->input('password'), // Username es único en la tabla users
-            'name'=>$request->input('name'),
-            'firstlastname'=>$request->input('firstlastname'),
-            'secondlastname'=>$request->input('secondlastname'), 
-            'profilphoto'=>$request->input('profilphoto'), 
-            'idroles'=>$request->input('idroles')
+            'email'=>$request->email, 
+            'password'=>$request->password, // Username es único en la tabla users
+            'name'=>$request->name,
+            'firstlastname'=>$request->firstlastname,
+            'secondlastname'=>$request->secondlastname, 
+            'profilphoto'=>$request->profilphoto, 
+            'idroles'=>$request->idroles
             ));
        
        
@@ -81,23 +81,24 @@ class UserController extends Controller
     public function update(Request $request)
     {
 
-        $activities =find($request->id);
-        $activities->idtypeactivities=$request->email;
-        $activities->name=$request->name;
-        $activities->firstlastname=$request->firstlastname;
-        $activities->secondlastname=$request->secondlastname;
-        $activities->password=$request->password;
-        $activities->idroles=$request->idroles;
-        $activities->profilphoto=$request->profilphoto;
-        $activities->save();
+        $users =User::where('email',$request->email);
+        return $users->email->get();
+        $users->update(array(
+            'email'=>$request->email, 
+            'password'=>$request->password, // Username es único en la tabla users
+            'name'=>$request->name,
+            'firstlastname'=>$request->firstlastname,
+            'secondlastname'=>$request->secondlastname, 
+            'profilphoto'=>$request->profilphoto, 
+            'idroles'=>$request->idroles
+            ));
 
     }
 
     
     public function destroy(Request $request)
     {  
-        $email = $request->email;
-        $users =User::where('email',$email);
+        $users =User::where('email',$request->email);
         $users->delete();
        
     }

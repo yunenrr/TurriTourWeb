@@ -20,7 +20,7 @@
                                                                               
                                                                                
                                             <label>Imagen de Categoria</label>
-                                              <img src='assets/img/log.png' border='0' width='40%' height='40%' id="imageview">
+                                              <img src='assets/img/log.png' border='0' width='100em' height='100em' id="imageview">
                                              <input type="file" id="file" name="file" >  
                                              <input  id="ruteimage" type="hidden" name="ruteimage" >                                   
                                                                                                                            

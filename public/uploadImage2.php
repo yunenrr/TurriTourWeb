@@ -1,9 +1,9 @@
 <?php
 
-if (isset($_FILES["file"]))
+if (isset($_FILES["file2"]))
 {
  
-     $file = $_FILES["file"]; 
+     $file = $_FILES["file2"]; 
      $nombre = $file["name"];
     $tipo = $file["type"];
     $ruta_provisional = $file["tmp_name"];
@@ -33,7 +33,7 @@ if (isset($_FILES["file"]))
     {
         $src = $carpeta.$nombre;
         move_uploaded_file($ruta_provisional, $src);
-        echo "$src";
+        echo "$src";        
     }
 }
-
+?>

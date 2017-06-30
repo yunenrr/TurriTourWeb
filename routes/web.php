@@ -78,7 +78,7 @@ Route::get('updatecategoryplace', 'CategoryController@update');
 
 Route::get('allusers', 'UserController@showAll');
 Route::get('deleteuser', 'UserController@destroy');
-Route::get('insertuser', 'UserController@insert');
+Route::get('insertuser', 'UserController@store');
 Route::get('updateuser', 'UserController@update');
 
 Route::get('allplaces', 'NodeController@showAll');
