@@ -160,7 +160,7 @@
 </div><br>
 <script type="text/javascript" >
 
-//navigator.geolocation.getCurrentPosition(fillStartPoints); NO ME ESTA SIRVIENDO, NUNCA LLAMA AL MÉTODO
+navigator.geolocation.getCurrentPosition(fillStartPoints);
 fillStartPoints();
 
 var nodes = new Array();
@@ -173,7 +173,7 @@ fillTypesActivity();
 */
 function fillStartPoints()
 {
-  var currentPosition = (9.901855+","+-83.670746);
+  var currentPosition = (position.coords.latitude+","+position.coords.longitude);
 
   $.ajax
   (
