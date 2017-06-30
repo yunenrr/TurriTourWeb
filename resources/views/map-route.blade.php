@@ -159,7 +159,7 @@
 	*/
 	function addMarkers(nameNode,lat,long,nameVar)
 	{
-		var position = {lat: lat, lng: long};
+		var position = {lat: parseFloat(lat), lng: parseFloat(long)};
 		nameVar = new google.maps.Marker({position: position,map: map,title:nameNode});
 
 		//Validamos que sea un nodo diferente al de origen
