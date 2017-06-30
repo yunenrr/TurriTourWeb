@@ -37,8 +37,8 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="">  <img src="{{URL::asset('img/gallery/foto.jpg')}}" height="75" width="75" alt="image description">
-                                <span class="text">Sophía</span></i> <i class="fa fa-caret-down"></i>
+                        <i class="">  <img src="{{Session::get('profilphoto','assets/img/log.png')}}" height="75" width="75" alt="image description">
+                                <span class="text">{{Session::get('user','')}}<br>{{Session::get('email','')}}</span></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">   
                         <li><a href="/"><i class="fa fa-sign-in fa-fw"></i> Principal</a></li>                     

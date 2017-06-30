@@ -22,7 +22,9 @@ class SessionController extends Controller
     	//Se valida que el usuario no esté vacío
     	if(!empty($user[0]))
     	{
-    		session(['user' => $user[0]->email]);
+            session(['user' => $user[0]->name]);
+    		session(['email' => $user[0]->email]);
+            session(['profilphoto' => $user[0]->profilphoto]);
 
     		//Se valida que el tipo de rol del usuario
     		if($user[0]->idroles == 1)
@@ -45,7 +47,9 @@ class SessionController extends Controller
     */
     public function logout(Request $request)
     {
-    	$request->session()->forget('user');
+        $request->session()->forget('user');
+        $request->session()->forget('email');
+    	$request->session()->forget('profilphoto');
     	return View::make('home');
     }//Fin de la función
 
