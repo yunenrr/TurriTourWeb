@@ -86,3 +86,6 @@ Route::get('allplaces', 'NodeController@showAll');
 Route::get('deleteplace', 'NodeController@destroy');
 Route::get('insertplace', 'NodeController@store');
 Route::get('updateplace', 'NodeController@update');
+
+//envio de mail
+Route::post('sendemail', 'SendEmailController@send');

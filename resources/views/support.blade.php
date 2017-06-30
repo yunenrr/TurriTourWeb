@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="col-md-6 wow fadeInLeft">
-                            <form method="post" class="contact-form has-border" id="contact_form" name="contact_form" action="email.php">
+                            <form method="post" action="/sendemail" class="contact-form has-border" id="contact_form" name="contact_form" >
                                 {{ csrf_field() }}
                                 <fieldset>
                                     <div class="form-group">
@@ -51,8 +51,8 @@
                                         <input type="email" class="form-control" id="email" name="email" placeholder="Introduzca su email electrónico" required />
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="message">Mensaje:</label>
-                                        <textarea rows="5" cols="30" class="form-control" id="message" name="message" placeholder="Introduzca su message" required ></textarea>
+                                        <label class="control-label" for="msg">Mensaje:</label>
+                                        <textarea rows="5" cols="30" class="form-control" id="msg" name="msg" placeholder="Introduzca su message" required ></textarea>
                                     </div>
                                     <div class="form-group">                
                                         <input type="submit" class="btn btn-primary" value="Enviar">
