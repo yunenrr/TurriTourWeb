@@ -173,7 +173,7 @@ fillTypesActivity();
 */
 function fillStartPoints()
 {
-  var currentPosition = (9.901855+","+-83.670746);
+  var currentPosition = (position.coords.latitude+","+position.coords.longitude);
 
   $.ajax
   (
