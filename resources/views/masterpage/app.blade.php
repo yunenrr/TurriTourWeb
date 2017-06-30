@@ -65,13 +65,14 @@
                                         <div class="dropdown-menu">
                                             <ul>
                                                 <li><a href="/search-routes">Buscar Rutas</a></li>
+                                                @if(Session::get('user','')!="")
                                                 <li><a href="/search-routes">Recomendar Rutas</a></li>
-    
+                                                @endif
                                             </ul>
                                         </div>
                                     </li>
-
-                                    <li class="visible-xs visible-sm">
+                                    @if(Session::get('user','')=="")
+                                       <li class="visible-xs visible-sm">
                                         <a href="/session">
                                             <span class="icon icon-user"></span>
                                             <span class="text" >Iniciar Sesión</span>
@@ -83,6 +84,40 @@
                                             <span class="text">Iniciar Sesión</span>
                                         </a>
                                     </li>
+                                    @endif
+                                    @if(Session::get('user','')!="")
+                                    <li class="visible-xs visible-sm dropdown">
+
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+
+                                            <img src="{{Session::get('profilphoto','assets/img/log.png')}}" height="75" width="75" alt="image description">
+                                            <span class="text" style="margin-top:20">{{Session::get('user','')}}<br>{{Session::get('email','')}}</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="/logout">Cerrar Sesión</a></li>
+                                                <li><a href="/administrator">Administrador</a></li>
+    
+                                            </ul>
+                                        </div>
+                                    </li>
+                                                                     
+                                    <li class="hidden-xs hidden-sm v-divider dropdown">
+
+                                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown" style="margin-top:-20">
+                                            <img id="imgSesion"  src="{{Session::get('profilphoto','assets/img/log.png')}}" height="75" width="75" alt="image description">
+                                            <span class="text" style="margin-top:20">{{Session::get('user','')}}<br>{{Session::get('email','')}}</span>                                       
+                                          
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li><a href="/logout">Cerrar Sesión</a></li>
+                                                <li><a href="/administrator">Administrador</a></li>
+    
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    @endif
                                 </ul>
 
                             </div>
