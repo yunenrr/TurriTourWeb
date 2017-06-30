@@ -31,7 +31,7 @@ class SessionController extends Controller
     		}//Fin del if
     		else
     		{
-    			return redirect('home');
+    			return View::make('home');
     		}//Fin del else
     	}//Fin del if
     	else
@@ -47,5 +47,27 @@ class SessionController extends Controller
     {
     	$request->session()->forget('user');
     	return View::make('home');
+    }//Fin de la función
+
+    /**
+    Función que permite registrar usuarios
+    */
+    public function signin(Request $request)
+    {
+        $param = $request->all(); //Se recuperan todos los valores
+
+        //Buscamos si el correo ya ha sido ingresado
+        $user = User::where('email',$param['email'])->get();
+
+        //Se valida que el usuario no esté vacío
+        if(!empty($user[0]))
+        {
+            return redirect('session')->with('msjEmailExist', 'El correo ingresado ya está registrado')->withInput();
+        }//Fin del if
+        else
+        {
+            User::create($param);
+            return redirect('session')->with('successRegister', 'Se registró correctamente');
+        }//Fin del else
     }//Fin de la función
 }//Fin de la clase

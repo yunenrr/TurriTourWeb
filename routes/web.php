@@ -36,6 +36,7 @@ Route::post('/','SearchParametersController@searchRoutes');
 //Login
 Route::post('login','SessionController@login');
 Route::get('logout','SessionController@logout');
+Route::post('signin','SessionController@signin');
 
 
 Route::get('/game', function () 

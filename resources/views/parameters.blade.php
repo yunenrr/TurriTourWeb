@@ -161,7 +161,6 @@
 <script type="text/javascript" >
 
 navigator.geolocation.getCurrentPosition(fillStartPoints);
-fillStartPoints();
 
 var nodes = new Array();
 
@@ -171,7 +170,7 @@ fillTypesActivity();
 *The next two methods it are responsible for load the group of the types activities
 * and start points respectively.
 */
-function fillStartPoints()
+function fillStartPoints(position)
 {
   var currentPosition = (position.coords.latitude+","+position.coords.longitude);
 

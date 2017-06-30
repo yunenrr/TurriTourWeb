@@ -58,49 +58,58 @@
                             {{ Form::close() }}
                         </div>
 
-<div class="col-md-6 wow fadeInCenter ">
- 
-<form method="post" class="contact-form has-border  " id="register_form">
+                        <div class="col-md-6 wow fadeInCenter ">
+                            {{ Form::open(array('url' => 'signin','class' => 'contact-form has-border')) }}
+                                <fieldset>
+                                    <div class="top-box">
+                                        <span class="holder height">Registro</span>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('name', 'Nombre:', array('class' => 'control-label')) }}
+                                        {{ Form::text('name','', array('class' => 'form-control')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('firstlastname', 'Primer apellido:', array('class' => 'control-label')) }}
+                                        {{ Form::text('firstlastname','', array('class' => 'form-control')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('secondlastname', 'Segundo apellido:', array('class' => 'control-label')) }}
+                                        {{ Form::text('secondlastname','', array('class' => 'form-control')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('email', 'Correo:', array('class' => 'control-label')) }}
+                                        {{ Form::text('email','', array('class' => 'form-control')) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('password', 'Contraseña:', array('class' => 'control-label')) }}
+                                        {{ Form::password('password', array('class' => 'form-control')) }}
+                                    </div>
 
-{{ csrf_field() }}
+                                    {{ Form::hidden('profilphoto', 'http://qualiadesigns.com/wp-content/uploads/qdi-generic-testimonial-person.png') }}
+                                    {{ Form::hidden('idroles',2) }}
 
-<fieldset>
+                                    <div class="form-group">
+                                        {{ Form::submit('Registrarse', array('class' => 'btn btn-primary')) }}
+                                    </div>
+                                    @if(Session::has('msjEmailExist'))
+                                        <div class="alert alert-danger">
+                                          <strong>¡Error!</strong> {{ Session::get('msjEmailExist') }}
+                                        </div>
+                                    @endif
+                                    @if(Session::has('successRegister'))
+                                        <div class="alert alert-success">
+                                          <strong>Genial!</strong> {{ Session::get('successRegister') }}
+                                        </div>
+                                    @endif
+                                </fieldset>
 
-<div class="top-box">
-<span class="holder height">Registro</span>
-</div>
-
- <div class="form-group">
-        <label class="control-label" for="Nombre">Nombres</label>
-        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
-    </div>    
-    <div class="form-group">
-        <label class="control-label" for="Apellido1">Primer Apellido</label>
-        <input type="text" class="form-control" id="Apellido1" name="Apellido1" placeholder="Introduzca su primer Apellido" required />
-    </div>
-    <div class="form-group">
-        <label class="control-label" for="Apellido2">Segundo Apellido</label>
-        <input type="text" class="form-control" id="Apellido2" name="Apellido2" placeholder="Introduzca su segundo Apellido" required />
-    </div>
-    <div class="form-group">
-        <label class="control-label" for="Correo">Dirección de Correo Electrónico</label>
-        <input type="email" class="form-control" id="Correo" name="Correo" placeholder="Introduzca su correo electrónico" required />
-    </div>
-    <div class="form-group">
-        <label class="control-label" for="pass">Conteaseña</label>
-        <input type="password" class="form-control" id="pass" name="pass" placeholder="Introduzca contraseña" required />
-    </div>
-    <div class="form-group">                
-        <input type="submit" class="btn btn-primary" value="Enviar">                
-    </div>
-    <div id="respuesta" style="display: none;"></div>
-</fieldset>
-</form>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-</div>
+                                <div class="form-group"></div>
+                            {{ Form::close() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 @endsection
