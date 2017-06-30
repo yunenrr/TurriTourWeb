@@ -42,7 +42,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">   
                         <li><a href="/"><i class="fa fa-sign-in fa-fw"></i> Principal</a></li>                     
-                        <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a></li>
+                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i> Salir</a></li>
                     </ul>
                     <!-- -->
                 </li>
