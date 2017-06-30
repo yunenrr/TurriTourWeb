@@ -33,6 +33,11 @@ Route::get('/search-routes', function () {
 Route::post('search-routes','SearchParametersController@searchRoutes');
 Route::post('/','SearchParametersController@searchRoutes');
 
+//Login
+Route::post('login','SessionController@login');
+Route::get('logout','SessionController@logout');
+Route::post('signin','SessionController@signin');
+
 
 Route::get('/game', function () 
 {
@@ -44,12 +49,8 @@ Route::get('map-route', function ()
     return view('map-route');
 });
 
-Route::get('/administrator', function () {
+Route::get('administrator', function () {
     return view('/administrator/indexView');
-});
-
-Route::get('email', function(){
-
 });
 
 Route::get('api/allactivity', 'TypeActivityController@apiGetAllActivities');
